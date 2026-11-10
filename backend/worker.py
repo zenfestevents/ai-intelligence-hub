@@ -2,6 +2,7 @@
 
 Manual run:  python worker.py            (all enabled feeds)
              python worker.py "OpenAI"   (one feed by label)
+             python worker.py https://...  (one article by address)
 """
 import calendar
 import datetime
@@ -96,26 +97,32 @@ def extract_with_llm(text: str, source_url: str) -> Optional[VerifiedIntelExtrac
     """Structured output: the model must return the schema, including a verbatim quote."""
     from google.genai import types
 
-    try:
-        response = get_client().models.generate_content(
-            model=config.GEMINI_MODEL,
-            contents=f"Article Content:\n{text}\n\nSource URL: {source_url}",
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_INSTRUCTION,
-                response_mime_type="application/json",
-                response_schema=VerifiedIntelExtraction,
-                temperature=0.0,
-            ),
-        )
-        return VerifiedIntelExtraction.model_validate_json(response.text)
-    except Exception as e:
-        msg = str(e)
-        if "429" in msg or "RESOURCE_EXHAUSTED" in msg:
-            raise QuotaExhausted(msg[:200])
-        logger.error(f"LLM extraction error on {source_url}: {msg[:300]}")
-        return None
-    finally:
-        time.sleep(config.LLM_DELAY_SECONDS)
+    for attempt in range(3):
+        try:
+            response = get_client().models.generate_content(
+                model=config.GEMINI_MODEL,
+                contents=f"Article Content:\n{text}\n\nSource URL: {source_url}",
+                config=types.GenerateContentConfig(
+                    system_instruction=SYSTEM_INSTRUCTION,
+                    response_mime_type="application/json",
+                    response_schema=VerifiedIntelExtraction,
+                    temperature=0.0,
+                ),
+            )
+            return VerifiedIntelExtraction.model_validate_json(response.text)
+        except Exception as e:
+            msg = str(e)
+            if "429" in msg or "RESOURCE_EXHAUSTED" in msg:
+                raise QuotaExhausted(msg[:200])
+            if ("503" in msg or "UNAVAILABLE" in msg) and attempt < 2:
+                # The model is busy: wait and try again.
+                time.sleep(20 * (attempt + 1))
+                continue
+            logger.error(f"LLM extraction error on {source_url}: {msg[:300]}")
+            return None
+        finally:
+            time.sleep(config.LLM_DELAY_SECONDS)
+    return None
 
 
 def fetch_feed(feed: Feed):
@@ -205,6 +212,43 @@ def process_feed(feed: Feed) -> dict:
     return stats
 
 
+def process_url(url: str) -> str:
+    """Process one article by its address, ignoring any earlier rejection. Returns the outcome."""
+    db = SessionLocal()
+    try:
+        if db.query(DBIntelFeed.id).filter(DBIntelFeed.source_url == url).first():
+            return "already saved"
+        text = (fetch_page_text(url) or "")[: config.MAX_ARTICLE_CHARS]
+        if len(text) < 200:
+            return "too little text"
+        extracted = extract_with_llm(text, url)
+        if not extracted:
+            return "LLM error"
+        if not extracted.is_relevant:
+            return "not relevant"
+        ok, reason = verify_quote(text, extracted.exact_source_quote)
+        if not ok:
+            return f"quote rejected ({reason})"
+        db.query(DBRejected).filter(DBRejected.source_url == url).delete()
+        db.add(
+            DBIntelFeed(
+                title=extracted.title[:255],
+                entity_name=extracted.entity_name[:100],
+                primary_category=extracted.primary_category,
+                industry_tag=extracted.industry_tag,
+                summary=extracted.summary,
+                exact_source_quote=extracted.exact_source_quote.strip(),
+                source_url=url,
+                country_of_origin=(extracted.country_of_origin or "Global")[:100],
+                published_at=datetime.datetime.now(datetime.timezone.utc),
+            )
+        )
+        db.commit()
+        return f"saved: {extracted.title} [{extracted.primary_category} / {extracted.industry_tag}]"
+    finally:
+        db.close()
+
+
 def run_all_pollers(only: Optional[str] = None) -> None:
     totals = {"new": 0, "saved": 0, "rejected": 0}
     try:
@@ -219,4 +263,11 @@ def run_all_pollers(only: Optional[str] = None) -> None:
 
 
 if __name__ == "__main__":
-    run_all_pollers(sys.argv[1] if len(sys.argv) > 1 else None)
+    arg = sys.argv[1] if len(sys.argv) > 1 else None
+    if arg and arg.startswith("http"):
+        try:
+            print(process_url(arg))
+        except QuotaExhausted:
+            print("Gemini rate limit reached. Try again later, or set GEMINI_MODEL to another model.")
+    else:
+        run_all_pollers(arg)

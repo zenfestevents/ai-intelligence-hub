@@ -3,7 +3,17 @@
 import { useCallback, useEffect, useState } from "react";
 import { ArrowUpRight, Check, Search } from "lucide-react";
 
-const CATEGORIES = ["All", "Model Release", "Developer Tool", "Research Paper", "Hardware/Chips", "Startup Funding"];
+const CATEGORIES = [
+  "All",
+  "Model Release",
+  "Developer Tool",
+  "Research Paper",
+  "Hardware/Chips",
+  "Startup Funding",
+  "Product Update",
+  "Guides & Education",
+  "Industry News",
+];
 const INDUSTRIES = [
   "All",
   "General",

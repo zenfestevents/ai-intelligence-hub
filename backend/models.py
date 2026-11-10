@@ -3,7 +3,16 @@ from typing import Literal, Optional
 
 from pydantic import BaseModel, Field
 
-CATEGORIES = ("Model Release", "Developer Tool", "Research Paper", "Hardware/Chips", "Startup Funding")
+CATEGORIES = (
+    "Model Release",
+    "Developer Tool",
+    "Research Paper",
+    "Hardware/Chips",
+    "Startup Funding",
+    "Product Update",
+    "Guides & Education",
+    "Industry News",
+)
 INDUSTRIES = (
     "General",
     "Medicine & Healthcare",
@@ -18,16 +27,33 @@ INDUSTRIES = (
 class VerifiedIntelExtraction(BaseModel):
     is_relevant: bool = Field(
         description=(
-            "True only if the article reports a concrete AI development: a model release, developer "
-            "tool, research result, AI hardware/chips, or AI startup funding. False for anything else "
-            "(general tech or business news, opinion, job posts, memes, questions)."
+            "True if the article is mainly about artificial intelligence in any way: models, tools, "
+            "products and features, research, robotics, chips and hardware, funding, business and "
+            "market news, policy and safety, education, how-to guides, or AI being used in any field. "
+            "False only if AI is not the main subject, or the page has no real information "
+            "(job adverts, memes, jokes, bare questions with no answer)."
         )
     )
     title: str = Field(description="Objective, concise, factual headline without marketing hype")
     entity_name: str = Field(description="Company, lab, or author (e.g., DeepSeek, OpenAI, Sarvam AI)")
     primary_category: Literal[
-        "Model Release", "Developer Tool", "Research Paper", "Hardware/Chips", "Startup Funding"
-    ]
+        "Model Release",
+        "Developer Tool",
+        "Research Paper",
+        "Hardware/Chips",
+        "Startup Funding",
+        "Product Update",
+        "Guides & Education",
+        "Industry News",
+    ] = Field(
+        description=(
+            "Model Release: a new or updated AI model. Developer Tool: SDKs, APIs, frameworks. "
+            "Research Paper: papers and research results. Hardware/Chips: chips, servers, robots' hardware. "
+            "Startup Funding: funding rounds and acquisitions. Product Update: a new AI product or feature "
+            "for end users. Guides & Education: how-to, learning and awareness content. "
+            "Industry News: business, market, policy and other AI news."
+        )
+    )
     industry_tag: Literal[
         "General",
         "Medicine & Healthcare",

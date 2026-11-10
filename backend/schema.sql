@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS intel_feed (
     title VARCHAR(255) NOT NULL,
     entity_name VARCHAR(100) NOT NULL,
     primary_category VARCHAR(50) NOT NULL CHECK (
-        primary_category IN ('Model Release', 'Developer Tool', 'Research Paper', 'Hardware/Chips', 'Startup Funding')
+        primary_category IN ('Model Release', 'Developer Tool', 'Research Paper', 'Hardware/Chips', 'Startup Funding', 'Product Update', 'Guides & Education', 'Industry News')
     ),
     industry_tag VARCHAR(50) NOT NULL CHECK (
         industry_tag IN ('General', 'Medicine & Healthcare', 'Filmmaking & Media', 'Agriculture', 'Space & Robotics', 'Education', 'Enterprise')
@@ -53,3 +53,9 @@ CREATE INDEX IF NOT EXISTS idx_startups_industry ON startups_directory(industry)
 ALTER TABLE intel_feed ENABLE ROW LEVEL SECURITY;
 ALTER TABLE startups_directory ENABLE ROW LEVEL SECURITY;
 ALTER TABLE rejected_items ENABLE ROW LEVEL SECURITY;
+
+-- Keep the category list on an existing database in step with the list above.
+ALTER TABLE intel_feed DROP CONSTRAINT IF EXISTS intel_feed_primary_category_check;
+ALTER TABLE intel_feed ADD CONSTRAINT intel_feed_primary_category_check CHECK (
+    primary_category IN ('Model Release', 'Developer Tool', 'Research Paper', 'Hardware/Chips', 'Startup Funding', 'Product Update', 'Guides & Education', 'Industry News')
+);
