@@ -1,0 +1,54 @@
+name: Radar poller
+
+# Runs the ingestion worker on GitHub's free runners.
+# Needs two repository secrets: DATABASE_URL and GEMINI_API_KEY.
+on:
+  schedule:
+    - cron: "7,37 * * * *" # feeds: every 30 minutes (GitHub may start it a few minutes late)
+    - cron: "17 0,12 * * *" # startup directory: twice a day
+  workflow_dispatch: {}
+
+concurrency:
+  group: radar-poller
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      ENABLE_SCHEDULER: "0"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check secrets are present
+        run: |
+          if [ -z "$DATABASE_URL" ] || [ -z "$GEMINI_API_KEY" ]; then
+            echo "::error::Add DATABASE_URL and GEMINI_API_KEY under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+
+      - name: Poll feeds
+        if: github.event.schedule != '17 0,12 * * *'
+        run: python worker.py
+
+      - name: Refresh startup directory
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 0,12 * * *'
+        run: python startups_sync.py

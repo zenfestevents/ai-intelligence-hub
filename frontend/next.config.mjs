@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
-const API_ORIGIN = process.env.API_ORIGIN || "http://127.0.0.1:8000";
-
+// The /api routes live in app/api and read Supabase directly, so the dashboard
+// needs only DATABASE_URL (frontend/.env.local on your PC, a project variable on Vercel).
 const nextConfig = {
-  // The browser calls /api/... on this site; Next forwards it to the FastAPI backend.
-  async rewrites() {
-    return [{ source: "/api/:path*", destination: `${API_ORIGIN}/api/:path*` }];
-  },
+  serverExternalPackages: ["pg"],
 };
 
 export default nextConfig;

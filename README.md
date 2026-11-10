@@ -11,33 +11,28 @@ What the check proves: the quote exists in the source. It does not prove the tit
 3. Copy `backend/.env.example` to `backend/.env` and paste both values in.
 4. **Node 20 or newer** is needed for the dashboard (Node 22 LTS recommended).
 
-## Run the backend
+## How it is hosted
 
-From the `backend` folder:
+| Part | Where | Notes |
+| --- | --- | --- |
+| Database | Supabase | Tables from `backend/schema.sql`. |
+| Dashboard and `/api` routes | Vercel | The Next.js app in `frontend/`. Reads Supabase directly. Needs `DATABASE_URL`. |
+| News poller | GitHub Actions | `.github/workflows/poll.yml` runs `backend/worker.py` every 30 minutes and the startup sync twice a day. Needs `DATABASE_URL` and `GEMINI_API_KEY` as repository secrets. |
 
-```bash
-.venv\Scripts\python.exe database.py
-```
+### Deploy the dashboard to Vercel
 
-```bash
-.venv\Scripts\python.exe -m uvicorn main:app --port 8000
-```
+1. In Vercel: Add New → Project → import this GitHub repository.
+2. Set **Root Directory** to `frontend`.
+3. Add an environment variable `DATABASE_URL` with the same value as in `backend/.env`.
+4. Deploy.
 
-The first command creates the tables in Supabase. The second starts the API and the background poller (each feed on its own interval, startups sync every 12 hours).
+### Turn on the poller
 
-Other commands, also from `backend`:
+In the GitHub repository: Settings → Secrets and variables → Actions → New repository secret. Add `DATABASE_URL` and `GEMINI_API_KEY`. Then open the Actions tab, pick "Radar poller" and click "Run workflow" to test it.
 
-| Command | What it does |
-| --- | --- |
-| `.venv\Scripts\python.exe check_feeds.py` | Shows which sources are reachable. Needs no keys. |
-| `.venv\Scripts\python.exe worker.py` | One manual pass over all feeds. |
-| `.venv\Scripts\python.exe worker.py "OpenAI"` | One manual pass over a single feed. |
-| `.venv\Scripts\python.exe startups_sync.py` | Refreshes the startup directory. |
-| `.venv\Scripts\python.exe -m pytest tests -q` | Tests for the quote verifier. |
+## Run on your PC
 
-## Run the dashboard
-
-From the `frontend` folder, after upgrading Node:
+Dashboard, from the `frontend` folder (needs `frontend/.env.local` containing the `DATABASE_URL` line):
 
 ```bash
 npm install
@@ -47,7 +42,19 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000. The dashboard forwards `/api/*` to the backend on port 8000.
+Open http://localhost:3000.
+
+Backend tools, from the `backend` folder:
+
+| Command | What it does |
+| --- | --- |
+| `.venv\Scripts\python.exe database.py` | Creates the tables in Supabase. |
+| `.venv\Scripts\python.exe check_feeds.py` | Shows which sources are reachable. Needs no keys. |
+| `.venv\Scripts\python.exe worker.py` | One manual pass over all feeds. |
+| `.venv\Scripts\python.exe worker.py "OpenAI"` | One manual pass over a single feed. |
+| `.venv\Scripts\python.exe startups_sync.py` | Refreshes the startup directory. |
+| `.venv\Scripts\python.exe -m pytest tests -q` | Tests for the quote verifier. |
+| `.venv\Scripts\python.exe -m uvicorn main:app --port 8000` | Optional: the same API in Python with a built-in poller. Do not run it alongside the GitHub Actions poller. |
 
 ## Sources
 
