@@ -1,0 +1,21 @@
+# secrets
+.env
+.env.local
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.db
+
+# node
+node_modules/
+.next/
+out/
+
+# os / editor
+.DS_Store
+Thumbs.db
+.vscode/
