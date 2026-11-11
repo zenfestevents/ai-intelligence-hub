@@ -58,7 +58,13 @@ Backend tools, from the `backend` folder:
 
 ## Sources
 
-Edit `backend/feeds.py` to add, remove or disable a source. Three sources from the original spec are disabled because they have no working free feed: Anthropic (the public RSSHub blocks requests), Meta AI (no RSS), Qwen (the repo publishes no releases). Each entry carries a note explaining its state.
+Edit `backend/feeds.py` to add, remove or disable a source. Each entry carries a note explaining its state.
+
+The catalog holds 50 sources. 36 are on by default. 9 more (Anthropic, six X accounts, 36Kr, GitHub Trending) have no feed of their own and only work through an RSSHub bridge. The public rsshub.app blocks automated requests, so these turn on only when `RSSHUB_BASE` is set to the address of your own RSSHub instance: in `backend/.env` on your PC, and as a repository **variable** (Settings → Secrets and variables → Actions → Variables) for the poller. The X accounts also need X login cookies configured on that RSSHub instance.
+
+5 are off because there is nothing to read: Meta AI (no RSS), 01.AI, Zhipu AI and Cursor (no current GitHub releases), Midjourney (needs a Discord token and channel numbers).
+
+To see which sources are reachable, run `check_feeds.py`, or run the "Radar poller" workflow by hand: its "Source health report" step prints the same table.
 
 The startup directory comes from the public Y Combinator dataset at github.com/yc-oss/api, filtered to companies tagged Artificial Intelligence. It is mostly US companies.
 

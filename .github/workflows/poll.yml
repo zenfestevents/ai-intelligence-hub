@@ -25,6 +25,7 @@ jobs:
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      RSSHUB_BASE: ${{ vars.RSSHUB_BASE }}
       ENABLE_SCHEDULER: "0"
     steps:
       - uses: actions/checkout@v4
@@ -44,6 +45,10 @@ jobs:
             echo "::error::Add DATABASE_URL and GEMINI_API_KEY under Settings > Secrets and variables > Actions."
             exit 1
           fi
+
+      - name: Source health report
+        if: github.event_name == 'workflow_dispatch'
+        run: python check_feeds.py
 
       - name: Poll feeds
         if: github.event.schedule != '17 0,12 * * *'

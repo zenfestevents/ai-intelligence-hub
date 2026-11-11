@@ -23,6 +23,8 @@ DATABASE_URL = _database_url()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "").strip()
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.6-flash").strip()
 LLM_DELAY_SECONDS = float(os.getenv("LLM_DELAY_SECONDS", "7"))
+# Address of your own RSSHub instance, without a trailing slash. Empty = RSSHub sources stay off.
+RSSHUB_BASE = os.getenv("RSSHUB_BASE", "").strip().rstrip("/")
 ENABLE_SCHEDULER = os.getenv("ENABLE_SCHEDULER", "1").strip() not in ("0", "false", "False", "")
 
 # The LLM and the verifier both work on exactly this many characters of an article.
