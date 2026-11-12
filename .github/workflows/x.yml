@@ -1,0 +1,48 @@
+name: X poller
+
+# Fetches new posts from key AI accounts on X through Apify and queues them for Claude.
+# Needs two repository secrets: DATABASE_URL and APIFY_TOKEN.
+# Apify charges per tweet fetched, so this runs once a day.
+on:
+  schedule:
+    - cron: "23 2 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: radar-x
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  x:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check secrets are present
+        run: |
+          if [ -z "$DATABASE_URL" ] || [ -z "$APIFY_TOKEN" ]; then
+            echo "::error::Add DATABASE_URL and APIFY_TOKEN under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+
+      - name: Queue X posts
+        run: python x_ingest.py

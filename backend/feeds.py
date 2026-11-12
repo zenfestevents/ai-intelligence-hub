@@ -12,6 +12,7 @@ kind:
 
 Set enabled=False to switch a source off. Run `python check_feeds.py` to see which are alive.
 """
+import os
 from dataclasses import dataclass
 from typing import List
 
@@ -27,6 +28,12 @@ class Feed:
     note: str = ""
     kind: str = "rss"
 
+
+# X (Twitter) accounts, read by x_ingest.py through Apify (X has no free feed).
+X_HANDLES = ["_akhaliq", "karpathy", "sama", "ylecun", "swyx", "bindureddy", "RowanCheung", "levelsio"]
+
+# Base address of your self-hosted RSSHub (see rsshub/README.md). Empty = RSSHub sources stay off.
+RSSHUB_URL = os.getenv("RSSHUB_URL", "").strip().rstrip("/")
 
 FEEDS: List[Feed] = [
     # Frontier labs and official changelogs
@@ -87,9 +94,14 @@ FEEDS: List[Feed] = [
          note="404: no RSS feed found."),
     Feed("Simon Willison", "https://simonwillison.net/atom/everything/", "Open Source", 60),
     # X / Twitter: RSSHub's public Twitter route is closed
-    Feed("X: @karpathy", "https://rsshub.app/twitter/user/karpathy", "X / Twitter", 60, "entry", enabled=False,
-         note="All X/Twitter accounts (_akhaliq, karpathy, sama, ylecun, swyx, bindureddy, RowanCheung, levelsio) "
-              "are disabled: public RSSHub returns 404/403 and X has no free feed."),
+    # The 8 X accounts in X_HANDLES are fetched by x_ingest.py (Apify), not as feeds here.
+    # Sources that need a self-hosted RSSHub route. On only when RSSHUB_URL is set.
+    Feed("Anthropic News (RSSHub)", RSSHUB_URL + "/anthropic/news", "Frontier Labs", 30, enabled=bool(RSSHUB_URL),
+         note="Needs the self-hosted RSSHub."),
+    Feed("36Kr Newsflashes (RSSHub)", RSSHUB_URL + "/36kr/newsflashes", "Chinese Labs", 60, enabled=bool(RSSHUB_URL),
+         note="Needs the self-hosted RSSHub."),
+    Feed("GitHub Trending (RSSHub)", RSSHUB_URL + "/github/trending/daily/any/all", "Open Source", 60, enabled=bool(RSSHUB_URL),
+         note="Needs the self-hosted RSSHub."),
     # Community and launch hubs
     Feed("r/LocalLLaMA", "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day", "Community", 30, "entry", enabled=False,
          note="Disabled: Reddit requires approval for API access (Responsible Builder Policy). Access request pending."),
