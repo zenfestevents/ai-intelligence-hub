@@ -1,6 +1,6 @@
 # AetherAI Intelligence Radar
 
-AI news from free primary-source feeds. Each article is summarised by Gemini, which must also copy one sentence from the article word for word. Plain Python then checks that sentence really is in the article. If it is not, the item is thrown away.
+AI news from free primary-source feeds. Each article is summarised by Claude, which must also copy one sentence from the article word for word. Plain Python then checks that sentence really is in the article. If it is not, the item is thrown away.
 
 What the check proves: the quote exists in the source. It does not prove the title and summary are accurate, so the dashboard links every item to its source.
 
@@ -10,6 +10,14 @@ What the check proves: the quote exists in the source. It does not prove the tit
 2. **Gemini**: create an API key in Google AI Studio.
 3. Copy `backend/.env.example` to `backend/.env` and paste both values in.
 4. **Node 20 or newer** is needed for the dashboard (Node 22 LTS recommended).
+
+## How articles flow
+
+1. `backend/ingest.py` (GitHub Actions, every 30 minutes, no AI key) fetches every source in `backend/feeds.py` and puts new articles in the `pending_articles` queue.
+2. A scheduled Claude task (`radar-summarise-queue`, daily, runs inside the Claude desktop app on your Pro plan) reads the queue with `claude_queue.py next`, writes the summary and a verbatim quote, and hands them to `claude_queue.py submit`.
+3. `submit` checks with plain Python that the quote is word for word in the article. Pass: published. Fail: thrown away.
+
+`backend/worker.py` is the older all-in-one Gemini path. It still works if `GEMINI_API_KEY` is set, but is no longer used by the workflow.
 
 ## How it is hosted
 

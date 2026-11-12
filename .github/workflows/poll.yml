@@ -1,7 +1,8 @@
 name: Radar poller
 
-# Runs the ingestion worker on GitHub's free runners.
-# Needs two repository secrets: DATABASE_URL and GEMINI_API_KEY.
+# Fetches sources and queues new articles on GitHub's free runners (no LLM, no AI key).
+# Claude summarises the queue as a scheduled task (see backend/claude_queue.py).
+# Needs one repository secret: DATABASE_URL.
 on:
   schedule:
     - cron: "7,37 * * * *" # feeds: every 30 minutes (GitHub may start it a few minutes late)
@@ -18,13 +19,12 @@ permissions:
 jobs:
   poll:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 55
     defaults:
       run:
         working-directory: backend
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       ENABLE_SCHEDULER: "0"
     steps:
       - uses: actions/checkout@v4
@@ -40,14 +40,14 @@ jobs:
 
       - name: Check secrets are present
         run: |
-          if [ -z "$DATABASE_URL" ] || [ -z "$GEMINI_API_KEY" ]; then
-            echo "::error::Add DATABASE_URL and GEMINI_API_KEY under Settings > Secrets and variables > Actions."
+          if [ -z "$DATABASE_URL" ]; then
+            echo "::error::Add DATABASE_URL under Settings > Secrets and variables > Actions."
             exit 1
           fi
 
-      - name: Poll feeds
+      - name: Queue new articles
         if: github.event.schedule != '17 0,12 * * *'
-        run: python worker.py
+        run: python ingest.py
 
       - name: Refresh startup directory
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 0,12 * * *'

@@ -41,6 +41,20 @@ CREATE TABLE IF NOT EXISTS rejected_items (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+-- Queue of fetched articles waiting for Claude to summarise them.
+CREATE TABLE IF NOT EXISTS pending_articles (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    source_url TEXT NOT NULL UNIQUE,
+    source_label VARCHAR(100) NOT NULL,
+    title TEXT NOT NULL DEFAULT '',
+    text TEXT NOT NULL,
+    published_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    attempts INTEGER NOT NULL DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+CREATE INDEX IF NOT EXISTS idx_pending_published_at ON pending_articles(published_at DESC);
+ALTER TABLE pending_articles ENABLE ROW LEVEL SECURITY;
+
 CREATE INDEX IF NOT EXISTS idx_intel_published_at ON intel_feed(published_at DESC);
 CREATE INDEX IF NOT EXISTS idx_intel_industry ON intel_feed(industry_tag);
 CREATE INDEX IF NOT EXISTS idx_intel_category ON intel_feed(primary_category);

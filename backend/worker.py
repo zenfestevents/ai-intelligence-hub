@@ -13,14 +13,13 @@ import sys
 import time
 from typing import Optional
 
-import feedparser
-import httpx
 import trafilatura
 
 import config
 from database import DBIntelFeed, DBRejected, SessionLocal
 from feeds import ENABLED_FEEDS, Feed
 from models import VerifiedIntelExtraction
+from sources import fetch_entries
 from verifier import verify_quote
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -79,7 +78,7 @@ def fetch_page_text(url: str) -> Optional[str]:
 def get_text(feed: Feed, entry) -> str:
     text = ""
     if feed.text_from == "page":
-        text = fetch_page_text(entry.link) or ""
+        text = fetch_page_text(entry.get("link")) or ""
     if len(text) < 200:
         text = entry_body(entry)
     return text[: config.MAX_ARTICLE_CHARS]
@@ -125,25 +124,19 @@ def extract_with_llm(text: str, source_url: str) -> Optional[VerifiedIntelExtrac
     return None
 
 
-def fetch_feed(feed: Feed):
-    r = httpx.get(feed.url, headers={"User-Agent": config.USER_AGENT}, timeout=20, follow_redirects=True)
-    r.raise_for_status()
-    return feedparser.parse(r.content)
-
-
 def process_feed(feed: Feed) -> dict:
     """Returns counts: {'new': n, 'saved': n, 'rejected': n}."""
     stats = {"new": 0, "saved": 0, "rejected": 0}
     logger.info(f"Scanning feed: {feed.label}")
     try:
-        parsed = fetch_feed(feed)
+        entries = fetch_entries(feed)
     except Exception as e:
         logger.error(f"Feed unavailable: {feed.label}: {e}")
         return stats
 
     db = SessionLocal()
     try:
-        for entry in parsed.entries[: config.ENTRIES_PER_FEED]:
+        for entry in entries[: config.ENTRIES_PER_FEED]:
             url = entry.get("link")
             if not url:
                 continue

@@ -2,7 +2,7 @@
 import datetime
 import uuid
 
-from sqlalchemy import Column, DateTime, String, Text, Uuid, create_engine, text
+from sqlalchemy import Column, DateTime, Integer, String, Text, Uuid, create_engine, text
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 import config
@@ -57,6 +57,19 @@ class DBRejected(Base):
     source_url = Column(Text, unique=True, nullable=False)
     reason = Column(String(100), nullable=False)
     attempted_quote = Column(Text)
+    created_at = Column(DateTime(timezone=True), default=utcnow)
+
+
+class DBPending(Base):
+    """Articles fetched and cleaned but not yet summarised. Claude works through this queue."""
+    __tablename__ = "pending_articles"
+    id = Column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    source_url = Column(Text, unique=True, nullable=False)
+    source_label = Column(String(100), nullable=False)
+    title = Column(Text, nullable=False, default="")
+    text = Column(Text, nullable=False)
+    published_at = Column(DateTime(timezone=True), nullable=False, index=True)
+    attempts = Column(Integer, nullable=False, default=0)
     created_at = Column(DateTime(timezone=True), default=utcnow)
 
 
