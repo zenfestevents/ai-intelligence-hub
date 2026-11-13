@@ -28,10 +28,12 @@ const TABS = [
   { id: "feed", label: "Live feed" },
   { id: "verticals", label: "Verticals" },
   { id: "github", label: "GitHub trending" },
+  { id: "huggingface", label: "Hugging Face trending" },
   { id: "startups", label: "Startups" },
 ];
-// Must match the source label in backend/feeds.py.
+// Must match the source labels in backend/feeds.py.
 const GITHUB_SOURCE = "GitHub Trending (RSSHub)";
+const HF_SOURCE = "Hugging Face Trending Models";
 const STARTUPS_PAGE = 60;
 const REFRESH_MS = 60000;
 
@@ -378,6 +380,7 @@ export default function Dashboard() {
   const feed = useIntel("category", category, tab === "feed");
   const verticals = useIntel("industry", industry, tab === "verticals");
   const github = useIntel("source", GITHUB_SOURCE, tab === "github");
+  const huggingface = useIntel("source", HF_SOURCE, tab === "huggingface");
 
   useEffect(() => {
     const load = () => getJson("/api/stats").then(setStats).catch(() => setStats(null));
@@ -501,6 +504,19 @@ export default function Dashboard() {
             <IntelGrid
               state={github}
               emptyHint="No trending repository has been summarised yet. They appear after the next summary run."
+            />
+          </section>
+        )}
+
+        {tab === "huggingface" && (
+          <section id="panel-huggingface" role="tabpanel" aria-labelledby="tab-huggingface" className="space-y-6">
+            <p className="max-w-[70ch] text-[13px] leading-relaxed text-dim">
+              Models from Hugging Face&rsquo;s trending list, newest first. Every model type is included:
+              text, image, video, audio, 3D and multimodal.
+            </p>
+            <IntelGrid
+              state={huggingface}
+              emptyHint="No trending model has been summarised yet. They appear after the next summary run."
             />
           </section>
         )}
