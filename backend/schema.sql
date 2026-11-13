@@ -68,6 +68,10 @@ ALTER TABLE intel_feed ENABLE ROW LEVEL SECURITY;
 ALTER TABLE startups_directory ENABLE ROW LEVEL SECURITY;
 ALTER TABLE rejected_items ENABLE ROW LEVEL SECURITY;
 
+-- Which catalog source each item came from (added later, so older rows are empty).
+ALTER TABLE intel_feed ADD COLUMN IF NOT EXISTS source_label VARCHAR(100);
+CREATE INDEX IF NOT EXISTS idx_intel_source_label ON intel_feed(source_label);
+
 -- Keep the category list on an existing database in step with the list above.
 ALTER TABLE intel_feed DROP CONSTRAINT IF EXISTS intel_feed_primary_category_check;
 ALTER TABLE intel_feed ADD CONSTRAINT intel_feed_primary_category_check CHECK (

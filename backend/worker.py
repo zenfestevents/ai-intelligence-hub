@@ -176,6 +176,7 @@ def process_feed(feed: Feed) -> dict:
                             exact_source_quote=extracted.exact_source_quote.strip(),
                             source_url=url,
                             country_of_origin=(extracted.country_of_origin or "Global")[:100],
+                            source_label=feed.label[:100],
                             published_at=entry_date(entry),
                         )
                     )

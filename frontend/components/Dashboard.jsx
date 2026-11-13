@@ -27,8 +27,11 @@ const INDUSTRIES = [
 const TABS = [
   { id: "feed", label: "Live feed" },
   { id: "verticals", label: "Verticals" },
+  { id: "github", label: "GitHub trending" },
   { id: "startups", label: "Startups" },
 ];
+// Must match the source label in backend/feeds.py.
+const GITHUB_SOURCE = "GitHub Trending (RSSHub)";
 const STARTUPS_PAGE = 60;
 const REFRESH_MS = 60000;
 
@@ -374,6 +377,7 @@ export default function Dashboard() {
 
   const feed = useIntel("category", category, tab === "feed");
   const verticals = useIntel("industry", industry, tab === "verticals");
+  const github = useIntel("source", GITHUB_SOURCE, tab === "github");
 
   useEffect(() => {
     const load = () => getJson("/api/stats").then(setStats).catch(() => setStats(null));
@@ -484,6 +488,19 @@ export default function Dashboard() {
                   ? "No item has passed verification yet."
                   : `No verified items tagged "${industry}" yet. Try another industry.`
               }
+            />
+          </section>
+        )}
+
+        {tab === "github" && (
+          <section id="panel-github" role="tabpanel" aria-labelledby="tab-github" className="space-y-6">
+            <p className="max-w-[70ch] text-[13px] leading-relaxed text-dim">
+              Repositories from GitHub&rsquo;s daily trending list, newest first. Every trending repository is
+              shown here, whether or not it is about AI.
+            </p>
+            <IntelGrid
+              state={github}
+              emptyHint="No trending repository has been summarised yet. They appear after the next summary run."
             />
           </section>
         )}

@@ -90,6 +90,7 @@ def process_one(db, item: Dict[str, Any]) -> str:
             exact_source_quote=extracted.exact_source_quote.strip(),
             source_url=url,
             country_of_origin=(extracted.country_of_origin or "Global")[:100],
+            source_label=pending.source_label,
             published_at=pending.published_at,
         )
     )

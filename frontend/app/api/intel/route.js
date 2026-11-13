@@ -2,7 +2,12 @@ import { clampInt, db, respond } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
-const FILTERS = { category: "primary_category", industry: "industry_tag", country: "country_of_origin" };
+const FILTERS = {
+  category: "primary_category",
+  industry: "industry_tag",
+  country: "country_of_origin",
+  source: "source_label",
+};
 
 export async function GET(request) {
   return respond(async () => {

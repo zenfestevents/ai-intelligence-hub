@@ -33,6 +33,7 @@ class DBIntelFeed(Base):
     exact_source_quote = Column(Text, nullable=False)
     source_url = Column(Text, unique=True, nullable=False)
     country_of_origin = Column(String(100), default="Global")
+    source_label = Column(String(100), index=True)  # catalog source, e.g. "GitHub Trending (RSSHub)"
     published_at = Column(DateTime(timezone=True), nullable=False, index=True)
     created_at = Column(DateTime(timezone=True), default=utcnow)
 
