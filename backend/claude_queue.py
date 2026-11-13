@@ -18,6 +18,7 @@ from pydantic import ValidationError
 
 import config
 from database import DBIntelFeed, DBPending, DBRejected, SessionLocal
+from feeds import KEEP_ALL_LABELS
 from models import CATEGORIES, INDUSTRIES, VerifiedIntelExtraction
 from verifier import verify_quote
 
@@ -41,6 +42,8 @@ def next_batch(limit: int) -> List[Dict[str, Any]]:
                 "source_url": r.source_url,
                 "source": r.source_label,
                 "title": r.title,
+                # True = publish even if not about AI (e.g. GitHub Trending): always write a full answer.
+                "always_keep": r.source_label in KEEP_ALL_LABELS,
                 "text": r.text[:CLAUDE_VIEW_CHARS],
             }
             for r in rows
@@ -64,7 +67,7 @@ def process_one(db, item: Dict[str, Any]) -> str:
         db.commit()
         return "invalid_answer"
 
-    if not extracted.is_relevant:
+    if not extracted.is_relevant and pending.source_label not in KEEP_ALL_LABELS:
         db.add(DBRejected(source_url=url, reason="not_relevant"))
         db.delete(pending)
         db.commit()

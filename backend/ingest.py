@@ -42,7 +42,7 @@ def ingest_feed(feed: Feed) -> int:
 
     db = SessionLocal()
     try:
-        for entry in entries[: config.ENTRIES_PER_FEED]:
+        for entry in entries[: feed.max_entries or config.ENTRIES_PER_FEED]:
             url = entry.get("link")
             if not url:
                 continue

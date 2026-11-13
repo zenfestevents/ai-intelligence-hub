@@ -10,6 +10,9 @@ kind:
   "hf_models" -> Hugging Face models JSON API (see sources.py)
   "hn"        -> Hacker News search JSON API (see sources.py)
 
+keep_all:    True skips the "is this about AI?" filter for that source (used for GitHub Trending).
+max_entries: how many of the newest entries to look at per run (default: config.ENTRIES_PER_FEED).
+
 Set enabled=False to switch a source off. Run `python check_feeds.py` to see which are alive.
 """
 import os
@@ -27,6 +30,8 @@ class Feed:
     enabled: bool = True
     note: str = ""
     kind: str = "rss"
+    keep_all: bool = False  # True = publish every item, even when it is not about AI
+    max_entries: int = 0  # 0 = use config.ENTRIES_PER_FEED
 
 
 # X (Twitter) accounts, read by x_ingest.py through Apify (X has no free feed).
@@ -109,7 +114,8 @@ FEEDS: List[Feed] = [
     Feed("36Kr Newsflashes (RSSHub)", RSSHUB_URL + "/36kr/newsflashes", "Chinese Labs", 60, enabled=bool(RSSHUB_URL),
          note="Needs the self-hosted RSSHub."),
     Feed("GitHub Trending (RSSHub)", RSSHUB_URL + "/github/trending/daily/any", "Open Source", 60, enabled=bool(RSSHUB_URL),
-         note="Needs the self-hosted RSSHub."),
+         keep_all=True, max_entries=30,
+         note="Needs the self-hosted RSSHub. Every trending repository is kept, AI or not."),
     # Community and launch hubs
     Feed("r/LocalLLaMA", "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day", "Community", 30, "entry", enabled=False,
          note="Disabled: Reddit requires approval for API access (Responsible Builder Policy). Access request pending."),
@@ -185,3 +191,5 @@ FEEDS: List[Feed] = [
 ]
 
 ENABLED_FEEDS = [f for f in FEEDS if f.enabled]
+# Sources whose items are published even when they are not about AI.
+KEEP_ALL_LABELS = {f.label for f in FEEDS if f.keep_all}
