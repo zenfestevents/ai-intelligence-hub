@@ -108,7 +108,7 @@ FEEDS: List[Feed] = [
          note="Needs the self-hosted RSSHub."),
     Feed("36Kr Newsflashes (RSSHub)", RSSHUB_URL + "/36kr/newsflashes", "Chinese Labs", 60, enabled=bool(RSSHUB_URL),
          note="Needs the self-hosted RSSHub."),
-    Feed("GitHub Trending (RSSHub)", RSSHUB_URL + "/github/trending/daily/any/all", "Open Source", 60, enabled=bool(RSSHUB_URL),
+    Feed("GitHub Trending (RSSHub)", RSSHUB_URL + "/github/trending/daily/any", "Open Source", 60, enabled=bool(RSSHUB_URL),
          note="Needs the self-hosted RSSHub."),
     # Community and launch hubs
     Feed("r/LocalLLaMA", "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day", "Community", 30, "entry", enabled=False,

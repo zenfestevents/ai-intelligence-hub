@@ -29,6 +29,6 @@ breaks the rules of X and risks the account. X is read through Apify instead (`b
 
 - Deployed on Render as a Web Service from the image `docker.io/diygod/rsshub:latest`.
 - Anthropic news and 36Kr work.
-- GitHub Trending returns 503 until a `GITHUB_ACCESS_TOKEN` environment variable is added to the
+- GitHub Trending works; it needs the `GITHUB_ACCESS_TOKEN` environment variable set on the
   service in the Render dashboard (a GitHub personal access token with no extra permissions).
 - GitHub Actions reads the address from the `RSSHUB_URL` repository secret.
