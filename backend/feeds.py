@@ -19,6 +19,8 @@ import os
 from dataclasses import dataclass
 from typing import List
 
+import config  # noqa: F401  (loads backend/.env so RSSHUB_URL is set however this file is imported)
+
 
 @dataclass(frozen=True)
 class Feed:
