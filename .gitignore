@@ -19,3 +19,6 @@ out/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Local copy of RSSHub (downloaded, not part of this project)
+rsshub/app/

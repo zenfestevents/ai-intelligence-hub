@@ -2,7 +2,7 @@ name: Radar poller
 
 # Fetches sources and queues new articles on GitHub's free runners (no LLM, no AI key).
 # Claude summarises the queue as a scheduled task (see backend/claude_queue.py).
-# Needs one repository secret: DATABASE_URL.
+# Needs one repository secret: DATABASE_URL. Optional: RSSHUB_URL (self-hosted RSSHub).
 on:
   schedule:
     - cron: "7,37 * * * *" # feeds: every 30 minutes (GitHub may start it a few minutes late)
@@ -25,6 +25,7 @@ jobs:
         working-directory: backend
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      RSSHUB_URL: ${{ secrets.RSSHUB_URL }} # optional: self-hosted RSSHub address
       ENABLE_SCHEDULER: "0"
     steps:
       - uses: actions/checkout@v4
