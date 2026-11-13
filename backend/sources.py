@@ -49,7 +49,10 @@ def _hf_models(feed: Feed) -> List[dict]:
                 link=f"https://huggingface.co/{model_id}",
                 title=model_id,
                 summary=summary,
-                published_parsed=_iso_to_struct(m.get("lastModified") or m.get("createdAt") or ""),
+                # A trending list is news today even if the model is months old, so it gets
+                # no date here and is stamped with the time it was picked up.
+                published_parsed=None if "trendingScore" in m
+                else _iso_to_struct(m.get("lastModified") or m.get("createdAt") or ""),
             )
         )
     return entries
