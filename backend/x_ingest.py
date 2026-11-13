@@ -1,11 +1,12 @@
 """Queues new posts from key AI people on X (Twitter), using an Apify scraper.
 
-X has no free feed, so this runs the Apify actor "apidojo/tweet-scraper" once per run
+X has no free feed, so this runs the Apify actor "xquik/x-tweet-scraper" once per run
 (one run for all accounts) and puts the new posts in the same queue as every other source.
 Claude then summarises them and the quote check runs, exactly like articles.
 
 Needs APIFY_TOKEN in backend/.env (or as a GitHub secret). Cost is per tweet fetched
-(about $0.0004 each at the time of writing), so run it once or twice a day, not every 30 minutes.
+(about $0.00015 each at the time of writing; this actor has no free-plan cap, unlike
+apidojo/tweet-scraper which returns at most 10 posts per run on the free plan), so run it once or twice a day, not every 30 minutes.
 
 Usage: python x_ingest.py             run for real
        python x_ingest.py --dry-run   show what would be sent, spend nothing
@@ -25,7 +26,7 @@ from feeds import X_HANDLES
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger("radar.x")
 
-ACTOR = "apidojo~tweet-scraper"
+ACTOR = "xquik~x-tweet-scraper"
 RUN_URL = f"https://api.apify.com/v2/acts/{ACTOR}/run-sync-get-dataset-items"
 TWEETS_PER_ACCOUNT = 20
 # Posts shorter than this cannot hold a 40-character verbatim quote plus context.
@@ -36,7 +37,7 @@ def build_input() -> dict:
     return {
         "twitterHandles": X_HANDLES,
         "maxItems": TWEETS_PER_ACCOUNT * len(X_HANDLES),
-        "sort": "Latest",
+        "maxItemsPerTarget": TWEETS_PER_ACCOUNT,
     }
 
 
@@ -75,10 +76,11 @@ def run() -> int:
         for t in items:
             url = t.get("url") or t.get("twitterUrl")
             text = (t.get("text") or t.get("fullText") or "").strip()
-            author = (t.get("author") or {}).get("userName") or ""
+            a = t.get("author") or {}
+            author = a.get("username") or a.get("userName") or ""
             if not url or not author:
                 continue
-            if t.get("isRetweet") or t.get("isReply"):
+            if t.get("isRetweet") or t.get("isReply") or t.get("type") in ("retweet", "reply"):
                 continue
             if len(text) < MIN_TEXT_CHARS or _seen(db, url):
                 continue
