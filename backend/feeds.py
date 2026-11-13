@@ -58,6 +58,9 @@ FEEDS: List[Feed] = [
          "Frontier Labs", 120, note="Third-party mirror; can lag behind the official blog."),
     Feed("Allen Institute (Ai2)", "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/allenai-news.xml",
          "Frontier Labs", 120, note="Third-party mirror; can lag behind the official blog."),
+    Feed("Google Research", "https://research.google/blog/rss/", "Frontier Labs", 60),
+    Feed("Amazon Science", "https://www.amazon.science/index.rss", "Frontier Labs", 60),
+    Feed("Sakana AI", "https://sakana.ai/feed.xml", "Frontier Labs", 120),
     # Chinese labs and open weights
     Feed("DeepSeek", "https://github.com/deepseek-ai/DeepSeek-V3/releases.atom", "Chinese Labs", 15, "entry"),
     Feed("DeepSeek Models (HF)", "https://huggingface.co/api/models?author=deepseek-ai&sort=lastModified&direction=-1&limit=10",
@@ -74,6 +77,7 @@ FEEDS: List[Feed] = [
          "Chinese Labs", 120, kind="hf_models", note="Replaces the RSSHub GitHub feed (RSSHub returns 403)."),
     Feed("Pandaily", "https://pandaily.com/feed/", "Chinese Labs", 60,
          note="Spec URL /category/tech/feed/ is 404; this is the site-wide feed."),
+    Feed("ChinaTalk", "https://www.chinatalk.media/feed", "Chinese Labs", 120),
     Feed("36Kr Newsflashes", "https://rsshub.app/36kr/newsflashes", "Chinese Labs", 60, enabled=False,
          note="Public RSSHub returns 403."),
     # Open source, tools and developer changelogs
@@ -94,6 +98,10 @@ FEEDS: List[Feed] = [
          note="404: no RSS feed found."),
     Feed("Simon Willison", "https://simonwillison.net/atom/everything/", "Open Source", 60),
     # X / Twitter: RSSHub's public Twitter route is closed
+    Feed("Claude Code Releases", "https://github.com/anthropics/claude-code/releases.atom", "Open Source", 120, "entry"),
+    Feed("OpenAI Codex Releases", "https://github.com/openai/codex/releases.atom", "Open Source", 360, "entry",
+         note="Releases are frequent, so it is checked less often."),
+    Feed("Latent Space", "https://latent.space/feed", "Open Source", 120),
     # The 8 X accounts in X_HANDLES are fetched by x_ingest.py (Apify), not as feeds here.
     # Sources that need a self-hosted RSSHub route. On only when RSSHUB_URL is set.
     Feed("Anthropic News (RSSHub)", RSSHUB_URL + "/anthropic/news", "Frontier Labs", 30, enabled=bool(RSSHUB_URL),
@@ -120,6 +128,7 @@ FEEDS: List[Feed] = [
     Feed("Tom's Hardware", "https://www.tomshardware.com/feeds/all", "Hardware", 30),
     Feed("AnandTech", "https://www.anandtech.com/rss/", "Hardware", 60, enabled=False,
          note="Feed returns no entries (site stopped publishing)."),
+    Feed("The Chip Letter", "https://thechipletter.substack.com/feed", "Hardware", 360),
     # Academic and newsletters
     Feed(
         "arXiv cs.AI",
@@ -141,6 +150,13 @@ FEEDS: List[Feed] = [
     Feed("MarkTechPost", "https://www.marktechpost.com/feed/", "Academic", 60),
     Feed("MIT Technology Review AI", "https://www.technologyreview.com/topic/artificial-intelligence/feed/", "Academic", 60),
     Feed("The Verge AI", "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "Academic", 60),
+    Feed("Interconnects", "https://www.interconnects.ai/feed", "Academic", 360),
+    Feed("One Useful Thing", "https://www.oneusefulthing.org/feed", "Academic", 360),
+    Feed("Epoch AI", "https://epoch.ai/atom.xml", "Academic", 360),
+    Feed("METR", "https://metr.org/feed.xml", "Academic", 360),
+    Feed("Transformer", "https://www.transformernews.ai/feed", "Academic", 120),
+    Feed("Ars Technica AI", "https://arstechnica.com/ai/feed/", "Academic", 60),
+    Feed("The Decoder", "https://the-decoder.com/feed/", "Academic", 60),
     # Startups and funding
     Feed("Hacker News AI", "https://hn.algolia.com/api/v1/search_by_date?query=AI&tags=story&hitsPerPage=20",
          "Startups", 30, kind="hn", note="Newest AI stories first (search_by_date); external links only."),
@@ -149,8 +165,11 @@ FEEDS: List[Feed] = [
          note="Returned 429 (rate limit) when tested; may work intermittently."),
     Feed("Inc42", "https://inc42.com/feed/", "Regional (IN)", 60,
          note="Spec URL /buzz/ai/feed/ is 404; this is the site-wide feed, non-AI stories are filtered out."),
-    Feed("Entrackr", "https://entrackr.com/feed/", "Regional (IN)", 60, enabled=False,
-         note="404: feed URL not found."),
+    Feed("Entrackr", "https://entrackr.com/rss", "Regional (IN)", 60,
+         note="Spec URL /feed/ is 404; /rss works. Site-wide feed, non-AI stories are filtered out."),
+    Feed("Analytics India Magazine", "https://analyticsindiamag.com/feed", "Regional (IN)", 60),
+    Feed("Crunchbase News", "https://news.crunchbase.com/feed/", "Startups", 60,
+         note="Site-wide feed, non-AI stories are filtered out."),
     # Industry verticals
     Feed("Nature Machine Intelligence", "https://www.nature.com/natmachintell.rss", "Verticals", 120),
     Feed("bioRxiv Bioinformatics", "http://connect.biorxiv.org/biorxiv_xml.php?subject=bioinformatics", "Verticals", 360, "entry"),
@@ -160,6 +179,9 @@ FEEDS: List[Feed] = [
     Feed("IEEE Spectrum Robotics", "https://spectrum.ieee.org/feeds/topic/robotics.rss", "Verticals", 60),
     Feed("NASA JPL", "https://www.jpl.nasa.gov/feeds/news/", "Verticals", 120),
     Feed("EdSurge", "https://www.edsurge.com/articles_rss?category=emerging-tech", "Verticals", 120),
+    Feed("The Robot Report", "https://www.therobotreport.com/feed/", "Verticals", 60),
+    Feed("STAT Health Tech", "https://www.statnews.com/category/health-tech/feed/", "Verticals", 120,
+         note="Some articles are paywalled; those fall back to the feed summary or are skipped."),
 ]
 
 ENABLED_FEEDS = [f for f in FEEDS if f.enabled]
