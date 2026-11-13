@@ -1,0 +1,703 @@
+{
+  "fps": 30,
+  "lead_in": 8,
+  "speech_end": 1145,
+  "total": 1217,
+  "estimated": false,
+  "segments": [
+    {
+      "id": "s1",
+      "from": 8,
+      "dur": 147,
+      "words": [
+        {
+          "text": "Five",
+          "start": 0.267,
+          "end": 0.592
+        },
+        {
+          "text": "free",
+          "start": 0.627,
+          "end": 0.847
+        },
+        {
+          "text": "AI",
+          "start": 0.929,
+          "end": 1.161
+        },
+        {
+          "text": "tools",
+          "start": 1.231,
+          "end": 1.416
+        },
+        {
+          "text": "developers",
+          "start": 1.474,
+          "end": 1.997
+        },
+        {
+          "text": "are",
+          "start": 2.055,
+          "end": 2.229
+        },
+        {
+          "text": "grabbing",
+          "start": 2.252,
+          "end": 2.543
+        },
+        {
+          "text": "on",
+          "start": 2.601,
+          "end": 2.67
+        },
+        {
+          "text": "GitHub",
+          "start": 2.717,
+          "end": 3.03
+        },
+        {
+          "text": "this",
+          "start": 3.077,
+          "end": 3.204
+        },
+        {
+          "text": "week.",
+          "start": 3.262,
+          "end": 3.448
+        },
+        {
+          "text": "Number",
+          "start": 3.506,
+          "end": 3.75
+        },
+        {
+          "text": "three",
+          "start": 3.808,
+          "end": 4.04
+        },
+        {
+          "text": "is",
+          "start": 4.11,
+          "end": 4.272
+        },
+        {
+          "text": "from",
+          "start": 4.319,
+          "end": 4.47
+        },
+        {
+          "text": "OpenAI.",
+          "start": 4.551,
+          "end": 5.143
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "from": 155,
+      "dur": 190,
+      "words": [
+        {
+          "text": "One.",
+          "start": 5.178,
+          "end": 5.445
+        },
+        {
+          "text": "Chrome",
+          "start": 5.503,
+          "end": 5.735
+        },
+        {
+          "text": "DevTools",
+          "start": 5.759,
+          "end": 6.072
+        },
+        {
+          "text": "MCP.",
+          "start": 6.142,
+          "end": 6.606
+        },
+        {
+          "text": "It",
+          "start": 6.641,
+          "end": 6.815
+        },
+        {
+          "text": "lets",
+          "start": 6.885,
+          "end": 7.082
+        },
+        {
+          "text": "your",
+          "start": 7.128,
+          "end": 7.268
+        },
+        {
+          "text": "AI",
+          "start": 7.384,
+          "end": 7.616
+        },
+        {
+          "text": "coding",
+          "start": 7.686,
+          "end": 7.918
+        },
+        {
+          "text": "agent",
+          "start": 7.976,
+          "end": 8.266
+        },
+        {
+          "text": "open",
+          "start": 8.348,
+          "end": 8.615
+        },
+        {
+          "text": "a",
+          "start": 8.673,
+          "end": 8.696
+        },
+        {
+          "text": "real",
+          "start": 8.766,
+          "end": 8.951
+        },
+        {
+          "text": "Chrome",
+          "start": 9.009,
+          "end": 9.23
+        },
+        {
+          "text": "browser,",
+          "start": 9.253,
+          "end": 9.694
+        },
+        {
+          "text": "click",
+          "start": 9.741,
+          "end": 9.961
+        },
+        {
+          "text": "around,",
+          "start": 10.008,
+          "end": 10.333
+        },
+        {
+          "text": "and",
+          "start": 10.356,
+          "end": 10.495
+        },
+        {
+          "text": "find",
+          "start": 10.565,
+          "end": 10.809
+        },
+        {
+          "text": "what's",
+          "start": 10.867,
+          "end": 11.041
+        },
+        {
+          "text": "broken.",
+          "start": 11.087,
+          "end": 11.494
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "from": 346,
+      "dur": 151,
+      "words": [
+        {
+          "text": "Two.",
+          "start": 11.552,
+          "end": 11.889
+        },
+        {
+          "text": "Plannotator.",
+          "start": 11.935,
+          "end": 12.574
+        },
+        {
+          "text": "Before",
+          "start": 12.609,
+          "end": 12.887
+        },
+        {
+          "text": "your",
+          "start": 12.911,
+          "end": 13.015
+        },
+        {
+          "text": "AI",
+          "start": 13.085,
+          "end": 13.282
+        },
+        {
+          "text": "writes",
+          "start": 13.305,
+          "end": 13.537
+        },
+        {
+          "text": "any",
+          "start": 13.596,
+          "end": 13.758
+        },
+        {
+          "text": "code,",
+          "start": 13.793,
+          "end": 14.072
+        },
+        {
+          "text": "you",
+          "start": 14.188,
+          "end": 14.281
+        },
+        {
+          "text": "read",
+          "start": 14.339,
+          "end": 14.49
+        },
+        {
+          "text": "its",
+          "start": 14.524,
+          "end": 14.629
+        },
+        {
+          "text": "plan",
+          "start": 14.687,
+          "end": 14.873
+        },
+        {
+          "text": "and",
+          "start": 14.919,
+          "end": 15.0
+        },
+        {
+          "text": "mark",
+          "start": 15.058,
+          "end": 15.244
+        },
+        {
+          "text": "it",
+          "start": 15.291,
+          "end": 15.349
+        },
+        {
+          "text": "up,",
+          "start": 15.407,
+          "end": 15.546
+        },
+        {
+          "text": "like",
+          "start": 15.581,
+          "end": 15.755
+        },
+        {
+          "text": "correcting",
+          "start": 15.778,
+          "end": 16.161
+        },
+        {
+          "text": "homework.",
+          "start": 16.208,
+          "end": 16.556
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "from": 497,
+      "dur": 162,
+      "words": [
+        {
+          "text": "Three.",
+          "start": 16.579,
+          "end": 16.881
+        },
+        {
+          "text": "Codex",
+          "start": 16.962,
+          "end": 17.299
+        },
+        {
+          "text": "Security",
+          "start": 17.322,
+          "end": 17.787
+        },
+        {
+          "text": "from",
+          "start": 17.868,
+          "end": 18.077
+        },
+        {
+          "text": "OpenAI.",
+          "start": 18.193,
+          "end": 18.82
+        },
+        {
+          "text": "It",
+          "start": 18.855,
+          "end": 18.994
+        },
+        {
+          "text": "scans",
+          "start": 19.029,
+          "end": 19.273
+        },
+        {
+          "text": "your",
+          "start": 19.308,
+          "end": 19.424
+        },
+        {
+          "text": "code,",
+          "start": 19.482,
+          "end": 19.749
+        },
+        {
+          "text": "finds",
+          "start": 19.807,
+          "end": 20.097
+        },
+        {
+          "text": "security",
+          "start": 20.12,
+          "end": 20.503
+        },
+        {
+          "text": "holes,",
+          "start": 20.55,
+          "end": 20.887
+        },
+        {
+          "text": "and",
+          "start": 20.933,
+          "end": 21.107
+        },
+        {
+          "text": "writes",
+          "start": 21.154,
+          "end": 21.421
+        },
+        {
+          "text": "the",
+          "start": 21.49,
+          "end": 21.572
+        },
+        {
+          "text": "fix.",
+          "start": 21.63,
+          "end": 21.955
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "from": 659,
+      "dur": 223,
+      "words": [
+        {
+          "text": "Four.",
+          "start": 21.99,
+          "end": 22.373
+        },
+        {
+          "text": "Modern",
+          "start": 22.489,
+          "end": 22.849
+        },
+        {
+          "text": "Web",
+          "start": 22.895,
+          "end": 23.034
+        },
+        {
+          "text": "Guidance,",
+          "start": 23.092,
+          "end": 23.557
+        },
+        {
+          "text": "backed",
+          "start": 23.638,
+          "end": 23.882
+        },
+        {
+          "text": "by",
+          "start": 23.929,
+          "end": 24.045
+        },
+        {
+          "text": "the",
+          "start": 24.091,
+          "end": 24.161
+        },
+        {
+          "text": "Chrome",
+          "start": 24.219,
+          "end": 24.451
+        },
+        {
+          "text": "team.",
+          "start": 24.474,
+          "end": 24.718
+        },
+        {
+          "text": "It",
+          "start": 24.788,
+          "end": 24.939
+        },
+        {
+          "text": "teaches",
+          "start": 24.962,
+          "end": 25.275
+        },
+        {
+          "text": "your",
+          "start": 25.345,
+          "end": 25.461
+        },
+        {
+          "text": "AI",
+          "start": 25.508,
+          "end": 25.763
+        },
+        {
+          "text": "agent",
+          "start": 25.81,
+          "end": 26.158
+        },
+        {
+          "text": "today's",
+          "start": 26.181,
+          "end": 26.506
+        },
+        {
+          "text": "web",
+          "start": 26.622,
+          "end": 26.785
+        },
+        {
+          "text": "standards,",
+          "start": 26.843,
+          "end": 27.458
+        },
+        {
+          "text": "so",
+          "start": 27.528,
+          "end": 27.644
+        },
+        {
+          "text": "it",
+          "start": 27.69,
+          "end": 27.772
+        },
+        {
+          "text": "stops",
+          "start": 27.806,
+          "end": 28.12
+        },
+        {
+          "text": "writing",
+          "start": 28.178,
+          "end": 28.526
+        },
+        {
+          "text": "outdated",
+          "start": 28.596,
+          "end": 29.072
+        },
+        {
+          "text": "code.",
+          "start": 29.107,
+          "end": 29.397
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "from": 883,
+      "dur": 149,
+      "words": [
+        {
+          "text": "Five.",
+          "start": 29.443,
+          "end": 29.78
+        },
+        {
+          "text": "Buzz,",
+          "start": 29.908,
+          "end": 30.303
+        },
+        {
+          "text": "from",
+          "start": 30.361,
+          "end": 30.546
+        },
+        {
+          "text": "Block.",
+          "start": 30.581,
+          "end": 30.895
+        },
+        {
+          "text": "One",
+          "start": 30.93,
+          "end": 31.139
+        },
+        {
+          "text": "workspace",
+          "start": 31.173,
+          "end": 31.661
+        },
+        {
+          "text": "where",
+          "start": 31.707,
+          "end": 31.87
+        },
+        {
+          "text": "your",
+          "start": 31.905,
+          "end": 32.033
+        },
+        {
+          "text": "team",
+          "start": 32.091,
+          "end": 32.276
+        },
+        {
+          "text": "and",
+          "start": 32.334,
+          "end": 32.416
+        },
+        {
+          "text": "your",
+          "start": 32.462,
+          "end": 32.578
+        },
+        {
+          "text": "AI",
+          "start": 32.625,
+          "end": 32.868
+        },
+        {
+          "text": "agents",
+          "start": 32.915,
+          "end": 33.286
+        },
+        {
+          "text": "work",
+          "start": 33.356,
+          "end": 33.565
+        },
+        {
+          "text": "in",
+          "start": 33.611,
+          "end": 33.658
+        },
+        {
+          "text": "the",
+          "start": 33.693,
+          "end": 33.762
+        },
+        {
+          "text": "same",
+          "start": 33.797,
+          "end": 33.995
+        },
+        {
+          "text": "rooms.",
+          "start": 34.029,
+          "end": 34.378
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "from": 1033,
+      "dur": 112,
+      "words": [
+        {
+          "text": "Want",
+          "start": 34.436,
+          "end": 34.645
+        },
+        {
+          "text": "all",
+          "start": 34.703,
+          "end": 34.854
+        },
+        {
+          "text": "five",
+          "start": 34.9,
+          "end": 35.086
+        },
+        {
+          "text": "links",
+          "start": 35.132,
+          "end": 35.33
+        },
+        {
+          "text": "in",
+          "start": 35.365,
+          "end": 35.423
+        },
+        {
+          "text": "one",
+          "start": 35.481,
+          "end": 35.597
+        },
+        {
+          "text": "place?",
+          "start": 35.62,
+          "end": 35.957
+        },
+        {
+          "text": "Comment",
+          "start": 36.003,
+          "end": 36.328
+        },
+        {
+          "text": "TOOLS",
+          "start": 36.351,
+          "end": 36.642
+        },
+        {
+          "text": "and",
+          "start": 36.688,
+          "end": 36.804
+        },
+        {
+          "text": "I'll",
+          "start": 36.851,
+          "end": 37.002
+        },
+        {
+          "text": "send",
+          "start": 37.048,
+          "end": 37.199
+        },
+        {
+          "text": "them",
+          "start": 37.234,
+          "end": 37.35
+        },
+        {
+          "text": "to",
+          "start": 37.396,
+          "end": 37.443
+        },
+        {
+          "text": "your",
+          "start": 37.489,
+          "end": 37.594
+        },
+        {
+          "text": "DM.",
+          "start": 37.652,
+          "end": 38.163
+        }
+      ]
+    }
+  ]
+}

@@ -15,6 +15,11 @@ node_modules/
 .next/
 out/
 
+# reels: rendered videos, voice recordings and working files stay on this computer
+reels/output/
+reels/work/
+reels/remotion/public/vo/
+
 # os / editor
 .DS_Store
 Thumbs.db
