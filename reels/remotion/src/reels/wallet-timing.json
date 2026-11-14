@@ -1,0 +1,848 @@
+{
+  "fps": 30,
+  "lead_in": 8,
+  "speech_end": 1247,
+  "total": 1319,
+  "estimated": false,
+  "segments": [
+    {
+      "id": "s1",
+      "from": 8,
+      "dur": 124,
+      "words": [
+        {
+          "text": "ChatGPT",
+          "start": 0.267,
+          "end": 0.743
+        },
+        {
+          "text": "can",
+          "start": 0.789,
+          "end": 0.917
+        },
+        {
+          "text": "now",
+          "start": 0.998,
+          "end": 1.138
+        },
+        {
+          "text": "buy",
+          "start": 1.231,
+          "end": 1.347
+        },
+        {
+          "text": "things",
+          "start": 1.416,
+          "end": 1.649
+        },
+        {
+          "text": "for",
+          "start": 1.707,
+          "end": 1.834
+        },
+        {
+          "text": "you.",
+          "start": 1.892,
+          "end": 2.125
+        },
+        {
+          "text": "And",
+          "start": 2.171,
+          "end": 2.334
+        },
+        {
+          "text": "the",
+          "start": 2.357,
+          "end": 2.426
+        },
+        {
+          "text": "AI",
+          "start": 2.485,
+          "end": 2.752
+        },
+        {
+          "text": "never",
+          "start": 2.868,
+          "end": 3.111
+        },
+        {
+          "text": "sees",
+          "start": 3.181,
+          "end": 3.332
+        },
+        {
+          "text": "your",
+          "start": 3.39,
+          "end": 3.506
+        },
+        {
+          "text": "real",
+          "start": 3.576,
+          "end": 3.773
+        },
+        {
+          "text": "card",
+          "start": 3.843,
+          "end": 3.982
+        },
+        {
+          "text": "number.",
+          "start": 4.017,
+          "end": 4.4
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "from": 134,
+      "dur": 187,
+      "words": [
+        {
+          "text": "OpenAI",
+          "start": 4.481,
+          "end": 5.155
+        },
+        {
+          "text": "just",
+          "start": 5.306,
+          "end": 5.515
+        },
+        {
+          "text": "launched",
+          "start": 5.584,
+          "end": 5.875
+        },
+        {
+          "text": "ChatGPT",
+          "start": 5.956,
+          "end": 6.362
+        },
+        {
+          "text": "Wallet.",
+          "start": 6.444,
+          "end": 6.757
+        },
+        {
+          "text": "You",
+          "start": 6.78,
+          "end": 6.908
+        },
+        {
+          "text": "add",
+          "start": 7.001,
+          "end": 7.152
+        },
+        {
+          "text": "your",
+          "start": 7.21,
+          "end": 7.337
+        },
+        {
+          "text": "card",
+          "start": 7.396,
+          "end": 7.546
+        },
+        {
+          "text": "once,",
+          "start": 7.628,
+          "end": 7.953
+        },
+        {
+          "text": "then",
+          "start": 8.022,
+          "end": 8.208
+        },
+        {
+          "text": "ask",
+          "start": 8.289,
+          "end": 8.533
+        },
+        {
+          "text": "your",
+          "start": 8.557,
+          "end": 8.661
+        },
+        {
+          "text": "AI",
+          "start": 8.742,
+          "end": 9.009
+        },
+        {
+          "text": "agent",
+          "start": 9.091,
+          "end": 9.416
+        },
+        {
+          "text": "to",
+          "start": 9.439,
+          "end": 9.509
+        },
+        {
+          "text": "find",
+          "start": 9.59,
+          "end": 9.799
+        },
+        {
+          "text": "and",
+          "start": 9.845,
+          "end": 9.938
+        },
+        {
+          "text": "buy",
+          "start": 10.008,
+          "end": 10.124
+        },
+        {
+          "text": "what",
+          "start": 10.17,
+          "end": 10.31
+        },
+        {
+          "text": "you",
+          "start": 10.356,
+          "end": 10.426
+        },
+        {
+          "text": "need.",
+          "start": 10.484,
+          "end": 10.67
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "from": 320,
+      "dur": 184,
+      "words": [
+        {
+          "text": "Before",
+          "start": 10.693,
+          "end": 10.96
+        },
+        {
+          "text": "it",
+          "start": 10.995,
+          "end": 11.064
+        },
+        {
+          "text": "pays,",
+          "start": 11.122,
+          "end": 11.436
+        },
+        {
+          "text": "you",
+          "start": 11.482,
+          "end": 11.575
+        },
+        {
+          "text": "see",
+          "start": 11.633,
+          "end": 11.749
+        },
+        {
+          "text": "the",
+          "start": 11.772,
+          "end": 11.866
+        },
+        {
+          "text": "items,",
+          "start": 11.935,
+          "end": 12.504
+        },
+        {
+          "text": "the",
+          "start": 12.562,
+          "end": 12.667
+        },
+        {
+          "text": "total",
+          "start": 12.713,
+          "end": 13.027
+        },
+        {
+          "text": "and",
+          "start": 13.108,
+          "end": 13.259
+        },
+        {
+          "text": "the",
+          "start": 13.282,
+          "end": 13.352
+        },
+        {
+          "text": "card.",
+          "start": 13.398,
+          "end": 13.677
+        },
+        {
+          "text": "Then",
+          "start": 13.723,
+          "end": 13.886
+        },
+        {
+          "text": "you",
+          "start": 13.921,
+          "end": 13.99
+        },
+        {
+          "text": "approve",
+          "start": 14.025,
+          "end": 14.374
+        },
+        {
+          "text": "with",
+          "start": 14.408,
+          "end": 14.559
+        },
+        {
+          "text": "your",
+          "start": 14.594,
+          "end": 14.699
+        },
+        {
+          "text": "face",
+          "start": 14.757,
+          "end": 14.977
+        },
+        {
+          "text": "or",
+          "start": 15.024,
+          "end": 15.128
+        },
+        {
+          "text": "fingerprint.",
+          "start": 15.175,
+          "end": 15.732
+        },
+        {
+          "text": "Every",
+          "start": 15.813,
+          "end": 16.057
+        },
+        {
+          "text": "single",
+          "start": 16.092,
+          "end": 16.336
+        },
+        {
+          "text": "purchase.",
+          "start": 16.359,
+          "end": 16.788
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "from": 504,
+      "dur": 228,
+      "words": [
+        {
+          "text": "The",
+          "start": 16.823,
+          "end": 16.928
+        },
+        {
+          "text": "shop",
+          "start": 16.963,
+          "end": 17.125
+        },
+        {
+          "text": "gets",
+          "start": 17.195,
+          "end": 17.346
+        },
+        {
+          "text": "a",
+          "start": 17.392,
+          "end": 17.415
+        },
+        {
+          "text": "stand-in",
+          "start": 17.462,
+          "end": 17.775
+        },
+        {
+          "text": "card",
+          "start": 17.822,
+          "end": 17.996
+        },
+        {
+          "text": "number",
+          "start": 18.042,
+          "end": 18.391
+        },
+        {
+          "text": "called",
+          "start": 18.472,
+          "end": 18.751
+        },
+        {
+          "text": "a",
+          "start": 18.82,
+          "end": 18.878
+        },
+        {
+          "text": "payment",
+          "start": 18.96,
+          "end": 19.25
+        },
+        {
+          "text": "token,",
+          "start": 19.273,
+          "end": 19.656
+        },
+        {
+          "text": "not",
+          "start": 19.726,
+          "end": 19.912
+        },
+        {
+          "text": "your",
+          "start": 19.958,
+          "end": 20.062
+        },
+        {
+          "text": "real",
+          "start": 20.109,
+          "end": 20.283
+        },
+        {
+          "text": "card",
+          "start": 20.329,
+          "end": 20.492
+        },
+        {
+          "text": "details.",
+          "start": 20.515,
+          "end": 20.922
+        },
+        {
+          "text": "It",
+          "start": 20.968,
+          "end": 21.107
+        },
+        {
+          "text": "is",
+          "start": 21.154,
+          "end": 21.212
+        },
+        {
+          "text": "like",
+          "start": 21.282,
+          "end": 21.432
+        },
+        {
+          "text": "handing",
+          "start": 21.467,
+          "end": 21.723
+        },
+        {
+          "text": "a",
+          "start": 21.781,
+          "end": 21.804
+        },
+        {
+          "text": "valet",
+          "start": 21.862,
+          "end": 22.21
+        },
+        {
+          "text": "a",
+          "start": 22.28,
+          "end": 22.396
+        },
+        {
+          "text": "spare",
+          "start": 22.454,
+          "end": 22.744
+        },
+        {
+          "text": "key",
+          "start": 22.79,
+          "end": 22.976
+        },
+        {
+          "text": "instead",
+          "start": 23.057,
+          "end": 23.406
+        },
+        {
+          "text": "of",
+          "start": 23.464,
+          "end": 23.522
+        },
+        {
+          "text": "your",
+          "start": 23.58,
+          "end": 23.708
+        },
+        {
+          "text": "whole",
+          "start": 23.754,
+          "end": 23.963
+        },
+        {
+          "text": "key",
+          "start": 23.986,
+          "end": 24.102
+        },
+        {
+          "text": "ring.",
+          "start": 24.16,
+          "end": 24.393
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "from": 732,
+      "dur": 182,
+      "words": [
+        {
+          "text": "You",
+          "start": 24.416,
+          "end": 24.52
+        },
+        {
+          "text": "still",
+          "start": 24.555,
+          "end": 24.729
+        },
+        {
+          "text": "keep",
+          "start": 24.776,
+          "end": 24.903
+        },
+        {
+          "text": "your",
+          "start": 24.938,
+          "end": 25.043
+        },
+        {
+          "text": "card",
+          "start": 25.101,
+          "end": 25.24
+        },
+        {
+          "text": "rewards,",
+          "start": 25.287,
+          "end": 25.67
+        },
+        {
+          "text": "and",
+          "start": 25.693,
+          "end": 25.809
+        },
+        {
+          "text": "you",
+          "start": 25.855,
+          "end": 25.925
+        },
+        {
+          "text": "can",
+          "start": 25.972,
+          "end": 26.076
+        },
+        {
+          "text": "still",
+          "start": 26.123,
+          "end": 26.32
+        },
+        {
+          "text": "dispute",
+          "start": 26.39,
+          "end": 26.784
+        },
+        {
+          "text": "a",
+          "start": 26.819,
+          "end": 26.854
+        },
+        {
+          "text": "bad",
+          "start": 26.912,
+          "end": 27.063
+        },
+        {
+          "text": "order.",
+          "start": 27.133,
+          "end": 27.481
+        },
+        {
+          "text": "It",
+          "start": 27.527,
+          "end": 27.667
+        },
+        {
+          "text": "was",
+          "start": 27.725,
+          "end": 27.852
+        },
+        {
+          "text": "built",
+          "start": 27.968,
+          "end": 28.236
+        },
+        {
+          "text": "with",
+          "start": 28.282,
+          "end": 28.433
+        },
+        {
+          "text": "Visa,",
+          "start": 28.479,
+          "end": 28.851
+        },
+        {
+          "text": "Mastercard",
+          "start": 28.932,
+          "end": 29.478
+        },
+        {
+          "text": "and",
+          "start": 29.536,
+          "end": 29.675
+        },
+        {
+          "text": "American",
+          "start": 29.722,
+          "end": 30.012
+        },
+        {
+          "text": "Express.",
+          "start": 30.058,
+          "end": 30.465
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "from": 914,
+      "dur": 177,
+      "words": [
+        {
+          "text": "The",
+          "start": 30.488,
+          "end": 30.592
+        },
+        {
+          "text": "catch:",
+          "start": 30.639,
+          "end": 31.022
+        },
+        {
+          "text": "for",
+          "start": 31.057,
+          "end": 31.196
+        },
+        {
+          "text": "now",
+          "start": 31.266,
+          "end": 31.428
+        },
+        {
+          "text": "it",
+          "start": 31.544,
+          "end": 31.672
+        },
+        {
+          "text": "is",
+          "start": 31.719,
+          "end": 31.788
+        },
+        {
+          "text": "only",
+          "start": 31.846,
+          "end": 31.997
+        },
+        {
+          "text": "for",
+          "start": 32.044,
+          "end": 32.16
+        },
+        {
+          "text": "ChatGPT",
+          "start": 32.218,
+          "end": 32.624
+        },
+        {
+          "text": "Pro",
+          "start": 32.671,
+          "end": 32.833
+        },
+        {
+          "text": "users",
+          "start": 32.891,
+          "end": 33.228
+        },
+        {
+          "text": "in",
+          "start": 33.297,
+          "end": 33.39
+        },
+        {
+          "text": "the",
+          "start": 33.425,
+          "end": 33.506
+        },
+        {
+          "text": "US,",
+          "start": 33.588,
+          "end": 33.994
+        },
+        {
+          "text": "aged",
+          "start": 34.017,
+          "end": 34.261
+        },
+        {
+          "text": "18",
+          "start": 34.285,
+          "end": 34.61
+        },
+        {
+          "text": "and",
+          "start": 34.633,
+          "end": 34.702
+        },
+        {
+          "text": "above,",
+          "start": 34.737,
+          "end": 35.109
+        },
+        {
+          "text": "with",
+          "start": 35.144,
+          "end": 35.306
+        },
+        {
+          "text": "a",
+          "start": 35.341,
+          "end": 35.364
+        },
+        {
+          "text": "US-issued",
+          "start": 35.434,
+          "end": 35.968
+        },
+        {
+          "text": "card.",
+          "start": 36.026,
+          "end": 36.339
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "from": 1091,
+      "dur": 156,
+      "words": [
+        {
+          "text": "Own",
+          "start": 36.398,
+          "end": 36.572
+        },
+        {
+          "text": "an",
+          "start": 36.63,
+          "end": 36.676
+        },
+        {
+          "text": "online",
+          "start": 36.734,
+          "end": 36.955
+        },
+        {
+          "text": "shop?",
+          "start": 36.978,
+          "end": 37.257
+        },
+        {
+          "text": "Comment",
+          "start": 37.303,
+          "end": 37.651
+        },
+        {
+          "text": "WALLET",
+          "start": 37.733,
+          "end": 38.081
+        },
+        {
+          "text": "and",
+          "start": 38.151,
+          "end": 38.29
+        },
+        {
+          "text": "I",
+          "start": 38.36,
+          "end": 38.383
+        },
+        {
+          "text": "will",
+          "start": 38.453,
+          "end": 38.615
+        },
+        {
+          "text": "send",
+          "start": 38.673,
+          "end": 38.847
+        },
+        {
+          "text": "you",
+          "start": 38.882,
+          "end": 38.963
+        },
+        {
+          "text": "what",
+          "start": 39.021,
+          "end": 39.172
+        },
+        {
+          "text": "to",
+          "start": 39.207,
+          "end": 39.277
+        },
+        {
+          "text": "change",
+          "start": 39.323,
+          "end": 39.602
+        },
+        {
+          "text": "so",
+          "start": 39.683,
+          "end": 39.892
+        },
+        {
+          "text": "AI",
+          "start": 39.985,
+          "end": 40.217
+        },
+        {
+          "text": "agents",
+          "start": 40.287,
+          "end": 40.635
+        },
+        {
+          "text": "can",
+          "start": 40.693,
+          "end": 40.833
+        },
+        {
+          "text": "buy",
+          "start": 40.902,
+          "end": 41.007
+        },
+        {
+          "text": "from",
+          "start": 41.065,
+          "end": 41.204
+        },
+        {
+          "text": "you.",
+          "start": 41.262,
+          "end": 41.552
+        }
+      ]
+    }
+  ]
+}

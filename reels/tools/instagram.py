@@ -12,7 +12,10 @@ Usage:
 Publishing is public and cannot be undone from here, so it only happens with --yes.
 """
 import json
+import os
+import subprocess
 import sys
+import tempfile
 import time
 from pathlib import Path
 
@@ -125,14 +128,21 @@ def post(video: Path, caption: str, thumb_ms: int | None, share_to_feed: bool, c
     container, upload_uri = c["id"], c["uri"]
     print(f"1/4 container created: {container}")
 
-    with video.open("rb") as fh:
-        up = requests.post(
-            upload_uri,
-            headers={"Authorization": f"OAuth {token()}", "offset": "0", "file_size": str(size)},
-            data=fh,
-            timeout=600,
+    # Upload with curl, exactly as Meta documents it. The same request sent with Python requests
+    # fails on rupload.facebook.com with "ProcessingFailedError" (seen 14 Nov 2026).
+    # Headers go through a temporary file so the token never appears in the process list.
+    hf = tempfile.NamedTemporaryFile("w", delete=False, suffix=".txt", encoding="utf-8")
+    try:
+        hf.write(f"Authorization: OAuth {token()}\noffset: 0\nfile_size: {size}\n")
+        hf.close()
+        r = subprocess.run(
+            ["curl", "-s", "-X", "POST", upload_uri, "-H", f"@{hf.name}", "--data-binary", f"@{video.resolve()}"],
+            capture_output=True, text=True, timeout=900,
         )
-    check(up)
+    finally:
+        os.unlink(hf.name)
+    if '"success":true' not in r.stdout.replace(" ", ""):
+        sys.exit(f"video upload failed: {r.stdout[:300] or r.stderr[:300]}")
     print("2/4 video uploaded")
 
     for _ in range(60):  # up to ~5 minutes
