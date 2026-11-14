@@ -56,7 +56,9 @@ def _seen(db, url: str) -> bool:
     )
 
 
-def run() -> int:
+def fetch_posts() -> list:
+    """One paid Apify run for all accounts. Returns original posts (no retweets or replies)
+    as dicts: url, author, text, published_at. Writes nothing to the database."""
     token = os.getenv("APIFY_TOKEN", "").strip()
     if not token:
         raise RuntimeError("APIFY_TOKEN is not set in backend/.env")
@@ -69,19 +71,27 @@ def run() -> int:
     r.raise_for_status()
     items = r.json()
     logger.info(f"Apify returned {len(items)} posts")
+    posts = []
+    for t in items:
+        url = t.get("url") or t.get("twitterUrl")
+        text = (t.get("text") or t.get("fullText") or "").strip()
+        a = t.get("author") or {}
+        author = a.get("username") or a.get("userName") or ""
+        if not url or not author:
+            continue
+        if t.get("isRetweet") or t.get("isReply") or t.get("type") in ("retweet", "reply"):
+            continue
+        posts.append({"url": url, "author": author, "text": text, "published_at": _parse_date(t.get("createdAt"))})
+    return posts
 
+
+def run() -> int:
     queued = 0
+    posts = fetch_posts()
     db = SessionLocal()
     try:
-        for t in items:
-            url = t.get("url") or t.get("twitterUrl")
-            text = (t.get("text") or t.get("fullText") or "").strip()
-            a = t.get("author") or {}
-            author = a.get("username") or a.get("userName") or ""
-            if not url or not author:
-                continue
-            if t.get("isRetweet") or t.get("isReply") or t.get("type") in ("retweet", "reply"):
-                continue
+        for p in posts:
+            url, author, text = p["url"], p["author"], p["text"]
             if len(text) < MIN_TEXT_CHARS or _seen(db, url):
                 continue
             try:
@@ -91,7 +101,7 @@ def run() -> int:
                         source_label=f"X @{author}"[:100],
                         title=f"@{author} on X",
                         text=f"@{author} wrote on X:\n\n{text}"[: config.MAX_ARTICLE_CHARS],
-                        published_at=_parse_date(t.get("createdAt")),
+                        published_at=p["published_at"],
                     )
                 )
                 db.commit()

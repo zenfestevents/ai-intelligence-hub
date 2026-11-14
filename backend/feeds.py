@@ -173,7 +173,9 @@ FEEDS: List[Feed] = [
          "Startups", 30, kind="hn", note="Newest AI stories first (search_by_date); external links only."),
     Feed("TechCrunch AI", "https://techcrunch.com/category/artificial-intelligence/feed/", "Startups", 30),
     Feed("VentureBeat AI", "https://venturebeat.com/category/ai/feed/", "Startups", 30,
-         note="Returned 429 (rate limit) when tested; may work intermittently."),
+         note="Often 429: the site sits behind a bot checkpoint (Vercel Security Checkpoint) that "
+              "refuses automated readers. Left on so it is tried every run; its stories are usually "
+              "also covered by TechCrunch, The Decoder and The Verge."),
     Feed("Inc42", "https://inc42.com/feed/", "Regional (IN)", 60,
          note="Spec URL /buzz/ai/feed/ is 404; this is the site-wide feed, non-AI stories are filtered out."),
     Feed("Entrackr", "https://entrackr.com/rss", "Regional (IN)", 60,

@@ -12,13 +12,16 @@ import feedparser
 import httpx
 
 import config
-from feeds import Feed
+from feeds import RSSHUB_URL, Feed
 
 HEADERS = {"User-Agent": config.USER_AGENT}
 
 
 def _get(url: str) -> httpx.Response:
-    r = httpx.get(url, headers=HEADERS, timeout=20, follow_redirects=True)
+    # The self-hosted RSSHub runs on a small free server that sleeps when idle and builds
+    # each feed on request, so it needs far longer than an ordinary feed.
+    timeout = 120 if RSSHUB_URL and url.startswith(RSSHUB_URL) else 20
+    r = httpx.get(url, headers=HEADERS, timeout=timeout, follow_redirects=True)
     r.raise_for_status()
     return r
 
