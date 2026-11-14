@@ -28,6 +28,16 @@ IG_ACCESS_TOKEN=paste_the_token_here
 ```
 
 Save the file. Don't share the token with anyone; it gives posting access to the account.
+Use `.env`, never `.env.example`: the example file is uploaded to GitHub.
+
+**If the token starts with `EAA`** (Meta's newer "API setup with Unified login" screen), also add the
+Instagram account ID, which is the number shown under the account name on the token screen:
+
+```
+IG_USER_ID=the_number_under_the_account_name
+```
+
+Tokens that start with `IG` don't need this line.
 
 ## 5. Check it works
 ```

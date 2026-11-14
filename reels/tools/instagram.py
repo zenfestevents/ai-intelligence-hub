@@ -38,7 +38,12 @@ def token() -> str:
     return t
 
 
-API = f"https://graph.instagram.com/{env('IG_API_VERSION', 'v24.0')}"
+# Meta issues two kinds of token. "Instagram login" tokens start with IG and use graph.instagram.com.
+# "Unified login" tokens start with EAA, use graph.facebook.com, and cannot look up their own
+# account, so the Instagram account ID must be given as IG_USER_ID in .env.
+UNIFIED = (env("IG_ACCESS_TOKEN") or "").startswith("EAA")
+HOST = "graph.facebook.com" if UNIFIED else "graph.instagram.com"
+API = f"https://{HOST}/{env('IG_API_VERSION', 'v24.0')}"
 
 
 def check(r: requests.Response) -> dict:
@@ -54,6 +59,12 @@ def check(r: requests.Response) -> dict:
 
 
 def me() -> dict:
+    if UNIFIED:
+        ig_id = env("IG_USER_ID")
+        if not ig_id:
+            sys.exit("IG_USER_ID missing in .env. This kind of token needs the Instagram account ID; see tools/INSTAGRAM_SETUP.md.")
+        m = check(requests.get(f"{API}/{ig_id}", params={"fields": "id,username", "access_token": token()}, timeout=30))
+        return {"user_id": m["id"], "username": m.get("username"), "account_type": "professional"}
     return check(requests.get(f"{API}/me", params={"fields": "user_id,username,account_type", "access_token": token()}, timeout=30))
 
 
@@ -63,6 +74,9 @@ def whoami() -> None:
 
 
 def refresh() -> None:
+    if UNIFIED:
+        sys.exit("This token (Unified login) cannot be extended from here. When it expires, generate a new one "
+                 "in the Meta app dashboard and paste it into .env.")
     data = check(
         requests.get(
             "https://graph.instagram.com/refresh_access_token",
