@@ -1,0 +1,788 @@
+{
+  "fps": 30,
+  "lead_in": 8,
+  "speech_end": 1147,
+  "total": 1219,
+  "estimated": false,
+  "segments": [
+    {
+      "id": "s1",
+      "from": 8,
+      "dur": 95,
+      "words": [
+        {
+          "text": "One",
+          "start": 0.267,
+          "end": 0.441
+        },
+        {
+          "text": "photo",
+          "start": 0.464,
+          "end": 0.708
+        },
+        {
+          "text": "in.",
+          "start": 0.755,
+          "end": 0.94
+        },
+        {
+          "text": "A",
+          "start": 0.998,
+          "end": 1.068
+        },
+        {
+          "text": "full",
+          "start": 1.138,
+          "end": 1.324
+        },
+        {
+          "text": "3D",
+          "start": 1.382,
+          "end": 1.521
+        },
+        {
+          "text": "model",
+          "start": 1.591,
+          "end": 1.869
+        },
+        {
+          "text": "out.",
+          "start": 1.95,
+          "end": 2.206
+        },
+        {
+          "text": "In",
+          "start": 2.252,
+          "end": 2.392
+        },
+        {
+          "text": "about",
+          "start": 2.438,
+          "end": 2.624
+        },
+        {
+          "text": "20",
+          "start": 2.659,
+          "end": 2.868
+        },
+        {
+          "text": "seconds.",
+          "start": 2.926,
+          "end": 3.402
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "from": 102,
+      "dur": 136,
+      "words": [
+        {
+          "text": "This",
+          "start": 3.425,
+          "end": 3.587
+        },
+        {
+          "text": "is",
+          "start": 3.634,
+          "end": 3.727
+        },
+        {
+          "text": "Idol,",
+          "start": 3.843,
+          "end": 4.261
+        },
+        {
+          "text": "a",
+          "start": 4.296,
+          "end": 4.354
+        },
+        {
+          "text": "free",
+          "start": 4.447,
+          "end": 4.644
+        },
+        {
+          "text": "AI",
+          "start": 4.714,
+          "end": 4.946
+        },
+        {
+          "text": "model",
+          "start": 5.004,
+          "end": 5.294
+        },
+        {
+          "text": "in",
+          "start": 5.364,
+          "end": 5.457
+        },
+        {
+          "text": "the",
+          "start": 5.48,
+          "end": 5.55
+        },
+        {
+          "text": "top",
+          "start": 5.596,
+          "end": 5.782
+        },
+        {
+          "text": "ten",
+          "start": 5.851,
+          "end": 6.06
+        },
+        {
+          "text": "trending",
+          "start": 6.176,
+          "end": 6.583
+        },
+        {
+          "text": "on",
+          "start": 6.641,
+          "end": 6.699
+        },
+        {
+          "text": "Hugging",
+          "start": 6.745,
+          "end": 6.978
+        },
+        {
+          "text": "Face",
+          "start": 7.024,
+          "end": 7.303
+        },
+        {
+          "text": "right",
+          "start": 7.384,
+          "end": 7.616
+        },
+        {
+          "text": "now.",
+          "start": 7.686,
+          "end": 7.906
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "from": 239,
+      "dur": 191,
+      "words": [
+        {
+          "text": "Give",
+          "start": 7.999,
+          "end": 8.197
+        },
+        {
+          "text": "it",
+          "start": 8.231,
+          "end": 8.313
+        },
+        {
+          "text": "a",
+          "start": 8.371,
+          "end": 8.394
+        },
+        {
+          "text": "single",
+          "start": 8.44,
+          "end": 8.731
+        },
+        {
+          "text": "picture",
+          "start": 8.766,
+          "end": 9.056
+        },
+        {
+          "text": "of",
+          "start": 9.114,
+          "end": 9.195
+        },
+        {
+          "text": "an",
+          "start": 9.253,
+          "end": 9.311
+        },
+        {
+          "text": "object.",
+          "start": 9.358,
+          "end": 9.741
+        },
+        {
+          "text": "It",
+          "start": 9.764,
+          "end": 9.903
+        },
+        {
+          "text": "removes",
+          "start": 9.95,
+          "end": 10.228
+        },
+        {
+          "text": "the",
+          "start": 10.252,
+          "end": 10.321
+        },
+        {
+          "text": "background",
+          "start": 10.379,
+          "end": 10.797
+        },
+        {
+          "text": "and",
+          "start": 10.867,
+          "end": 11.029
+        },
+        {
+          "text": "builds",
+          "start": 11.076,
+          "end": 11.32
+        },
+        {
+          "text": "the",
+          "start": 11.355,
+          "end": 11.436
+        },
+        {
+          "text": "whole",
+          "start": 11.471,
+          "end": 11.68
+        },
+        {
+          "text": "thing",
+          "start": 11.714,
+          "end": 11.877
+        },
+        {
+          "text": "in",
+          "start": 11.935,
+          "end": 11.993
+        },
+        {
+          "text": "3D,",
+          "start": 12.074,
+          "end": 12.423
+        },
+        {
+          "text": "even",
+          "start": 12.504,
+          "end": 12.748
+        },
+        {
+          "text": "the",
+          "start": 12.783,
+          "end": 12.852
+        },
+        {
+          "text": "back",
+          "start": 12.91,
+          "end": 13.084
+        },
+        {
+          "text": "side",
+          "start": 13.131,
+          "end": 13.351
+        },
+        {
+          "text": "the",
+          "start": 13.375,
+          "end": 13.456
+        },
+        {
+          "text": "photo",
+          "start": 13.502,
+          "end": 13.735
+        },
+        {
+          "text": "never",
+          "start": 13.781,
+          "end": 13.99
+        },
+        {
+          "text": "showed.",
+          "start": 14.036,
+          "end": 14.327
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "from": 430,
+      "dur": 147,
+      "words": [
+        {
+          "text": "Think",
+          "start": 14.362,
+          "end": 14.559
+        },
+        {
+          "text": "of",
+          "start": 14.605,
+          "end": 14.663
+        },
+        {
+          "text": "a",
+          "start": 14.71,
+          "end": 14.733
+        },
+        {
+          "text": "sculptor",
+          "start": 14.768,
+          "end": 15.186
+        },
+        {
+          "text": "who",
+          "start": 15.232,
+          "end": 15.36
+        },
+        {
+          "text": "sees",
+          "start": 15.406,
+          "end": 15.592
+        },
+        {
+          "text": "one",
+          "start": 15.65,
+          "end": 15.778
+        },
+        {
+          "text": "photo",
+          "start": 15.801,
+          "end": 16.022
+        },
+        {
+          "text": "of",
+          "start": 16.045,
+          "end": 16.115
+        },
+        {
+          "text": "a",
+          "start": 16.161,
+          "end": 16.196
+        },
+        {
+          "text": "chair",
+          "start": 16.242,
+          "end": 16.509
+        },
+        {
+          "text": "and",
+          "start": 16.556,
+          "end": 16.707
+        },
+        {
+          "text": "carves",
+          "start": 16.776,
+          "end": 17.101
+        },
+        {
+          "text": "the",
+          "start": 17.218,
+          "end": 17.334
+        },
+        {
+          "text": "full",
+          "start": 17.38,
+          "end": 17.566
+        },
+        {
+          "text": "chair,",
+          "start": 17.624,
+          "end": 17.961
+        },
+        {
+          "text": "guessing",
+          "start": 18.03,
+          "end": 18.332
+        },
+        {
+          "text": "the",
+          "start": 18.367,
+          "end": 18.437
+        },
+        {
+          "text": "back",
+          "start": 18.483,
+          "end": 18.634
+        },
+        {
+          "text": "correctly.",
+          "start": 18.692,
+          "end": 19.226
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "from": 577,
+      "dur": 221,
+      "words": [
+        {
+          "text": "It",
+          "start": 19.249,
+          "end": 19.377
+        },
+        {
+          "text": "runs",
+          "start": 19.423,
+          "end": 19.609
+        },
+        {
+          "text": "on",
+          "start": 19.656,
+          "end": 19.714
+        },
+        {
+          "text": "a",
+          "start": 19.749,
+          "end": 19.772
+        },
+        {
+          "text": "gaming",
+          "start": 19.818,
+          "end": 20.062
+        },
+        {
+          "text": "PC",
+          "start": 20.12,
+          "end": 20.364
+        },
+        {
+          "text": "with",
+          "start": 20.538,
+          "end": 20.677
+        },
+        {
+          "text": "an",
+          "start": 20.712,
+          "end": 20.782
+        },
+        {
+          "text": "NVIDIA",
+          "start": 20.84,
+          "end": 21.095
+        },
+        {
+          "text": "graphics",
+          "start": 21.142,
+          "end": 21.478
+        },
+        {
+          "text": "card.",
+          "start": 21.525,
+          "end": 21.815
+        },
+        {
+          "text": "It",
+          "start": 21.862,
+          "end": 22.001
+        },
+        {
+          "text": "needs",
+          "start": 22.059,
+          "end": 22.268
+        },
+        {
+          "text": "about",
+          "start": 22.303,
+          "end": 22.512
+        },
+        {
+          "text": "7 GB",
+          "start": 22.547,
+          "end": 23.161
+        },
+        {
+          "text": "of",
+          "start": 23.208,
+          "end": 23.266
+        },
+        {
+          "text": "graphics",
+          "start": 23.324,
+          "end": 23.649
+        },
+        {
+          "text": "memory,",
+          "start": 23.695,
+          "end": 24.09
+        },
+        {
+          "text": "and",
+          "start": 24.113,
+          "end": 24.253
+        },
+        {
+          "text": "takes",
+          "start": 24.311,
+          "end": 24.508
+        },
+        {
+          "text": "about",
+          "start": 24.555,
+          "end": 24.798
+        },
+        {
+          "text": "20",
+          "start": 24.856,
+          "end": 25.065
+        },
+        {
+          "text": "seconds",
+          "start": 25.112,
+          "end": 25.483
+        },
+        {
+          "text": "on",
+          "start": 25.576,
+          "end": 25.704
+        },
+        {
+          "text": "a",
+          "start": 25.739,
+          "end": 25.762
+        },
+        {
+          "text": "top",
+          "start": 25.82,
+          "end": 25.971
+        },
+        {
+          "text": "gaming",
+          "start": 26.029,
+          "end": 26.261
+        },
+        {
+          "text": "card.",
+          "start": 26.296,
+          "end": 26.575
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "from": 798,
+      "dur": 237,
+      "words": [
+        {
+          "text": "There",
+          "start": 26.621,
+          "end": 26.795
+        },
+        {
+          "text": "is",
+          "start": 26.819,
+          "end": 26.9
+        },
+        {
+          "text": "also",
+          "start": 26.958,
+          "end": 27.202
+        },
+        {
+          "text": "Budget3D,",
+          "start": 27.271,
+          "end": 28.177
+        },
+        {
+          "text": "an",
+          "start": 28.2,
+          "end": 28.351
+        },
+        {
+          "text": "unofficial",
+          "start": 28.432,
+          "end": 28.966
+        },
+        {
+          "text": "community",
+          "start": 29.024,
+          "end": 29.419
+        },
+        {
+          "text": "version",
+          "start": 29.466,
+          "end": 29.779
+        },
+        {
+          "text": "built",
+          "start": 29.849,
+          "end": 30.081
+        },
+        {
+          "text": "on",
+          "start": 30.151,
+          "end": 30.267
+        },
+        {
+          "text": "Idol.",
+          "start": 30.36,
+          "end": 30.754
+        },
+        {
+          "text": "It",
+          "start": 30.789,
+          "end": 30.917
+        },
+        {
+          "text": "spends",
+          "start": 30.952,
+          "end": 31.23
+        },
+        {
+          "text": "less",
+          "start": 31.288,
+          "end": 31.463
+        },
+        {
+          "text": "effort",
+          "start": 31.544,
+          "end": 31.892
+        },
+        {
+          "text": "on",
+          "start": 31.962,
+          "end": 32.078
+        },
+        {
+          "text": "empty",
+          "start": 32.159,
+          "end": 32.426
+        },
+        {
+          "text": "space,",
+          "start": 32.461,
+          "end": 32.856
+        },
+        {
+          "text": "so",
+          "start": 32.914,
+          "end": 33.041
+        },
+        {
+          "text": "it",
+          "start": 33.1,
+          "end": 33.158
+        },
+        {
+          "text": "can",
+          "start": 33.192,
+          "end": 33.309
+        },
+        {
+          "text": "run",
+          "start": 33.378,
+          "end": 33.517
+        },
+        {
+          "text": "about",
+          "start": 33.552,
+          "end": 33.773
+        },
+        {
+          "text": "twice",
+          "start": 33.796,
+          "end": 34.005
+        },
+        {
+          "text": "as",
+          "start": 34.028,
+          "end": 34.11
+        },
+        {
+          "text": "fast.",
+          "start": 34.168,
+          "end": 34.493
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "from": 1036,
+      "dur": 111,
+      "words": [
+        {
+          "text": "Want",
+          "start": 34.551,
+          "end": 34.771
+        },
+        {
+          "text": "the",
+          "start": 34.794,
+          "end": 34.864
+        },
+        {
+          "text": "links",
+          "start": 34.91,
+          "end": 35.131
+        },
+        {
+          "text": "and",
+          "start": 35.154,
+          "end": 35.235
+        },
+        {
+          "text": "the",
+          "start": 35.259,
+          "end": 35.328
+        },
+        {
+          "text": "setup",
+          "start": 35.363,
+          "end": 35.607
+        },
+        {
+          "text": "steps?",
+          "start": 35.653,
+          "end": 36.118
+        },
+        {
+          "text": "Comment",
+          "start": 36.153,
+          "end": 36.489
+        },
+        {
+          "text": "3D",
+          "start": 36.512,
+          "end": 36.663
+        },
+        {
+          "text": "and",
+          "start": 36.838,
+          "end": 37.023
+        },
+        {
+          "text": "I",
+          "start": 37.093,
+          "end": 37.128
+        },
+        {
+          "text": "will",
+          "start": 37.209,
+          "end": 37.36
+        },
+        {
+          "text": "send",
+          "start": 37.406,
+          "end": 37.581
+        },
+        {
+          "text": "them",
+          "start": 37.604,
+          "end": 37.743
+        },
+        {
+          "text": "to",
+          "start": 37.801,
+          "end": 37.871
+        },
+        {
+          "text": "you.",
+          "start": 37.929,
+          "end": 38.208
+        }
+      ]
+    }
+  ]
+}

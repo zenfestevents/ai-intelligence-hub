@@ -940,3 +940,20 @@ export const ChatGPTWallet: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+/* ---------- cover image (profile grid keeps only the middle 1080 x 1440, y 240-1680) ---------- */
+
+export const ChatGPTWalletCover: React.FC = () => (
+  <AbsoluteFill style={{ background: C.bg }}>
+    {/* show the hook scene as it looks at about 3.7 s, with the headline moved inside the grid area */}
+    <Sequence from={-110} layout="none">
+      <Background />
+      <div style={{ position: "absolute", inset: 0, transform: "translateY(95px)" }}>
+        <Phone>
+          <ChatScreen />
+        </Phone>
+      </div>
+      <Sticker lines={["ChatGPT can now", <>shop &amp; <span style={{ display: "inline-block", background: C.ink, color: C.yellow, padding: "3px 12px 5px", lineHeight: 0.95, borderRadius: 10 }}>pay</span> for you</>]} at={8} top={275} />
+    </Sequence>
+  </AbsoluteFill>
+);

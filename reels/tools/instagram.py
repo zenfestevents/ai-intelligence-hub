@@ -23,6 +23,7 @@ import requests
 
 ROOT = Path(__file__).resolve().parent.parent
 ENV = ROOT / ".env"
+UPLOAD_TRIES = 3
 LOG = ROOT / "output" / "instagram_posts.jsonl"
 
 
@@ -124,25 +125,32 @@ def post(video: Path, caption: str, thumb_ms: int | None, share_to_feed: bool, c
     }
     if thumb_ms is not None:
         params["thumb_offset"] = str(thumb_ms)
-    c = check(requests.post(f"{API}/{ig_id}/media", data=params, timeout=60))
-    container, upload_uri = c["id"], c["uri"]
-    print(f"1/4 container created: {container}")
-
     # Upload with curl, exactly as Meta documents it. The same request sent with Python requests
     # fails on rupload.facebook.com with "ProcessingFailedError" (seen 14 Nov 2026).
+    # rupload also fails intermittently with that error for identical uploads (16 Nov 2026: same file,
+    # same curl, 2 of 3 succeeded). It says "retriable": false for that container, so each retry starts
+    # a fresh container; unused containers are never published and simply expire.
     # Headers go through a temporary file so the token never appears in the process list.
-    hf = tempfile.NamedTemporaryFile("w", delete=False, suffix=".txt", encoding="utf-8")
-    try:
-        hf.write(f"Authorization: OAuth {token()}\noffset: 0\nfile_size: {size}\n")
-        hf.close()
-        r = subprocess.run(
-            ["curl", "-s", "-X", "POST", upload_uri, "-H", f"@{hf.name}", "--data-binary", f"@{video.resolve()}"],
-            capture_output=True, text=True, timeout=900,
-        )
-    finally:
-        os.unlink(hf.name)
-    if '"success":true' not in r.stdout.replace(" ", ""):
-        sys.exit(f"video upload failed: {r.stdout[:300] or r.stderr[:300]}")
+    for attempt in range(1, UPLOAD_TRIES + 1):
+        c = check(requests.post(f"{API}/{ig_id}/media", data=params, timeout=60))
+        container, upload_uri = c["id"], c["uri"]
+        print(f"1/4 container created: {container}")
+        hf = tempfile.NamedTemporaryFile("w", delete=False, suffix=".txt", encoding="utf-8")
+        try:
+            hf.write(f"Authorization: OAuth {token()}\noffset: 0\nfile_size: {size}\n")
+            hf.close()
+            r = subprocess.run(
+                ["curl", "-s", "-X", "POST", upload_uri, "-H", f"@{hf.name}", "--data-binary", f"@{video.resolve()}"],
+                capture_output=True, text=True, timeout=900,
+            )
+        finally:
+            os.unlink(hf.name)
+        if '"success":true' in r.stdout.replace(" ", ""):
+            break
+        print(f"    upload attempt {attempt}/{UPLOAD_TRIES} failed: {r.stdout[:200] or r.stderr[:200]}")
+        time.sleep(5)
+    else:
+        sys.exit("video upload failed on every attempt; nothing was published")
     print("2/4 video uploaded")
 
     for _ in range(60):  # up to ~5 minutes
