@@ -1,0 +1,571 @@
+{
+  "fps": 30,
+  "lead_in": 8,
+  "speech_end": 709,
+  "total": 781,
+  "estimated": false,
+  "segments": [
+    {
+      "id": "s1",
+      "from": 8,
+      "dur": 70,
+      "words": [
+        {
+          "text": "Google",
+          "start": 0.267,
+          "end": 0.546
+        },
+        {
+          "text": "Maps",
+          "start": 0.592,
+          "end": 0.859
+        },
+        {
+          "text": "can",
+          "start": 0.94,
+          "end": 1.08
+        },
+        {
+          "text": "now",
+          "start": 1.138,
+          "end": 1.277
+        },
+        {
+          "text": "plan",
+          "start": 1.347,
+          "end": 1.544
+        },
+        {
+          "text": "your",
+          "start": 1.602,
+          "end": 1.73
+        },
+        {
+          "text": "whole",
+          "start": 1.753,
+          "end": 1.985
+        },
+        {
+          "text": "trip",
+          "start": 2.008,
+          "end": 2.171
+        },
+        {
+          "text": "for",
+          "start": 2.217,
+          "end": 2.31
+        },
+        {
+          "text": "you.",
+          "start": 2.368,
+          "end": 2.577
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "from": 78,
+      "dur": 141,
+      "words": [
+        {
+          "text": "Open",
+          "start": 2.624,
+          "end": 2.902
+        },
+        {
+          "text": "Ask",
+          "start": 2.949,
+          "end": 3.1
+        },
+        {
+          "text": "Maps",
+          "start": 3.169,
+          "end": 3.413
+        },
+        {
+          "text": "and",
+          "start": 3.471,
+          "end": 3.634
+        },
+        {
+          "text": "type",
+          "start": 3.692,
+          "end": 3.913
+        },
+        {
+          "text": "something",
+          "start": 3.947,
+          "end": 4.272
+        },
+        {
+          "text": "like:",
+          "start": 4.342,
+          "end": 4.586
+        },
+        {
+          "text": "plan",
+          "start": 4.632,
+          "end": 4.865
+        },
+        {
+          "text": "a",
+          "start": 4.923,
+          "end": 4.946
+        },
+        {
+          "text": "three",
+          "start": 4.992,
+          "end": 5.143
+        },
+        {
+          "text": "day",
+          "start": 5.178,
+          "end": 5.259
+        },
+        {
+          "text": "road",
+          "start": 5.317,
+          "end": 5.48
+        },
+        {
+          "text": "trip",
+          "start": 5.515,
+          "end": 5.735
+        },
+        {
+          "text": "with",
+          "start": 5.817,
+          "end": 6.014
+        },
+        {
+          "text": "beach",
+          "start": 6.072,
+          "end": 6.269
+        },
+        {
+          "text": "stops",
+          "start": 6.293,
+          "end": 6.583
+        },
+        {
+          "text": "and",
+          "start": 6.629,
+          "end": 6.757
+        },
+        {
+          "text": "good",
+          "start": 6.815,
+          "end": 6.978
+        },
+        {
+          "text": "food.",
+          "start": 7.012,
+          "end": 7.279
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "from": 219,
+      "dur": 97,
+      "words": [
+        {
+          "text": "You",
+          "start": 7.314,
+          "end": 7.407
+        },
+        {
+          "text": "get",
+          "start": 7.465,
+          "end": 7.57
+        },
+        {
+          "text": "a",
+          "start": 7.616,
+          "end": 7.639
+        },
+        {
+          "text": "day",
+          "start": 7.686,
+          "end": 7.802
+        },
+        {
+          "text": "by",
+          "start": 7.848,
+          "end": 7.953
+        },
+        {
+          "text": "day",
+          "start": 8.011,
+          "end": 8.115
+        },
+        {
+          "text": "plan,",
+          "start": 8.162,
+          "end": 8.464
+        },
+        {
+          "text": "with",
+          "start": 8.498,
+          "end": 8.638
+        },
+        {
+          "text": "a",
+          "start": 8.673,
+          "end": 8.696
+        },
+        {
+          "text": "numbered",
+          "start": 8.742,
+          "end": 9.067
+        },
+        {
+          "text": "pin",
+          "start": 9.102,
+          "end": 9.276
+        },
+        {
+          "text": "on",
+          "start": 9.369,
+          "end": 9.474
+        },
+        {
+          "text": "the",
+          "start": 9.509,
+          "end": 9.578
+        },
+        {
+          "text": "map",
+          "start": 9.636,
+          "end": 9.799
+        },
+        {
+          "text": "for",
+          "start": 9.857,
+          "end": 9.973
+        },
+        {
+          "text": "every",
+          "start": 10.031,
+          "end": 10.217
+        },
+        {
+          "text": "stop.",
+          "start": 10.252,
+          "end": 10.507
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "from": 316,
+      "dur": 114,
+      "words": [
+        {
+          "text": "When",
+          "start": 10.542,
+          "end": 10.716
+        },
+        {
+          "text": "you",
+          "start": 10.751,
+          "end": 10.82
+        },
+        {
+          "text": "head",
+          "start": 10.879,
+          "end": 11.029
+        },
+        {
+          "text": "out,",
+          "start": 11.099,
+          "end": 11.343
+        },
+        {
+          "text": "it",
+          "start": 11.389,
+          "end": 11.505
+        },
+        {
+          "text": "shows",
+          "start": 11.54,
+          "end": 11.761
+        },
+        {
+          "text": "live",
+          "start": 11.831,
+          "end": 11.993
+        },
+        {
+          "text": "traffic,",
+          "start": 12.028,
+          "end": 12.457
+        },
+        {
+          "text": "and",
+          "start": 12.481,
+          "end": 12.632
+        },
+        {
+          "text": "tells",
+          "start": 12.678,
+          "end": 12.887
+        },
+        {
+          "text": "you",
+          "start": 12.945,
+          "end": 13.038
+        },
+        {
+          "text": "if",
+          "start": 13.131,
+          "end": 13.27
+        },
+        {
+          "text": "each",
+          "start": 13.386,
+          "end": 13.549
+        },
+        {
+          "text": "place",
+          "start": 13.607,
+          "end": 13.804
+        },
+        {
+          "text": "is",
+          "start": 13.839,
+          "end": 13.909
+        },
+        {
+          "text": "open.",
+          "start": 13.978,
+          "end": 14.327
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "from": 431,
+      "dur": 134,
+      "words": [
+        {
+          "text": "Change",
+          "start": 14.385,
+          "end": 14.629
+        },
+        {
+          "text": "of",
+          "start": 14.652,
+          "end": 14.71
+        },
+        {
+          "text": "plan",
+          "start": 14.756,
+          "end": 14.954
+        },
+        {
+          "text": "on",
+          "start": 15.012,
+          "end": 15.07
+        },
+        {
+          "text": "the",
+          "start": 15.105,
+          "end": 15.174
+        },
+        {
+          "text": "way?",
+          "start": 15.232,
+          "end": 15.464
+        },
+        {
+          "text": "Just",
+          "start": 15.523,
+          "end": 15.743
+        },
+        {
+          "text": "ask",
+          "start": 15.813,
+          "end": 16.045
+        },
+        {
+          "text": "it",
+          "start": 16.115,
+          "end": 16.184
+        },
+        {
+          "text": "to",
+          "start": 16.219,
+          "end": 16.277
+        },
+        {
+          "text": "add",
+          "start": 16.358,
+          "end": 16.521
+        },
+        {
+          "text": "a",
+          "start": 16.579,
+          "end": 16.602
+        },
+        {
+          "text": "lunch",
+          "start": 16.637,
+          "end": 16.811
+        },
+        {
+          "text": "stop.",
+          "start": 16.834,
+          "end": 17.125
+        },
+        {
+          "text": "Then",
+          "start": 17.148,
+          "end": 17.322
+        },
+        {
+          "text": "share",
+          "start": 17.357,
+          "end": 17.543
+        },
+        {
+          "text": "the",
+          "start": 17.566,
+          "end": 17.636
+        },
+        {
+          "text": "whole",
+          "start": 17.67,
+          "end": 17.868
+        },
+        {
+          "text": "plan",
+          "start": 17.891,
+          "end": 18.065
+        },
+        {
+          "text": "with",
+          "start": 18.1,
+          "end": 18.216
+        },
+        {
+          "text": "your",
+          "start": 18.262,
+          "end": 18.367
+        },
+        {
+          "text": "family.",
+          "start": 18.413,
+          "end": 18.808
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "from": 565,
+      "dur": 144,
+      "words": [
+        {
+          "text": "It",
+          "start": 18.855,
+          "end": 18.971
+        },
+        {
+          "text": "is",
+          "start": 19.017,
+          "end": 19.087
+        },
+        {
+          "text": "rolling",
+          "start": 19.133,
+          "end": 19.342
+        },
+        {
+          "text": "out",
+          "start": 19.4,
+          "end": 19.563
+        },
+        {
+          "text": "now",
+          "start": 19.632,
+          "end": 19.807
+        },
+        {
+          "text": "on",
+          "start": 19.899,
+          "end": 20.027
+        },
+        {
+          "text": "Android",
+          "start": 20.12,
+          "end": 20.468
+        },
+        {
+          "text": "and",
+          "start": 20.503,
+          "end": 20.573
+        },
+        {
+          "text": "iPhone.",
+          "start": 20.631,
+          "end": 21.014
+        },
+        {
+          "text": "Comment",
+          "start": 21.072,
+          "end": 21.409
+        },
+        {
+          "text": "TRIP",
+          "start": 21.467,
+          "end": 21.769
+        },
+        {
+          "text": "and",
+          "start": 21.85,
+          "end": 22.012
+        },
+        {
+          "text": "I",
+          "start": 22.071,
+          "end": 22.094
+        },
+        {
+          "text": "will",
+          "start": 22.152,
+          "end": 22.268
+        },
+        {
+          "text": "send",
+          "start": 22.303,
+          "end": 22.442
+        },
+        {
+          "text": "you",
+          "start": 22.477,
+          "end": 22.547
+        },
+        {
+          "text": "my",
+          "start": 22.605,
+          "end": 22.674
+        },
+        {
+          "text": "best",
+          "start": 22.732,
+          "end": 22.918
+        },
+        {
+          "text": "trip",
+          "start": 22.953,
+          "end": 23.127
+        },
+        {
+          "text": "prompts.",
+          "start": 23.162,
+          "end": 23.626
+        }
+      ]
+    }
+  ]
+}
