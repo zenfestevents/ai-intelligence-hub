@@ -7,6 +7,7 @@ Usage:
 """
 import base64
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -17,11 +18,30 @@ VOICE_FILE = ROOT / "work" / "voice.json"
 API = "https://api.elevenlabs.io/v1"
 
 
+def env(name: str) -> str:
+    """Environment variable first (cloud runs), then reels/.env (this computer)."""
+    if os.environ.get(name, "").strip():
+        return os.environ[name].strip()
+    f = ROOT / ".env"
+    if f.exists():
+        for line in f.read_text(encoding="utf-8-sig").splitlines():
+            if line.startswith(f"{name}="):
+                return line.split("=", 1)[1].strip()
+    return ""
+
+
 def api_key() -> str:
-    for line in (ROOT / ".env").read_text(encoding="utf-8-sig").splitlines():
-        if line.startswith("ELEVENLABS_API_KEY="):
-            return line.split("=", 1)[1].strip()
-    sys.exit("ELEVENLABS_API_KEY missing in .env")
+    return env("ELEVENLABS_API_KEY") or sys.exit("ELEVENLABS_API_KEY missing (environment or .env)")
+
+
+def voice_id() -> str:
+    """ELEVENLABS_VOICE_ID if set, else the id saved by `clone` in work/voice.json."""
+    v = env("ELEVENLABS_VOICE_ID")
+    if v:
+        return v
+    if VOICE_FILE.exists():
+        return json.loads(VOICE_FILE.read_text(encoding="utf-8"))["voice_id"]
+    sys.exit("No voice: set ELEVENLABS_VOICE_ID or run `eleven.py clone` first")
 
 
 def check(r: requests.Response) -> requests.Response:
@@ -50,10 +70,10 @@ def clone(name: str, samples: list[str]) -> None:
 def say(text: str, out: str, model: str = "eleven_multilingual_v2") -> None:
     if text.startswith("@"):
         text = Path(text[1:]).read_text(encoding="utf-8").strip()
-    voice_id = json.loads(VOICE_FILE.read_text(encoding="utf-8"))["voice_id"]
+    vid = voice_id()
     r = check(
         requests.post(
-            f"{API}/text-to-speech/{voice_id}?output_format=mp3_44100_128",
+            f"{API}/text-to-speech/{vid}?output_format=mp3_44100_128",
             headers={"xi-api-key": api_key(), "Content-Type": "application/json"},
             json={
                 "text": text,
@@ -71,10 +91,10 @@ def say_script(script: str, out_mp3: str, out_alignment: str, model: str = "elev
     """Speak a reel script's segments as one take; save audio plus per-character timings."""
     spec = json.loads(Path(script).read_text(encoding="utf-8"))
     text = " ".join(s["text"] for s in spec["segments"])
-    voice_id = json.loads(VOICE_FILE.read_text(encoding="utf-8"))["voice_id"]
+    vid = voice_id()
     r = check(
         requests.post(
-            f"{API}/text-to-speech/{voice_id}/with-timestamps?output_format=mp3_44100_128",
+            f"{API}/text-to-speech/{vid}/with-timestamps?output_format=mp3_44100_128",
             headers={"xi-api-key": api_key(), "Content-Type": "application/json"},
             json={
                 "text": text,

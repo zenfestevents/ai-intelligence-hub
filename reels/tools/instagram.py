@@ -7,6 +7,7 @@ Usage:
   python instagram.py post <video.mp4> <caption.txt> [--thumb-ms 4600] [--no-feed]
                                                                -> DRY RUN: shows what would be posted
   python instagram.py post <video.mp4> <caption.txt> ... --yes -> actually uploads and publishes
+  python instagram.py recent [n]                                -> the page's latest posts (date | first caption line)
   python instagram.py refresh                                  -> extends the long-lived token by 60 days, saves it to .env
 
 Publishing is public and cannot be undone from here, so it only happens with --yes.
@@ -28,6 +29,9 @@ LOG = ROOT / "output" / "instagram_posts.jsonl"
 
 
 def env(name: str, default: str | None = None) -> str | None:
+    """Environment variable first (cloud runs), then reels/.env (this computer)."""
+    if os.environ.get(name, "").strip():
+        return os.environ[name].strip()
     if ENV.exists():
         for line in ENV.read_text(encoding="utf-8-sig").splitlines():
             if line.startswith(f"{name}="):
@@ -75,6 +79,15 @@ def me() -> dict:
 def whoami() -> None:
     m = me()
     print(f"Token OK. Account: @{m.get('username')} (id {m.get('user_id')}, {m.get('account_type')})")
+
+
+def recent(n: int = 15) -> None:
+    """The page's latest posts (date + first caption line), so a run never repeats a topic."""
+    ig_id = me()["user_id"]
+    data = check(requests.get(f"{API}/{ig_id}/media", params={"fields": "caption,timestamp,permalink", "limit": n, "access_token": token()}, timeout=30))
+    for m in data.get("data", []):
+        first = (m.get("caption") or "").strip().splitlines()[0:1]
+        print(f"{m.get('timestamp', '')[:10]} | {first[0] if first else ''} | {m.get('permalink', '')}")
 
 
 def refresh() -> None:
@@ -182,6 +195,8 @@ if __name__ == "__main__":
     cmd = args[0]
     if cmd == "whoami":
         whoami()
+    elif cmd == "recent":
+        recent(int(args[1]) if len(args) > 1 else 15)
     elif cmd == "refresh":
         refresh()
     elif cmd == "post" and len(args) >= 3:

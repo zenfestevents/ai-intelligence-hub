@@ -22,6 +22,7 @@ import base64
 import hashlib
 import http.server
 import json
+import os
 import re
 import secrets
 import subprocess
@@ -45,6 +46,9 @@ TRIES = 5
 
 
 def env(name: str, default: str | None = None) -> str | None:
+    """Environment variable first (cloud runs), then reels/.env (this computer)."""
+    if os.environ.get(name, "").strip():
+        return os.environ[name].strip()
     if ENV.exists():
         for line in ENV.read_text(encoding="utf-8-sig").splitlines():
             if line.startswith(f"{name}="):
@@ -62,6 +66,10 @@ def set_env(name: str, value: str) -> None:
 
 
 def client() -> dict:
+    # Cloud runs have no client_secret.json; they get the two values as environment variables.
+    if os.environ.get("YT_CLIENT_ID") and os.environ.get("YT_CLIENT_SECRET"):
+        return {"client_id": os.environ["YT_CLIENT_ID"].strip(), "client_secret": os.environ["YT_CLIENT_SECRET"].strip(),
+                "token_uri": "https://oauth2.googleapis.com/token"}
     if not CLIENT_FILE.exists():
         sys.exit(f"{CLIENT_FILE.name} not found in {ROOT}. See tools/YOUTUBE_SETUP.md, step 4.")
     data = json.loads(CLIENT_FILE.read_text(encoding="utf-8"))
