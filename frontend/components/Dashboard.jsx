@@ -30,6 +30,7 @@ const TABS = [
   { id: "github", label: "GitHub trending" },
   { id: "huggingface", label: "Hugging Face trending" },
   { id: "startups", label: "Startups" },
+  { id: "queue", label: "Waiting queue" },
 ];
 // Must match the source labels in backend/feeds.py.
 const GITHUB_SOURCE = "GitHub Trending (RSSHub)";
@@ -369,6 +370,152 @@ function StartupsTab() {
   );
 }
 
+/* ---------- waiting queue tab ---------- */
+
+const QUEUE_PAGE = 100;
+
+function QueueTab() {
+  const [source, setSource] = useState("All");
+  const [limit, setLimit] = useState(QUEUE_PAGE);
+  const [state, setState] = useState({ data: null, loading: true, error: null });
+
+  const load = useCallback(async () => {
+    const qs = new URLSearchParams({ limit: String(limit) });
+    if (source !== "All") qs.set("source", source);
+    try {
+      const data = await getJson(`/api/queue?${qs}`);
+      setState({ data, loading: false, error: null });
+    } catch (err) {
+      setState((s) => ({ ...s, loading: false, error: err.message }));
+    }
+  }, [source, limit]);
+
+  useEffect(() => {
+    setState((s) => ({ ...s, loading: true }));
+    load();
+    const timer = setInterval(load, REFRESH_MS);
+    return () => clearInterval(timer);
+  }, [load]);
+
+  const pick = (value) => {
+    setSource(value);
+    setLimit(QUEUE_PAGE);
+  };
+
+  if (state.error) {
+    return (
+      <Notice title="Cannot reach the API" alert>
+        The waiting queue could not load ({state.error}).
+      </Notice>
+    );
+  }
+  const data = state.data;
+  if (!data) return <Notice title="Loading" />;
+  if (data.waiting === 0) {
+    return <Notice title="Queue is empty">Every fetched article has been summarised or rejected.</Notice>;
+  }
+
+  const shownTotal = source === "All" ? data.waiting : data.sources.find((s) => s.source === source)?.count ?? 0;
+  const summary = [
+    ["Waiting", data.waiting],
+    ["Sources waiting", data.sources.length],
+    ["Published in last 24h", data.last_24h],
+    ["Stuck (3 failed tries)", data.stuck, data.stuck > 0],
+    ["Oldest item", timeAgo(data.oldest)],
+  ];
+
+  return (
+    <div className="space-y-8">
+      <p className="max-w-[70ch] text-[13px] leading-relaxed text-dim">
+        Articles the poller has fetched that the daily Claude summary run has not handled yet. They are not
+        verified and have no summary. Open the source to read one. Pick a source to see only its items.
+      </p>
+
+      <dl className="gridlines grid-cols-2 md:grid-cols-5" aria-label="Queue status">
+        {summary.map(([name, value, warn]) => (
+          <div key={name} className="cell p-4">
+            <dt className="label">{name}</dt>
+            <dd className={`mt-1 text-xl font-bold uppercase ${warn ? "text-hazard" : "text-phosphor"}`}>{value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <div>
+        <h2 className="label mb-3">By source</h2>
+        <div className="gridlines grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+          {[{ source: "All", count: data.waiting, newest: null }, ...data.sources].map((s) => {
+            const active = source === s.source;
+            return (
+              <button
+                key={s.source}
+                type="button"
+                aria-pressed={active}
+                onClick={() => pick(s.source)}
+                className={`cell flex min-w-0 items-center justify-between gap-3 p-3 text-left transition-colors ${
+                  active ? "bg-phosphor text-crt" : "text-phosphor hover:text-hazard"
+                }`}
+              >
+                <span className="min-w-0">
+                  <span className="block truncate text-[12px] uppercase tracking-[0.06em]">
+                    {s.source === "All" ? "All sources" : s.source}
+                  </span>
+                  {s.newest && (
+                    <span className={`block text-[11px] ${active ? "text-crt" : "text-dim"}`}>
+                      newest {timeAgo(s.newest)}
+                    </span>
+                  )}
+                </span>
+                <span className="shrink-0 text-lg font-bold">{s.count}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <div>
+        <h2 className="label mb-3">
+          {source === "All" ? "All sources" : source}, newest first ({Math.min(data.items.length, shownTotal)} of{" "}
+          {shownTotal})
+        </h2>
+        <ol className="gridlines">
+          {data.items.map((item) => (
+            <li
+              key={item.id}
+              className="cell grid gap-x-6 gap-y-1 p-3 md:grid-cols-[minmax(0,1fr)_minmax(0,14rem)_6rem]"
+            >
+              <a
+                href={item.source_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="min-w-0 break-words text-[13px] leading-snug text-phosphor underline decoration-line underline-offset-4 hover:text-hazard hover:decoration-hazard"
+              >
+                {item.title || hostOf(item.source_url)}
+              </a>
+              <p className="label truncate">{item.source_label}</p>
+              <p className="label md:text-right">
+                <time dateTime={item.published_at}>{timeAgo(item.published_at)}</time>
+                {item.attempts > 0 && <span className="ml-2 text-hazard">try {item.attempts}</span>}
+              </p>
+            </li>
+          ))}
+        </ol>
+        {data.items.length < shownTotal && (
+          <div className="mt-4 flex justify-end">
+            <button
+              type="button"
+              onClick={() => setLimit((n) => Math.min(500, n + QUEUE_PAGE))}
+              disabled={state.loading || limit >= 500}
+              className="border border-phosphor px-4 py-2 text-[11px] uppercase tracking-[0.1em] text-phosphor hover:bg-phosphor hover:text-crt disabled:opacity-50"
+            >
+              {state.loading ? "Loading" : "Show more"}
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 /* ---------- page ---------- */
 
 export default function Dashboard() {
@@ -405,6 +552,7 @@ export default function Dashboard() {
     ["Polling", stats ? (stats.polling_active ? "On" : "Off") : "No link", stats && !stats.polling_active],
     ["Verified 24h", stats?.verified_last_24h ?? "-"],
     ["Verified total", stats?.verified_total ?? "-"],
+    ["Waiting", stats?.waiting_total ?? "-"],
     ["Rejected", stats?.rejected_total ?? "-"],
     ["Sources", stats?.sources_enabled ?? "-"],
     ["Last poll", stats ? timeAgo(stats.last_poll_at) : "-"],
@@ -426,7 +574,7 @@ export default function Dashboard() {
         </p>
       </header>
 
-      <dl className="gridlines mt-6 grid-cols-2 md:grid-cols-3 xl:grid-cols-6" aria-label="System status">
+      <dl className="gridlines mt-6 grid-cols-2 md:grid-cols-4 xl:grid-cols-7" aria-label="System status">
         {telemetry.map(([name, value, warn]) => (
           <div key={name} className="cell p-4">
             <dt className="label">{name}</dt>
@@ -524,6 +672,12 @@ export default function Dashboard() {
         {tab === "startups" && (
           <section id="panel-startups" role="tabpanel" aria-labelledby="tab-startups">
             <StartupsTab />
+          </section>
+        )}
+
+        {tab === "queue" && (
+          <section id="panel-queue" role="tabpanel" aria-labelledby="tab-queue">
+            <QueueTab />
           </section>
         )}
       </main>

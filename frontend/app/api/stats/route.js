@@ -16,6 +16,7 @@ export async function GET() {
         (SELECT COUNT(*)::int FROM intel_feed) AS verified_total,
         (SELECT COUNT(*)::int FROM rejected_items) AS rejected_total,
         (SELECT COUNT(*)::int FROM startups_directory) AS startups_total,
+        (SELECT COUNT(*)::int FROM pending_articles) AS waiting_total,
         GREATEST(
           (SELECT MAX(created_at) FROM intel_feed),
           (SELECT MAX(created_at) FROM rejected_items),
