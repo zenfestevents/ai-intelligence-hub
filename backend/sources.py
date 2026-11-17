@@ -84,3 +84,12 @@ def fetch_entries(feed: Feed) -> list:
     if feed.kind == "hn":
         return _hacker_news(feed)
     return feedparser.parse(_get(feed.url).content).entries
+
+
+def entry_date(entry) -> datetime.datetime:
+    """When a feed entry was published (falls back to now). Needs no database, so daily_scan can use it."""
+    for key in ("published_parsed", "updated_parsed"):
+        t = entry.get(key)
+        if t:
+            return datetime.datetime.fromtimestamp(calendar.timegm(t), tz=datetime.timezone.utc)
+    return datetime.datetime.now(datetime.timezone.utc)

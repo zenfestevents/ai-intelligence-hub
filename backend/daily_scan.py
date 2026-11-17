@@ -24,8 +24,7 @@ import httpx
 
 import config
 from feeds import ENABLED_FEEDS, RSSHUB_URL, X_HANDLES
-from sources import fetch_entries
-from worker import entry_date
+from sources import entry_date, fetch_entries
 
 TRIES = 3
 OUT_DIR = config.BASE_DIR.parent / "reels" / "work"
@@ -58,7 +57,7 @@ def scan(feed, hours: float, now: datetime.datetime) -> dict:
         return {"feed": feed, "state": "FAILED", "why": err, "items": []}
 
     items, newest = [], None
-    for e in entries[:60]:
+    for e in entries:
         title, link = (e.get("title") or "").strip()[:140], e.get("link")
         if not link:
             continue

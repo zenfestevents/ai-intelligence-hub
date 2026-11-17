@@ -17,6 +17,7 @@ import trafilatura
 
 import config
 from database import DBIntelFeed, DBRejected, SessionLocal
+from sources import entry_date
 from feeds import ENABLED_FEEDS, Feed
 from models import VerifiedIntelExtraction
 from sources import fetch_entries
@@ -82,14 +83,6 @@ def get_text(feed: Feed, entry) -> str:
     if len(text) < 200:
         text = entry_body(entry)
     return text[: config.MAX_ARTICLE_CHARS]
-
-
-def entry_date(entry) -> datetime.datetime:
-    for key in ("published_parsed", "updated_parsed"):
-        t = entry.get(key)
-        if t:
-            return datetime.datetime.fromtimestamp(calendar.timegm(t), tz=datetime.timezone.utc)
-    return datetime.datetime.now(datetime.timezone.utc)
 
 
 def extract_with_llm(text: str, source_url: str) -> Optional[VerifiedIntelExtraction]:
