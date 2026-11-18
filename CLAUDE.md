@@ -23,4 +23,10 @@ The user's standing instruction (16 Nov 2026):
   that puts the DM content (links, steps) in the description, since YouTube has no DMs. The Instagram yes covers both.
   Since 17 Nov 2026 the user's approval of the day's topics is that yes: build the reels, dry-run them, and post
   them without asking the user to review the videos.
-- Daily target: 3 reels. Each reel gets a custom cover, set through the API (cover still prepended, `--thumb-ms 100`).
+- No fixed number of reels a day (user's rule, 18 Nov 2026). Post every topic whose content is strong enough:
+  some days that is 1, some days 10. Rank the day's topics by weight and propose all the strong ones; never pad
+  a weak day or cut a strong one to hit a number.
+- YouTube API quota caps uploads (10,000 units a day, resets at midnight Pacific; an upload costs about 1,600, so
+  roughly 6 a day). When there are more reels than the quota allows, post all of them to Instagram and upload the
+  rest to YouTube the next day, oldest first, before that day's new reels.
+- Each reel gets a custom cover, set through the API (cover still prepended, `--thumb-ms 100`).
