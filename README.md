@@ -27,12 +27,31 @@ What the check proves: the quote exists in the source. It does not prove the tit
 | Dashboard and `/api` routes | Vercel | The Next.js app in `frontend/`. Reads Supabase directly. Needs `DATABASE_URL`. |
 | News poller | GitHub Actions | `.github/workflows/poll.yml` runs `backend/worker.py` every 30 minutes and the startup sync twice a day. Needs `DATABASE_URL` and `GEMINI_API_KEY` as repository secrets. |
 
-### Deploy the dashboard to Vercel
+### The live dashboard on Vercel
 
-1. In Vercel: Add New → Project → import this GitHub repository.
-2. Set **Root Directory** to `frontend`.
-3. Add an environment variable `DATABASE_URL` with the same value as in `backend/.env`.
-4. Deploy.
+Live URL: https://ai-intelligence-hub-nu-eight.vercel.app (Vercel project `ai-intelligence-hub`, public, no login).
+(The shorter `ai-intelligence-hub.vercel.app` belongs to someone else.)
+
+**Refreshing the data needs no redeploy.** The site reads Supabase on every page load, so whatever
+the scan and the Claude summary step write shows up straight away.
+Since 18 Nov 2026 nothing runs on a schedule: the GitHub pollers (`poll.yml`, `x.yml`) are disabled
+and the daily `radar-summarise-queue` task is deleted. Scans and summaries run only when the user asks
+(`ingest.py` / `daily_scan.py`, then `claude_queue.py`). Only the every-3-days source discovery task
+stays scheduled. `ingest.py` stops adding articles at 300 waiting.
+
+**Redeploy after changing code in `frontend/`** (the folder is already linked through `frontend/.vercel`):
+
+```bash
+cd frontend
+```
+
+```bash
+vercel deploy --prod
+```
+
+Only one environment variable is set in Vercel: `DATABASE_URL` (Production), the same value as in
+`backend/.env`. Change it with `vercel env rm DATABASE_URL production` then `vercel env add DATABASE_URL production`,
+then redeploy. `frontend/.vercelignore` keeps `.env*` files out of the upload.
 
 ### Turn on the poller
 

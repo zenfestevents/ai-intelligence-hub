@@ -7,6 +7,7 @@ import calendar
 import datetime
 import time
 from typing import List
+from urllib.parse import urljoin
 
 import feedparser
 import httpx
@@ -83,7 +84,12 @@ def fetch_entries(feed: Feed) -> list:
         return _hf_models(feed)
     if feed.kind == "hn":
         return _hacker_news(feed)
-    return feedparser.parse(_get(feed.url).content).entries
+    entries = feedparser.parse(_get(feed.url).content).entries
+    # Some feeds (e.g. Sakana AI's Jekyll feed) give links like "/symposium-2026/"; make them full URLs.
+    for e in entries:
+        if e.get("link"):
+            e["link"] = urljoin(feed.url, e["link"])
+    return entries
 
 
 def entry_date(entry) -> datetime.datetime:
