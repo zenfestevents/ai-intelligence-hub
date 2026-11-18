@@ -1,0 +1,556 @@
+{
+  "fps": 30,
+  "lead_in": 8,
+  "speech_end": 953,
+  "total": 1025,
+  "estimated": false,
+  "segments": [
+    {
+      "id": "s1",
+      "from": 8,
+      "dur": 96,
+      "words": [
+        {
+          "text": "Someone",
+          "start": 0.267,
+          "end": 0.685
+        },
+        {
+          "text": "used",
+          "start": 0.72,
+          "end": 0.894
+        },
+        {
+          "text": "AI",
+          "start": 1.01,
+          "end": 1.231
+        },
+        {
+          "text": "to",
+          "start": 1.347,
+          "end": 1.44
+        },
+        {
+          "text": "rebuild",
+          "start": 1.498,
+          "end": 1.834
+        },
+        {
+          "text": "Photoshop,",
+          "start": 1.869,
+          "end": 2.357
+        },
+        {
+          "text": "and",
+          "start": 2.38,
+          "end": 2.519
+        },
+        {
+          "text": "it's",
+          "start": 2.577,
+          "end": 2.705
+        },
+        {
+          "text": "completely",
+          "start": 2.763,
+          "end": 3.181
+        },
+        {
+          "text": "free.",
+          "start": 3.228,
+          "end": 3.448
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "from": 104,
+      "dur": 150,
+      "words": [
+        {
+          "text": "It's",
+          "start": 3.471,
+          "end": 3.634
+        },
+        {
+          "text": "called",
+          "start": 3.68,
+          "end": 3.901
+        },
+        {
+          "text": "PhotoCraft.",
+          "start": 3.936,
+          "end": 4.481
+        },
+        {
+          "text": "Layers,",
+          "start": 4.551,
+          "end": 5.12
+        },
+        {
+          "text": "masks,",
+          "start": 5.178,
+          "end": 5.654
+        },
+        {
+          "text": "brushes,",
+          "start": 5.7,
+          "end": 6.235
+        },
+        {
+          "text": "and",
+          "start": 6.281,
+          "end": 6.409
+        },
+        {
+          "text": "it",
+          "start": 6.455,
+          "end": 6.525
+        },
+        {
+          "text": "opens",
+          "start": 6.606,
+          "end": 6.954
+        },
+        {
+          "text": "and",
+          "start": 6.989,
+          "end": 7.094
+        },
+        {
+          "text": "saves",
+          "start": 7.152,
+          "end": 7.43
+        },
+        {
+          "text": "real",
+          "start": 7.546,
+          "end": 7.755
+        },
+        {
+          "text": "Photoshop",
+          "start": 7.802,
+          "end": 8.127
+        },
+        {
+          "text": "files.",
+          "start": 8.185,
+          "end": 8.464
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "from": 254,
+      "dur": 171,
+      "words": [
+        {
+          "text": "The",
+          "start": 8.498,
+          "end": 8.591
+        },
+        {
+          "text": "team",
+          "start": 8.649,
+          "end": 8.765
+        },
+        {
+          "text": "behind",
+          "start": 8.824,
+          "end": 9.114
+        },
+        {
+          "text": "it,",
+          "start": 9.183,
+          "end": 9.346
+        },
+        {
+          "text": "ArtCraft,",
+          "start": 9.404,
+          "end": 9.961
+        },
+        {
+          "text": "gave",
+          "start": 10.008,
+          "end": 10.217
+        },
+        {
+          "text": "an",
+          "start": 10.24,
+          "end": 10.298
+        },
+        {
+          "text": "AI",
+          "start": 10.379,
+          "end": 10.67
+        },
+        {
+          "text": "a",
+          "start": 10.728,
+          "end": 10.751
+        },
+        {
+          "text": "detailed",
+          "start": 10.82,
+          "end": 11.111
+        },
+        {
+          "text": "plan",
+          "start": 11.157,
+          "end": 11.378
+        },
+        {
+          "text": "of",
+          "start": 11.459,
+          "end": 11.552
+        },
+        {
+          "text": "Photoshop's",
+          "start": 11.587,
+          "end": 12.039
+        },
+        {
+          "text": "tools,",
+          "start": 12.132,
+          "end": 12.504
+        },
+        {
+          "text": "and",
+          "start": 12.538,
+          "end": 12.689
+        },
+        {
+          "text": "it",
+          "start": 12.747,
+          "end": 12.84
+        },
+        {
+          "text": "built",
+          "start": 12.91,
+          "end": 13.165
+        },
+        {
+          "text": "the",
+          "start": 13.2,
+          "end": 13.281
+        },
+        {
+          "text": "app",
+          "start": 13.34,
+          "end": 13.479
+        },
+        {
+          "text": "from",
+          "start": 13.525,
+          "end": 13.665
+        },
+        {
+          "text": "scratch.",
+          "start": 13.711,
+          "end": 14.152
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "from": 425,
+      "dur": 250,
+      "words": [
+        {
+          "text": "They've",
+          "start": 14.187,
+          "end": 14.396
+        },
+        {
+          "text": "made",
+          "start": 14.419,
+          "end": 14.57
+        },
+        {
+          "text": "17",
+          "start": 14.605,
+          "end": 15.011
+        },
+        {
+          "text": "free",
+          "start": 15.058,
+          "end": 15.232
+        },
+        {
+          "text": "apps",
+          "start": 15.29,
+          "end": 15.487
+        },
+        {
+          "text": "this",
+          "start": 15.522,
+          "end": 15.673
+        },
+        {
+          "text": "way,",
+          "start": 15.743,
+          "end": 15.998
+        },
+        {
+          "text": "including",
+          "start": 16.021,
+          "end": 16.474
+        },
+        {
+          "text": "alternatives",
+          "start": 16.544,
+          "end": 17.101
+        },
+        {
+          "text": "to",
+          "start": 17.148,
+          "end": 17.229
+        },
+        {
+          "text": "Acrobat",
+          "start": 17.31,
+          "end": 17.809
+        },
+        {
+          "text": "and",
+          "start": 17.867,
+          "end": 17.984
+        },
+        {
+          "text": "Figma.",
+          "start": 18.053,
+          "end": 18.494
+        },
+        {
+          "text": "The",
+          "start": 18.529,
+          "end": 18.645
+        },
+        {
+          "text": "founder",
+          "start": 18.703,
+          "end": 19.052
+        },
+        {
+          "text": "says",
+          "start": 19.11,
+          "end": 19.342
+        },
+        {
+          "text": "they're",
+          "start": 19.412,
+          "end": 19.632
+        },
+        {
+          "text": "downloaded",
+          "start": 19.679,
+          "end": 20.178
+        },
+        {
+          "text": "about",
+          "start": 20.236,
+          "end": 20.526
+        },
+        {
+          "text": "1.7 million",
+          "start": 20.619,
+          "end": 21.826
+        },
+        {
+          "text": "times",
+          "start": 21.884,
+          "end": 22.105
+        },
+        {
+          "text": "a",
+          "start": 22.152,
+          "end": 22.175
+        },
+        {
+          "text": "day.",
+          "start": 22.233,
+          "end": 22.477
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "from": 674,
+      "dur": 172,
+      "words": [
+        {
+          "text": "It",
+          "start": 22.5,
+          "end": 22.639
+        },
+        {
+          "text": "runs",
+          "start": 22.709,
+          "end": 22.953
+        },
+        {
+          "text": "on",
+          "start": 23.011,
+          "end": 23.138
+        },
+        {
+          "text": "Windows,",
+          "start": 23.196,
+          "end": 23.684
+        },
+        {
+          "text": "Mac",
+          "start": 23.801,
+          "end": 24.056
+        },
+        {
+          "text": "and",
+          "start": 24.126,
+          "end": 24.265
+        },
+        {
+          "text": "Linux.",
+          "start": 24.346,
+          "end": 24.811
+        },
+        {
+          "text": "It's",
+          "start": 24.834,
+          "end": 25.02
+        },
+        {
+          "text": "still",
+          "start": 25.043,
+          "end": 25.252
+        },
+        {
+          "text": "early,",
+          "start": 25.333,
+          "end": 25.716
+        },
+        {
+          "text": "so",
+          "start": 25.739,
+          "end": 25.89
+        },
+        {
+          "text": "it",
+          "start": 25.972,
+          "end": 26.064
+        },
+        {
+          "text": "won't",
+          "start": 26.123,
+          "end": 26.308
+        },
+        {
+          "text": "replace",
+          "start": 26.366,
+          "end": 26.657
+        },
+        {
+          "text": "Photoshop",
+          "start": 26.68,
+          "end": 27.051
+        },
+        {
+          "text": "for",
+          "start": 27.098,
+          "end": 27.237
+        },
+        {
+          "text": "pro",
+          "start": 27.295,
+          "end": 27.446
+        },
+        {
+          "text": "work",
+          "start": 27.504,
+          "end": 27.69
+        },
+        {
+          "text": "just",
+          "start": 27.76,
+          "end": 27.922
+        },
+        {
+          "text": "yet.",
+          "start": 27.969,
+          "end": 28.189
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "from": 847,
+      "dur": 106,
+      "words": [
+        {
+          "text": "Comment",
+          "start": 28.259,
+          "end": 28.572
+        },
+        {
+          "text": "CRAFT",
+          "start": 28.607,
+          "end": 28.897
+        },
+        {
+          "text": "and",
+          "start": 28.944,
+          "end": 29.13
+        },
+        {
+          "text": "I'll",
+          "start": 29.188,
+          "end": 29.338
+        },
+        {
+          "text": "send",
+          "start": 29.373,
+          "end": 29.513
+        },
+        {
+          "text": "you",
+          "start": 29.547,
+          "end": 29.617
+        },
+        {
+          "text": "the",
+          "start": 29.664,
+          "end": 29.733
+        },
+        {
+          "text": "link.",
+          "start": 29.78,
+          "end": 30.012
+        },
+        {
+          "text": "Follow",
+          "start": 30.07,
+          "end": 30.349
+        },
+        {
+          "text": "for",
+          "start": 30.407,
+          "end": 30.523
+        },
+        {
+          "text": "daily",
+          "start": 30.604,
+          "end": 30.813
+        },
+        {
+          "text": "AI",
+          "start": 30.859,
+          "end": 31.068
+        },
+        {
+          "text": "updates.",
+          "start": 31.138,
+          "end": 31.753
+        }
+      ]
+    }
+  ]
+}

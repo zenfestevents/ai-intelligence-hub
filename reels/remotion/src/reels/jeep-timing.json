@@ -1,0 +1,561 @@
+{
+  "fps": 30,
+  "lead_in": 8,
+  "speech_end": 850,
+  "total": 922,
+  "estimated": false,
+  "segments": [
+    {
+      "id": "s1",
+      "from": 8,
+      "dur": 138,
+      "words": [
+        {
+          "text": "This",
+          "start": 0.267,
+          "end": 0.488
+        },
+        {
+          "text": "man's",
+          "start": 0.546,
+          "end": 0.72
+        },
+        {
+          "text": "32",
+          "start": 0.778,
+          "end": 1.161
+        },
+        {
+          "text": "year",
+          "start": 1.219,
+          "end": 1.358
+        },
+        {
+          "text": "old",
+          "start": 1.44,
+          "end": 1.591
+        },
+        {
+          "text": "Jeep",
+          "start": 1.625,
+          "end": 1.881
+        },
+        {
+          "text": "kept",
+          "start": 1.997,
+          "end": 2.241
+        },
+        {
+          "text": "failing",
+          "start": 2.299,
+          "end": 2.624
+        },
+        {
+          "text": "its",
+          "start": 2.74,
+          "end": 2.949
+        },
+        {
+          "text": "smog",
+          "start": 2.972,
+          "end": 3.228
+        },
+        {
+          "text": "test.",
+          "start": 3.274,
+          "end": 3.541
+        },
+        {
+          "text": "So",
+          "start": 3.576,
+          "end": 3.727
+        },
+        {
+          "text": "he",
+          "start": 3.785,
+          "end": 3.843
+        },
+        {
+          "text": "asked",
+          "start": 3.901,
+          "end": 4.122
+        },
+        {
+          "text": "Claude",
+          "start": 4.156,
+          "end": 4.4
+        },
+        {
+          "text": "for",
+          "start": 4.423,
+          "end": 4.563
+        },
+        {
+          "text": "help.",
+          "start": 4.621,
+          "end": 4.865
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "from": 148,
+      "dur": 118,
+      "words": [
+        {
+          "text": "Each",
+          "start": 4.946,
+          "end": 5.132
+        },
+        {
+          "text": "test",
+          "start": 5.19,
+          "end": 5.375
+        },
+        {
+          "text": "cost",
+          "start": 5.433,
+          "end": 5.654
+        },
+        {
+          "text": "him",
+          "start": 5.7,
+          "end": 5.805
+        },
+        {
+          "text": "nearly",
+          "start": 5.863,
+          "end": 6.142
+        },
+        {
+          "text": "$100,",
+          "start": 6.2,
+          "end": 7.059
+        },
+        {
+          "text": "and",
+          "start": 7.105,
+          "end": 7.256
+        },
+        {
+          "text": "his",
+          "start": 7.326,
+          "end": 7.442
+        },
+        {
+          "text": "own",
+          "start": 7.488,
+          "end": 7.57
+        },
+        {
+          "text": "fixes",
+          "start": 7.628,
+          "end": 8.011
+        },
+        {
+          "text": "made",
+          "start": 8.127,
+          "end": 8.336
+        },
+        {
+          "text": "it",
+          "start": 8.359,
+          "end": 8.429
+        },
+        {
+          "text": "worse.",
+          "start": 8.475,
+          "end": 8.847
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "from": 266,
+      "dur": 225,
+      "words": [
+        {
+          "text": "He",
+          "start": 8.893,
+          "end": 9.009
+        },
+        {
+          "text": "wired",
+          "start": 9.067,
+          "end": 9.381
+        },
+        {
+          "text": "a",
+          "start": 9.439,
+          "end": 9.474
+        },
+        {
+          "text": "$3",
+          "start": 9.543,
+          "end": 10.008
+        },
+        {
+          "text": "Arduino",
+          "start": 10.124,
+          "end": 10.519
+        },
+        {
+          "text": "board",
+          "start": 10.565,
+          "end": 10.809
+        },
+        {
+          "text": "to",
+          "start": 10.855,
+          "end": 10.925
+        },
+        {
+          "text": "the",
+          "start": 10.983,
+          "end": 11.053
+        },
+        {
+          "text": "car's",
+          "start": 11.099,
+          "end": 11.355
+        },
+        {
+          "text": "engine",
+          "start": 11.471,
+          "end": 11.831
+        },
+        {
+          "text": "computer.",
+          "start": 11.866,
+          "end": 12.423
+        },
+        {
+          "text": "Claude",
+          "start": 12.493,
+          "end": 12.783
+        },
+        {
+          "text": "worked",
+          "start": 12.806,
+          "end": 13.05
+        },
+        {
+          "text": "out",
+          "start": 13.085,
+          "end": 13.236
+        },
+        {
+          "text": "how",
+          "start": 13.305,
+          "end": 13.48
+        },
+        {
+          "text": "to",
+          "start": 13.549,
+          "end": 13.619
+        },
+        {
+          "text": "talk",
+          "start": 13.677,
+          "end": 13.805
+        },
+        {
+          "text": "to",
+          "start": 13.851,
+          "end": 13.909
+        },
+        {
+          "text": "it,",
+          "start": 13.979,
+          "end": 14.188
+        },
+        {
+          "text": "and",
+          "start": 14.211,
+          "end": 14.397
+        },
+        {
+          "text": "read",
+          "start": 14.513,
+          "end": 14.699
+        },
+        {
+          "text": "the",
+          "start": 14.733,
+          "end": 14.803
+        },
+        {
+          "text": "engine",
+          "start": 14.861,
+          "end": 15.117
+        },
+        {
+          "text": "data",
+          "start": 15.14,
+          "end": 15.453
+        },
+        {
+          "text": "on",
+          "start": 15.569,
+          "end": 15.732
+        },
+        {
+          "text": "test",
+          "start": 15.79,
+          "end": 15.976
+        },
+        {
+          "text": "drives.",
+          "start": 15.999,
+          "end": 16.336
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "from": 491,
+      "dur": 130,
+      "words": [
+        {
+          "text": "The",
+          "start": 16.394,
+          "end": 16.521
+        },
+        {
+          "text": "computer",
+          "start": 16.568,
+          "end": 16.974
+        },
+        {
+          "text": "was",
+          "start": 17.032,
+          "end": 17.148
+        },
+        {
+          "text": "too",
+          "start": 17.206,
+          "end": 17.334
+        },
+        {
+          "text": "old",
+          "start": 17.415,
+          "end": 17.566
+        },
+        {
+          "text": "to",
+          "start": 17.601,
+          "end": 17.659
+        },
+        {
+          "text": "reprogram,",
+          "start": 17.717,
+          "end": 18.24
+        },
+        {
+          "text": "so",
+          "start": 18.309,
+          "end": 18.46
+        },
+        {
+          "text": "Codex",
+          "start": 18.518,
+          "end": 18.774
+        },
+        {
+          "text": "wrote",
+          "start": 18.82,
+          "end": 19.029
+        },
+        {
+          "text": "code",
+          "start": 19.064,
+          "end": 19.25
+        },
+        {
+          "text": "into",
+          "start": 19.296,
+          "end": 19.494
+        },
+        {
+          "text": "a",
+          "start": 19.528,
+          "end": 19.552
+        },
+        {
+          "text": "memory",
+          "start": 19.598,
+          "end": 19.853
+        },
+        {
+          "text": "chip",
+          "start": 19.877,
+          "end": 20.051
+        },
+        {
+          "text": "next",
+          "start": 20.132,
+          "end": 20.329
+        },
+        {
+          "text": "to",
+          "start": 20.353,
+          "end": 20.411
+        },
+        {
+          "text": "it.",
+          "start": 20.48,
+          "end": 20.689
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "from": 622,
+      "dur": 107,
+      "words": [
+        {
+          "text": "The",
+          "start": 20.736,
+          "end": 20.852
+        },
+        {
+          "text": "Jeep",
+          "start": 20.922,
+          "end": 21.084
+        },
+        {
+          "text": "passed.",
+          "start": 21.154,
+          "end": 21.502
+        },
+        {
+          "text": "No",
+          "start": 21.549,
+          "end": 21.688
+        },
+        {
+          "text": "mechanic",
+          "start": 21.734,
+          "end": 22.059
+        },
+        {
+          "text": "needed.",
+          "start": 22.117,
+          "end": 22.454
+        },
+        {
+          "text": "And",
+          "start": 22.477,
+          "end": 22.617
+        },
+        {
+          "text": "he",
+          "start": 22.675,
+          "end": 22.721
+        },
+        {
+          "text": "shared",
+          "start": 22.768,
+          "end": 23.034
+        },
+        {
+          "text": "the",
+          "start": 23.069,
+          "end": 23.139
+        },
+        {
+          "text": "whole",
+          "start": 23.174,
+          "end": 23.383
+        },
+        {
+          "text": "project",
+          "start": 23.417,
+          "end": 23.766
+        },
+        {
+          "text": "for",
+          "start": 23.789,
+          "end": 23.905
+        },
+        {
+          "text": "free.",
+          "start": 23.975,
+          "end": 24.276
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "from": 728,
+      "dur": 122,
+      "words": [
+        {
+          "text": "Comment",
+          "start": 24.3,
+          "end": 24.613
+        },
+        {
+          "text": "JEEP",
+          "start": 24.66,
+          "end": 24.869
+        },
+        {
+          "text": "and",
+          "start": 24.985,
+          "end": 25.147
+        },
+        {
+          "text": "I'll",
+          "start": 25.217,
+          "end": 25.379
+        },
+        {
+          "text": "send",
+          "start": 25.426,
+          "end": 25.612
+        },
+        {
+          "text": "you",
+          "start": 25.67,
+          "end": 25.751
+        },
+        {
+          "text": "the",
+          "start": 25.809,
+          "end": 25.879
+        },
+        {
+          "text": "project.",
+          "start": 25.937,
+          "end": 26.343
+        },
+        {
+          "text": "Follow",
+          "start": 26.413,
+          "end": 26.703
+        },
+        {
+          "text": "for",
+          "start": 26.761,
+          "end": 26.9
+        },
+        {
+          "text": "daily",
+          "start": 26.982,
+          "end": 27.214
+        },
+        {
+          "text": "AI",
+          "start": 27.283,
+          "end": 27.539
+        },
+        {
+          "text": "updates.",
+          "start": 27.62,
+          "end": 28.317
+        }
+      ]
+    }
+  ]
+}

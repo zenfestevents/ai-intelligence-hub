@@ -1,0 +1,521 @@
+{
+  "fps": 30,
+  "lead_in": 8,
+  "speech_end": 819,
+  "total": 891,
+  "estimated": false,
+  "segments": [
+    {
+      "id": "s1",
+      "from": 8,
+      "dur": 122,
+      "words": [
+        {
+          "text": "This",
+          "start": 0.267,
+          "end": 0.488
+        },
+        {
+          "text": "free",
+          "start": 0.511,
+          "end": 0.673
+        },
+        {
+          "text": "app",
+          "start": 0.766,
+          "end": 0.964
+        },
+        {
+          "text": "makes",
+          "start": 1.056,
+          "end": 1.289
+        },
+        {
+          "text": "any",
+          "start": 1.335,
+          "end": 1.474
+        },
+        {
+          "text": "video",
+          "start": 1.532,
+          "end": 1.765
+        },
+        {
+          "text": "on",
+          "start": 1.788,
+          "end": 1.846
+        },
+        {
+          "text": "your",
+          "start": 1.892,
+          "end": 1.997
+        },
+        {
+          "text": "PC",
+          "start": 2.067,
+          "end": 2.229
+        },
+        {
+          "text": "look",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "text": "sharper,",
+          "start": 2.485,
+          "end": 2.961
+        },
+        {
+          "text": "live,",
+          "start": 3.111,
+          "end": 3.506
+        },
+        {
+          "text": "while",
+          "start": 3.564,
+          "end": 3.808
+        },
+        {
+          "text": "it",
+          "start": 3.831,
+          "end": 3.913
+        },
+        {
+          "text": "plays.",
+          "start": 3.959,
+          "end": 4.319
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "from": 130,
+      "dur": 160,
+      "words": [
+        {
+          "text": "It's",
+          "start": 4.365,
+          "end": 4.539
+        },
+        {
+          "text": "called",
+          "start": 4.586,
+          "end": 4.807
+        },
+        {
+          "text": "Veyra.",
+          "start": 4.888,
+          "end": 5.248
+        },
+        {
+          "text": "It",
+          "start": 5.306,
+          "end": 5.457
+        },
+        {
+          "text": "cleans",
+          "start": 5.491,
+          "end": 5.724
+        },
+        {
+          "text": "up",
+          "start": 5.77,
+          "end": 5.851
+        },
+        {
+          "text": "noise,",
+          "start": 5.933,
+          "end": 6.351
+        },
+        {
+          "text": "adds",
+          "start": 6.409,
+          "end": 6.664
+        },
+        {
+          "text": "detail,",
+          "start": 6.757,
+          "end": 7.256
+        },
+        {
+          "text": "and",
+          "start": 7.314,
+          "end": 7.465
+        },
+        {
+          "text": "boosts",
+          "start": 7.535,
+          "end": 7.802
+        },
+        {
+          "text": "colour",
+          "start": 7.872,
+          "end": 8.15
+        },
+        {
+          "text": "with",
+          "start": 8.197,
+          "end": 8.336
+        },
+        {
+          "text": "HDR,",
+          "start": 8.382,
+          "end": 8.916
+        },
+        {
+          "text": "in",
+          "start": 8.94,
+          "end": 9.079
+        },
+        {
+          "text": "real",
+          "start": 9.137,
+          "end": 9.323
+        },
+        {
+          "text": "time.",
+          "start": 9.369,
+          "end": 9.636
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "from": 290,
+      "dur": 98,
+      "words": [
+        {
+          "text": "It",
+          "start": 9.683,
+          "end": 9.822
+        },
+        {
+          "text": "can",
+          "start": 9.857,
+          "end": 9.973
+        },
+        {
+          "text": "even",
+          "start": 10.031,
+          "end": 10.217
+        },
+        {
+          "text": "add",
+          "start": 10.275,
+          "end": 10.449
+        },
+        {
+          "text": "extra",
+          "start": 10.519,
+          "end": 10.797
+        },
+        {
+          "text": "frames,",
+          "start": 10.855,
+          "end": 11.25
+        },
+        {
+          "text": "so",
+          "start": 11.285,
+          "end": 11.482
+        },
+        {
+          "text": "videos",
+          "start": 11.552,
+          "end": 11.831
+        },
+        {
+          "text": "and",
+          "start": 11.877,
+          "end": 11.947
+        },
+        {
+          "text": "games",
+          "start": 11.981,
+          "end": 12.202
+        },
+        {
+          "text": "look",
+          "start": 12.283,
+          "end": 12.434
+        },
+        {
+          "text": "smoother.",
+          "start": 12.469,
+          "end": 12.91
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "from": 389,
+      "dur": 146,
+      "words": [
+        {
+          "text": "Use",
+          "start": 12.968,
+          "end": 13.165
+        },
+        {
+          "text": "it",
+          "start": 13.2,
+          "end": 13.258
+        },
+        {
+          "text": "on",
+          "start": 13.305,
+          "end": 13.374
+        },
+        {
+          "text": "your",
+          "start": 13.409,
+          "end": 13.514
+        },
+        {
+          "text": "own",
+          "start": 13.572,
+          "end": 13.723
+        },
+        {
+          "text": "videos,",
+          "start": 13.758,
+          "end": 14.222
+        },
+        {
+          "text": "a",
+          "start": 14.268,
+          "end": 14.326
+        },
+        {
+          "text": "capture",
+          "start": 14.408,
+          "end": 14.744
+        },
+        {
+          "text": "card,",
+          "start": 14.779,
+          "end": 15.116
+        },
+        {
+          "text": "or",
+          "start": 15.186,
+          "end": 15.336
+        },
+        {
+          "text": "games",
+          "start": 15.406,
+          "end": 15.72
+        },
+        {
+          "text": "streamed",
+          "start": 15.836,
+          "end": 16.161
+        },
+        {
+          "text": "from",
+          "start": 16.196,
+          "end": 16.347
+        },
+        {
+          "text": "your",
+          "start": 16.405,
+          "end": 16.521
+        },
+        {
+          "text": "PS5",
+          "start": 16.59,
+          "end": 17.124
+        },
+        {
+          "text": "or",
+          "start": 17.194,
+          "end": 17.322
+        },
+        {
+          "text": "PC.",
+          "start": 17.391,
+          "end": 17.833
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "from": 536,
+      "dur": 176,
+      "words": [
+        {
+          "text": "It's",
+          "start": 17.891,
+          "end": 18.1
+        },
+        {
+          "text": "free",
+          "start": 18.169,
+          "end": 18.436
+        },
+        {
+          "text": "and",
+          "start": 18.483,
+          "end": 18.611
+        },
+        {
+          "text": "open",
+          "start": 18.692,
+          "end": 18.912
+        },
+        {
+          "text": "source,",
+          "start": 18.947,
+          "end": 19.284
+        },
+        {
+          "text": "for",
+          "start": 19.354,
+          "end": 19.516
+        },
+        {
+          "text": "Windows 11",
+          "start": 19.574,
+          "end": 20.236
+        },
+        {
+          "text": "with",
+          "start": 20.282,
+          "end": 20.41
+        },
+        {
+          "text": "an",
+          "start": 20.433,
+          "end": 20.491
+        },
+        {
+          "text": "NVIDIA",
+          "start": 20.538,
+          "end": 20.933
+        },
+        {
+          "text": "or",
+          "start": 21.002,
+          "end": 21.13
+        },
+        {
+          "text": "AMD",
+          "start": 21.188,
+          "end": 21.385
+        },
+        {
+          "text": "graphics",
+          "start": 21.455,
+          "end": 21.78
+        },
+        {
+          "text": "card.",
+          "start": 21.826,
+          "end": 22.117
+        },
+        {
+          "text": "The",
+          "start": 22.163,
+          "end": 22.268
+        },
+        {
+          "text": "stronger",
+          "start": 22.302,
+          "end": 22.604
+        },
+        {
+          "text": "your",
+          "start": 22.651,
+          "end": 22.767
+        },
+        {
+          "text": "card,",
+          "start": 22.813,
+          "end": 23.15
+        },
+        {
+          "text": "the",
+          "start": 23.196,
+          "end": 23.313
+        },
+        {
+          "text": "better.",
+          "start": 23.371,
+          "end": 23.73
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "from": 713,
+      "dur": 106,
+      "words": [
+        {
+          "text": "Comment",
+          "start": 23.8,
+          "end": 24.114
+        },
+        {
+          "text": "SHARP",
+          "start": 24.137,
+          "end": 24.462
+        },
+        {
+          "text": "and",
+          "start": 24.543,
+          "end": 24.694
+        },
+        {
+          "text": "I'll",
+          "start": 24.741,
+          "end": 24.868
+        },
+        {
+          "text": "send",
+          "start": 24.903,
+          "end": 25.042
+        },
+        {
+          "text": "you",
+          "start": 25.089,
+          "end": 25.159
+        },
+        {
+          "text": "the",
+          "start": 25.205,
+          "end": 25.275
+        },
+        {
+          "text": "link.",
+          "start": 25.321,
+          "end": 25.6
+        },
+        {
+          "text": "Follow",
+          "start": 25.646,
+          "end": 25.948
+        },
+        {
+          "text": "for",
+          "start": 26.018,
+          "end": 26.134
+        },
+        {
+          "text": "daily",
+          "start": 26.192,
+          "end": 26.424
+        },
+        {
+          "text": "AI",
+          "start": 26.482,
+          "end": 26.703
+        },
+        {
+          "text": "updates.",
+          "start": 26.726,
+          "end": 27.295
+        }
+      ]
+    }
+  ]
+}
