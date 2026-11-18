@@ -280,24 +280,38 @@ const S5: React.FC = () => {
 const S6: React.FC = () => {
   const frame = useCurrentFrame();
   const sendAt = cue("s6", "send");
-  const fly = ease(frame, sendAt + 4, sendAt + 26);
   const t = usePop(sendAt - 2, 11);
+  // A "tap" on the share button: the button dips, and a ring ripples out from it. The plane stays inside its circle.
+  const tapAt = sendAt + 10;
+  const press = 1 - 0.08 * Math.sin(Math.PI * ease(frame, tapAt, tapAt + 8));
+  const ring = ease(frame, tapAt + 2, tapAt + 24);
+  const hint = ease(frame, tapAt + 6, tapAt + 18);
   return (
     <AbsoluteFill>
-      <div style={{ position: "absolute", top: 380, left: 0, right: 0, display: "flex", justifyContent: "center", transform: `scale(${t})` }}>
-        <div style={{ width: 360, height: 360, borderRadius: 180, background: C.yellow, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <div style={{ transform: `translate(${fly * 60}px, ${-fly * 60}px) rotate(${fly * -10}deg)` }}>
-            <PaperPlaneTilt size={200} weight="fill" color={C.ink} />
+      <div style={{ position: "absolute", top: 300, left: 0, right: 0, display: "flex", justifyContent: "center", transform: `scale(${t})` }}>
+        <div style={{ position: "relative", width: 340, height: 340 }}>
+          <div style={{ position: "absolute", inset: 0, borderRadius: "50%", border: `8px solid ${C.yellow}`, opacity: (1 - ring) * 0.8, transform: `scale(${1 + ring * 0.45})` }} />
+          <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: C.yellow, display: "flex", alignItems: "center", justifyContent: "center", transform: `scale(${press})` }}>
+            <PaperPlaneTilt size={180} weight="fill" color={C.ink} />
           </div>
         </div>
       </div>
-      <div style={{ position: "absolute", top: 820, left: 0, right: 0, textAlign: "center", fontFamily: F.head, fontSize: 104, color: C.white, lineHeight: 1.05, opacity: t }}>
+      <div style={{ position: "absolute", top: 730, left: 0, right: 0, textAlign: "center", fontFamily: F.head, fontSize: 112, color: C.white, lineHeight: 1.05, opacity: t }}>
         SEND THIS TO A<br />
         <span style={{ color: C.yellow }}>FRIEND ON JIO</span>
       </div>
-      <div style={{ position: "absolute", top: 1070, left: 0, right: 0, display: "flex", justifyContent: "center", alignItems: "center", gap: 14, opacity: ease(frame, cue("s6", "follow"), cue("s6", "follow") + 10) }}>
-        <Lightning size={52} weight="fill" color={C.yellow} />
-        <span style={{ fontFamily: F.body, fontWeight: 800, fontSize: 48, color: C.grey }}>Daily AI news in plain English</span>
+      <div style={{ position: "absolute", top: 1010, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: hint, transform: `translateY(${(1 - hint) * 24}px)` }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 18, background: PAPER, borderRadius: 60, padding: "18px 40px" }}>
+          <span style={{ fontFamily: F.body, fontWeight: 800, fontSize: 50, color: PAPER_INK }}>Tap</span>
+          <div style={{ width: 70, height: 70, borderRadius: 35, background: C.yellow, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <PaperPlaneTilt size={44} weight="fill" color={PAPER_INK} />
+          </div>
+          <span style={{ fontFamily: F.body, fontWeight: 800, fontSize: 50, color: PAPER_INK }}>and pick a friend</span>
+        </div>
+      </div>
+      <div style={{ position: "absolute", top: 1170, left: 0, right: 0, display: "flex", justifyContent: "center", alignItems: "center", gap: 14, opacity: ease(frame, cue("s6", "follow"), cue("s6", "follow") + 10) }}>
+        <Lightning size={48} weight="fill" color={C.yellow} />
+        <span style={{ fontFamily: F.body, fontWeight: 800, fontSize: 44, color: C.grey }}>Daily AI news in plain English</span>
       </div>
     </AbsoluteFill>
   );
@@ -394,7 +408,11 @@ export const JioAiPro: React.FC = () => (
       );
     })}
     <Sequence from={END_FROM} layout="none">
-      <EndCard line={<>Send it to a friend on <span style={{ color: C.yellow }}>Jio</span></>} />
+      <EndCard
+        title="SHARE THIS"
+        icon={<PaperPlaneTilt size={88} weight="fill" color={C.yellow} />}
+        line={<>Send it to a friend on <span style={{ color: C.yellow }}>Jio</span></>}
+      />
     </Sequence>
     <Captions />
     <Sequence from={timing.lead_in} layout="none">

@@ -1,0 +1,531 @@
+{
+  "fps": 30,
+  "lead_in": 8,
+  "speech_end": 871,
+  "total": 943,
+  "estimated": false,
+  "segments": [
+    {
+      "id": "s1",
+      "from": 8,
+      "dur": 108,
+      "words": [
+        {
+          "text": "This",
+          "start": 0.267,
+          "end": 0.476
+        },
+        {
+          "text": "free",
+          "start": 0.534,
+          "end": 0.673
+        },
+        {
+          "text": "AI",
+          "start": 0.72,
+          "end": 0.894
+        },
+        {
+          "text": "can",
+          "start": 0.964,
+          "end": 1.091
+        },
+        {
+          "text": "turn",
+          "start": 1.161,
+          "end": 1.37
+        },
+        {
+          "text": "one",
+          "start": 1.451,
+          "end": 1.567
+        },
+        {
+          "text": "photo",
+          "start": 1.591,
+          "end": 1.916
+        },
+        {
+          "text": "and",
+          "start": 1.974,
+          "end": 2.078
+        },
+        {
+          "text": "a",
+          "start": 2.148,
+          "end": 2.171
+        },
+        {
+          "text": "voice",
+          "start": 2.241,
+          "end": 2.461
+        },
+        {
+          "text": "clip",
+          "start": 2.485,
+          "end": 2.728
+        },
+        {
+          "text": "into",
+          "start": 2.844,
+          "end": 3.065
+        },
+        {
+          "text": "a",
+          "start": 3.123,
+          "end": 3.158
+        },
+        {
+          "text": "talking",
+          "start": 3.228,
+          "end": 3.471
+        },
+        {
+          "text": "video.",
+          "start": 3.518,
+          "end": 3.866
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "from": 117,
+      "dur": 130,
+      "words": [
+        {
+          "text": "It's",
+          "start": 3.901,
+          "end": 4.075
+        },
+        {
+          "text": "called",
+          "start": 4.122,
+          "end": 4.365
+        },
+        {
+          "text": "LongCat",
+          "start": 4.423,
+          "end": 4.818
+        },
+        {
+          "text": "Video",
+          "start": 4.899,
+          "end": 5.201
+        },
+        {
+          "text": "Avatar,",
+          "start": 5.283,
+          "end": 5.689
+        },
+        {
+          "text": "from",
+          "start": 5.712,
+          "end": 5.909
+        },
+        {
+          "text": "Meituan,",
+          "start": 5.967,
+          "end": 6.385
+        },
+        {
+          "text": "one",
+          "start": 6.409,
+          "end": 6.571
+        },
+        {
+          "text": "of",
+          "start": 6.606,
+          "end": 6.664
+        },
+        {
+          "text": "China's",
+          "start": 6.722,
+          "end": 7.001
+        },
+        {
+          "text": "biggest",
+          "start": 7.059,
+          "end": 7.419
+        },
+        {
+          "text": "tech",
+          "start": 7.477,
+          "end": 7.686
+        },
+        {
+          "text": "companies.",
+          "start": 7.744,
+          "end": 8.231
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "from": 248,
+      "dur": 163,
+      "words": [
+        {
+          "text": "Give",
+          "start": 8.278,
+          "end": 8.452
+        },
+        {
+          "text": "it",
+          "start": 8.475,
+          "end": 8.545
+        },
+        {
+          "text": "a",
+          "start": 8.58,
+          "end": 8.615
+        },
+        {
+          "text": "picture",
+          "start": 8.673,
+          "end": 9.079
+        },
+        {
+          "text": "and",
+          "start": 9.137,
+          "end": 9.311
+        },
+        {
+          "text": "some",
+          "start": 9.358,
+          "end": 9.543
+        },
+        {
+          "text": "speech.",
+          "start": 9.567,
+          "end": 9.892
+        },
+        {
+          "text": "The",
+          "start": 9.926,
+          "end": 10.031
+        },
+        {
+          "text": "person",
+          "start": 10.089,
+          "end": 10.356
+        },
+        {
+          "text": "talks,",
+          "start": 10.414,
+          "end": 10.716
+        },
+        {
+          "text": "moves,",
+          "start": 10.762,
+          "end": 11.122
+        },
+        {
+          "text": "and",
+          "start": 11.169,
+          "end": 11.343
+        },
+        {
+          "text": "even",
+          "start": 11.413,
+          "end": 11.668
+        },
+        {
+          "text": "sings,",
+          "start": 11.726,
+          "end": 12.109
+        },
+        {
+          "text": "and",
+          "start": 12.133,
+          "end": 12.284
+        },
+        {
+          "text": "the",
+          "start": 12.318,
+          "end": 12.388
+        },
+        {
+          "text": "lips",
+          "start": 12.446,
+          "end": 12.713
+        },
+        {
+          "text": "match",
+          "start": 12.841,
+          "end": 13.108
+        },
+        {
+          "text": "the",
+          "start": 13.178,
+          "end": 13.27
+        },
+        {
+          "text": "voice.",
+          "start": 13.328,
+          "end": 13.677
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "from": 412,
+      "dur": 188,
+      "words": [
+        {
+          "text": "The",
+          "start": 13.758,
+          "end": 13.863
+        },
+        {
+          "text": "new",
+          "start": 13.932,
+          "end": 14.06
+        },
+        {
+          "text": "version",
+          "start": 14.095,
+          "end": 14.536
+        },
+        {
+          "text": "1.6",
+          "start": 14.664,
+          "end": 15.441
+        },
+        {
+          "text": "makes",
+          "start": 15.558,
+          "end": 15.813
+        },
+        {
+          "text": "mouths",
+          "start": 15.894,
+          "end": 16.231
+        },
+        {
+          "text": "look",
+          "start": 16.324,
+          "end": 16.544
+        },
+        {
+          "text": "more",
+          "start": 16.637,
+          "end": 16.8
+        },
+        {
+          "text": "natural,",
+          "start": 16.835,
+          "end": 17.322
+        },
+        {
+          "text": "and",
+          "start": 17.345,
+          "end": 17.52
+        },
+        {
+          "text": "keeps",
+          "start": 17.601,
+          "end": 17.833
+        },
+        {
+          "text": "long",
+          "start": 17.891,
+          "end": 18.054
+        },
+        {
+          "text": "videos",
+          "start": 18.089,
+          "end": 18.332
+        },
+        {
+          "text": "stable,",
+          "start": 18.356,
+          "end": 18.832
+        },
+        {
+          "text": "even",
+          "start": 18.89,
+          "end": 19.133
+        },
+        {
+          "text": "past",
+          "start": 19.191,
+          "end": 19.389
+        },
+        {
+          "text": "10 minutes.",
+          "start": 19.412,
+          "end": 19.981
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "from": 600,
+      "dur": 148,
+      "words": [
+        {
+          "text": "In",
+          "start": 20.016,
+          "end": 20.155
+        },
+        {
+          "text": "a",
+          "start": 20.202,
+          "end": 20.225
+        },
+        {
+          "text": "blind",
+          "start": 20.283,
+          "end": 20.538
+        },
+        {
+          "text": "test",
+          "start": 20.585,
+          "end": 20.84
+        },
+        {
+          "text": "with",
+          "start": 20.887,
+          "end": 21.026
+        },
+        {
+          "text": "over",
+          "start": 21.072,
+          "end": 21.293
+        },
+        {
+          "text": "33,000",
+          "start": 21.351,
+          "end": 22.164
+        },
+        {
+          "text": "votes,",
+          "start": 22.21,
+          "end": 22.535
+        },
+        {
+          "text": "people",
+          "start": 22.593,
+          "end": 22.872
+        },
+        {
+          "text": "ranked",
+          "start": 22.907,
+          "end": 23.127
+        },
+        {
+          "text": "it",
+          "start": 23.185,
+          "end": 23.244
+        },
+        {
+          "text": "second,",
+          "start": 23.313,
+          "end": 23.65
+        },
+        {
+          "text": "ahead",
+          "start": 23.697,
+          "end": 23.917
+        },
+        {
+          "text": "of",
+          "start": 23.964,
+          "end": 24.022
+        },
+        {
+          "text": "HeyGen",
+          "start": 24.103,
+          "end": 24.393
+        },
+        {
+          "text": "and",
+          "start": 24.44,
+          "end": 24.521
+        },
+        {
+          "text": "Kling.",
+          "start": 24.567,
+          "end": 24.904
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "from": 749,
+      "dur": 122,
+      "words": [
+        {
+          "text": "Comment",
+          "start": 24.985,
+          "end": 25.322
+        },
+        {
+          "text": "AVATAR",
+          "start": 25.368,
+          "end": 25.752
+        },
+        {
+          "text": "and",
+          "start": 25.833,
+          "end": 26.03
+        },
+        {
+          "text": "I'll",
+          "start": 26.1,
+          "end": 26.216
+        },
+        {
+          "text": "send",
+          "start": 26.262,
+          "end": 26.448
+        },
+        {
+          "text": "you",
+          "start": 26.483,
+          "end": 26.564
+        },
+        {
+          "text": "the",
+          "start": 26.611,
+          "end": 26.68
+        },
+        {
+          "text": "free",
+          "start": 26.738,
+          "end": 26.889
+        },
+        {
+          "text": "link.",
+          "start": 26.936,
+          "end": 27.191
+        },
+        {
+          "text": "Follow",
+          "start": 27.261,
+          "end": 27.528
+        },
+        {
+          "text": "for",
+          "start": 27.598,
+          "end": 27.737
+        },
+        {
+          "text": "daily",
+          "start": 27.807,
+          "end": 28.05
+        },
+        {
+          "text": "AI",
+          "start": 28.108,
+          "end": 28.283
+        },
+        {
+          "text": "updates.",
+          "start": 28.317,
+          "end": 29.014
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,561 @@
+{
+  "fps": 30,
+  "lead_in": 8,
+  "speech_end": 825,
+  "total": 897,
+  "estimated": false,
+  "segments": [
+    {
+      "id": "s1",
+      "from": 8,
+      "dur": 110,
+      "words": [
+        {
+          "text": "Gemini",
+          "start": 0.267,
+          "end": 0.604
+        },
+        {
+          "text": "can",
+          "start": 0.639,
+          "end": 0.755
+        },
+        {
+          "text": "now",
+          "start": 0.813,
+          "end": 0.94
+        },
+        {
+          "text": "stop",
+          "start": 0.998,
+          "end": 1.184
+        },
+        {
+          "text": "training",
+          "start": 1.242,
+          "end": 1.509
+        },
+        {
+          "text": "on",
+          "start": 1.579,
+          "end": 1.683
+        },
+        {
+          "text": "your",
+          "start": 1.73,
+          "end": 1.858
+        },
+        {
+          "text": "chats,",
+          "start": 1.904,
+          "end": 2.252
+        },
+        {
+          "text": "and",
+          "start": 2.276,
+          "end": 2.415
+        },
+        {
+          "text": "you",
+          "start": 2.473,
+          "end": 2.543
+        },
+        {
+          "text": "still",
+          "start": 2.589,
+          "end": 2.786
+        },
+        {
+          "text": "keep",
+          "start": 2.856,
+          "end": 3.019
+        },
+        {
+          "text": "your",
+          "start": 3.088,
+          "end": 3.204
+        },
+        {
+          "text": "chat",
+          "start": 3.251,
+          "end": 3.413
+        },
+        {
+          "text": "history.",
+          "start": 3.448,
+          "end": 3.924
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "from": 119,
+      "dur": 141,
+      "words": [
+        {
+          "text": "Until",
+          "start": 3.982,
+          "end": 4.296
+        },
+        {
+          "text": "now,",
+          "start": 4.365,
+          "end": 4.644
+        },
+        {
+          "text": "one",
+          "start": 4.69,
+          "end": 4.865
+        },
+        {
+          "text": "switch",
+          "start": 4.888,
+          "end": 5.097
+        },
+        {
+          "text": "called",
+          "start": 5.143,
+          "end": 5.387
+        },
+        {
+          "text": "Keep",
+          "start": 5.457,
+          "end": 5.654
+        },
+        {
+          "text": "Activity",
+          "start": 5.712,
+          "end": 6.072
+        },
+        {
+          "text": "did",
+          "start": 6.118,
+          "end": 6.246
+        },
+        {
+          "text": "both.",
+          "start": 6.304,
+          "end": 6.606
+        },
+        {
+          "text": "Turn",
+          "start": 6.629,
+          "end": 6.838
+        },
+        {
+          "text": "it",
+          "start": 6.885,
+          "end": 6.954
+        },
+        {
+          "text": "off,",
+          "start": 7.012,
+          "end": 7.233
+        },
+        {
+          "text": "and",
+          "start": 7.268,
+          "end": 7.407
+        },
+        {
+          "text": "your",
+          "start": 7.465,
+          "end": 7.581
+        },
+        {
+          "text": "history",
+          "start": 7.639,
+          "end": 7.988
+        },
+        {
+          "text": "was",
+          "start": 8.034,
+          "end": 8.162
+        },
+        {
+          "text": "gone",
+          "start": 8.22,
+          "end": 8.394
+        },
+        {
+          "text": "too.",
+          "start": 8.417,
+          "end": 8.638
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "from": 261,
+      "dur": 127,
+      "words": [
+        {
+          "text": "Now",
+          "start": 8.707,
+          "end": 8.87
+        },
+        {
+          "text": "Google",
+          "start": 8.928,
+          "end": 9.218
+        },
+        {
+          "text": "is",
+          "start": 9.242,
+          "end": 9.323
+        },
+        {
+          "text": "splitting",
+          "start": 9.346,
+          "end": 9.694
+        },
+        {
+          "text": "it",
+          "start": 9.741,
+          "end": 9.81
+        },
+        {
+          "text": "into",
+          "start": 9.868,
+          "end": 10.031
+        },
+        {
+          "text": "two",
+          "start": 10.089,
+          "end": 10.182
+        },
+        {
+          "text": "settings.",
+          "start": 10.228,
+          "end": 10.681
+        },
+        {
+          "text": "One",
+          "start": 10.774,
+          "end": 10.983
+        },
+        {
+          "text": "for",
+          "start": 11.018,
+          "end": 11.145
+        },
+        {
+          "text": "history,",
+          "start": 11.203,
+          "end": 11.656
+        },
+        {
+          "text": "and",
+          "start": 11.691,
+          "end": 11.842
+        },
+        {
+          "text": "one",
+          "start": 11.923,
+          "end": 12.086
+        },
+        {
+          "text": "for",
+          "start": 12.121,
+          "end": 12.237
+        },
+        {
+          "text": "AI",
+          "start": 12.295,
+          "end": 12.469
+        },
+        {
+          "text": "training.",
+          "start": 12.504,
+          "end": 12.922
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "from": 388,
+      "dur": 115,
+      "words": [
+        {
+          "text": "Open",
+          "start": 12.957,
+          "end": 13.235
+        },
+        {
+          "text": "Gemini",
+          "start": 13.282,
+          "end": 13.549
+        },
+        {
+          "text": "settings",
+          "start": 13.595,
+          "end": 13.955
+        },
+        {
+          "text": "and",
+          "start": 13.99,
+          "end": 14.106
+        },
+        {
+          "text": "find",
+          "start": 14.187,
+          "end": 14.396
+        },
+        {
+          "text": "History.",
+          "start": 14.443,
+          "end": 14.93
+        },
+        {
+          "text": "Keep",
+          "start": 14.988,
+          "end": 15.174
+        },
+        {
+          "text": "history",
+          "start": 15.22,
+          "end": 15.546
+        },
+        {
+          "text": "on,",
+          "start": 15.592,
+          "end": 15.743
+        },
+        {
+          "text": "and",
+          "start": 15.766,
+          "end": 15.905
+        },
+        {
+          "text": "switch",
+          "start": 15.952,
+          "end": 16.219
+        },
+        {
+          "text": "training",
+          "start": 16.265,
+          "end": 16.532
+        },
+        {
+          "text": "off.",
+          "start": 16.59,
+          "end": 16.753
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "from": 503,
+      "dur": 154,
+      "words": [
+        {
+          "text": "One",
+          "start": 16.799,
+          "end": 17.02
+        },
+        {
+          "text": "catch.",
+          "start": 17.066,
+          "end": 17.368
+        },
+        {
+          "text": "With",
+          "start": 17.438,
+          "end": 17.624
+        },
+        {
+          "text": "history",
+          "start": 17.659,
+          "end": 17.949
+        },
+        {
+          "text": "off,",
+          "start": 17.995,
+          "end": 18.169
+        },
+        {
+          "text": "Google",
+          "start": 18.216,
+          "end": 18.506
+        },
+        {
+          "text": "now",
+          "start": 18.541,
+          "end": 18.669
+        },
+        {
+          "text": "keeps",
+          "start": 18.715,
+          "end": 18.901
+        },
+        {
+          "text": "your",
+          "start": 18.936,
+          "end": 19.063
+        },
+        {
+          "text": "chats",
+          "start": 19.121,
+          "end": 19.365
+        },
+        {
+          "text": "for",
+          "start": 19.412,
+          "end": 19.516
+        },
+        {
+          "text": "about",
+          "start": 19.563,
+          "end": 19.76
+        },
+        {
+          "text": "two",
+          "start": 19.795,
+          "end": 19.899
+        },
+        {
+          "text": "months.",
+          "start": 19.969,
+          "end": 20.282
+        },
+        {
+          "text": "That",
+          "start": 20.34,
+          "end": 20.515
+        },
+        {
+          "text": "used",
+          "start": 20.584,
+          "end": 20.724
+        },
+        {
+          "text": "to",
+          "start": 20.747,
+          "end": 20.793
+        },
+        {
+          "text": "be",
+          "start": 20.851,
+          "end": 20.933
+        },
+        {
+          "text": "72 hours.",
+          "start": 20.979,
+          "end": 21.873
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "from": 656,
+      "dur": 169,
+      "words": [
+        {
+          "text": "It's",
+          "start": 21.896,
+          "end": 22.094
+        },
+        {
+          "text": "rolling",
+          "start": 22.163,
+          "end": 22.454
+        },
+        {
+          "text": "out",
+          "start": 22.512,
+          "end": 22.639
+        },
+        {
+          "text": "over",
+          "start": 22.686,
+          "end": 22.837
+        },
+        {
+          "text": "the",
+          "start": 22.883,
+          "end": 22.953
+        },
+        {
+          "text": "coming",
+          "start": 22.999,
+          "end": 23.208
+        },
+        {
+          "text": "weeks.",
+          "start": 23.243,
+          "end": 23.545
+        },
+        {
+          "text": "Share",
+          "start": 23.58,
+          "end": 23.859
+        },
+        {
+          "text": "this",
+          "start": 23.882,
+          "end": 24.021
+        },
+        {
+          "text": "with",
+          "start": 24.068,
+          "end": 24.195
+        },
+        {
+          "text": "a",
+          "start": 24.218,
+          "end": 24.242
+        },
+        {
+          "text": "friend",
+          "start": 24.3,
+          "end": 24.567
+        },
+        {
+          "text": "who",
+          "start": 24.625,
+          "end": 24.729
+        },
+        {
+          "text": "uses",
+          "start": 24.776,
+          "end": 24.973
+        },
+        {
+          "text": "Gemini,",
+          "start": 25.02,
+          "end": 25.461
+        },
+        {
+          "text": "and",
+          "start": 25.53,
+          "end": 25.693
+        },
+        {
+          "text": "follow",
+          "start": 25.751,
+          "end": 25.983
+        },
+        {
+          "text": "for",
+          "start": 26.03,
+          "end": 26.146
+        },
+        {
+          "text": "daily",
+          "start": 26.215,
+          "end": 26.459
+        },
+        {
+          "text": "AI",
+          "start": 26.529,
+          "end": 26.773
+        },
+        {
+          "text": "updates.",
+          "start": 26.842,
+          "end": 27.481
+        }
+      ]
+    }
+  ]
+}

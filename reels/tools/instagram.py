@@ -7,6 +7,11 @@ Usage:
   python instagram.py post <video.mp4> <caption.txt> [--thumb-ms 4600] [--no-feed]
                                                                -> DRY RUN: shows what would be posted
   python instagram.py post <video.mp4> <caption.txt> ... --yes -> actually uploads and publishes
+                                                  add --force to post a video that is already up
+
+Double-post guard: a post is refused if the video file is already in output/instagram_posts.jsonl, or if
+a recent post on the account starts with the same caption line (catches posts made from the cloud or by a
+scheduled task). It checks before uploading and again just before publishing. --force overrides it.
   python instagram.py recent [n]                                -> the page's latest posts (date | first caption line)
   python instagram.py refresh                                  -> extends the long-lived token by 60 days, saves it to .env
 
@@ -109,7 +114,32 @@ def refresh() -> None:
     print(f"Token refreshed and saved to .env; valid for about {days} days.")
 
 
-def post(video: Path, caption: str, thumb_ms: int | None, share_to_feed: bool, confirm: bool) -> None:
+def first_line(text: str | None) -> str:
+    return next((l.strip() for l in (text or "").splitlines() if l.strip()), "")
+
+
+def already_posted(video: Path, caption: str) -> str | None:
+    """Where this reel is already live, or None. Added after the Maps reel went up twice on 17 Nov 2026
+    (a late scheduled task, then a manual post 6 minutes later)."""
+    if LOG.exists():
+        for line in LOG.read_text(encoding="utf-8").splitlines():
+            try:
+                e = json.loads(line)
+            except ValueError:
+                continue
+            if e.get("video") == video.name:
+                return f"{video.name} is already in {LOG.name}: {e.get('permalink')} ({e.get('time')})"
+    head = first_line(caption)
+    if head and env("IG_ACCESS_TOKEN"):
+        data = check(requests.get(f"{API}/{me()['user_id']}/media",
+                                  params={"fields": "caption,timestamp,permalink", "limit": 25, "access_token": token()}, timeout=30))
+        for m in data.get("data", []):
+            if first_line(m.get("caption")) == head:
+                return f"a post with the same first caption line is already live: {m.get('permalink')} ({m.get('timestamp')})"
+    return None
+
+
+def post(video: Path, caption: str, thumb_ms: int | None, share_to_feed: bool, confirm: bool, force: bool = False) -> None:
     if not video.exists():
         sys.exit(f"video not found: {video}")
     if len(caption) > 2200:
@@ -124,6 +154,9 @@ def post(video: Path, caption: str, thumb_ms: int | None, share_to_feed: bool, c
     print(f"Cover   : frame at {thumb_ms} ms" if thumb_ms is not None else "Cover   : Instagram default")
     print(f"Feed    : {'also shown in profile grid' if share_to_feed else 'Reels tab only'}")
     print(f"Caption : {len(caption)} chars, {tags} hashtags\n---\n{caption}\n---")
+    dup = None if force else already_posted(video, caption)
+    if dup:
+        sys.exit(f"ALREADY POSTED, nothing was uploaded: {dup}\nAdd --force only if you really want it up twice.")
     if not confirm:
         print("DRY RUN: nothing was uploaded. Add --yes to publish.")
         return
@@ -177,6 +210,9 @@ def post(video: Path, caption: str, thumb_ms: int | None, share_to_feed: bool, c
     else:
         sys.exit(f"still processing after 5 minutes; container {container}. Try publishing later.")
     print("3/4 processed by Instagram")
+    dup = None if force else already_posted(video, caption)  # something else may have posted it during the upload
+    if dup:
+        sys.exit(f"ALREADY POSTED while this upload was running, so it was not published: {dup}")
 
     pub = check(requests.post(f"{API}/{ig_id}/media_publish", data={"creation_id": container, "access_token": token()}, timeout=60))
     media_id = pub["id"]
@@ -202,6 +238,6 @@ if __name__ == "__main__":
     elif cmd == "post" and len(args) >= 3:
         thumb = int(args[args.index("--thumb-ms") + 1]) if "--thumb-ms" in args else None
         cap = Path(args[2]).read_text(encoding="utf-8").strip()
-        post(Path(args[1]), cap, thumb, "--no-feed" not in args, "--yes" in args)
+        post(Path(args[1]), cap, thumb, "--no-feed" not in args, "--yes" in args, "--force" in args)
     else:
         sys.exit(__doc__)

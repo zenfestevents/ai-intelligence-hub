@@ -35,8 +35,11 @@ def apply_replacements(words):
         parts = spoken.split()
         i = 0
         while i <= len(words) - len(parts):
-            if [w["text"] for w in words[i : i + len(parts)]] == parts:
-                words[i : i + len(parts)] = [{"text": shown, "start": words[i]["start"], "end": words[i + len(parts) - 1]["end"]}]
+            # Ignore trailing punctuation when matching ("milliseconds," still matches) and keep it on the shown text.
+            got = [w["text"] for w in words[i : i + len(parts)]]
+            if [g.rstrip(",.:;?!") for g in got] == [p.rstrip(",.:;?!") for p in parts]:
+                tail = got[-1][len(got[-1].rstrip(",.:;?!")) :]
+                words[i : i + len(parts)] = [{"text": shown + tail, "start": words[i]["start"], "end": words[i + len(parts) - 1]["end"]}]
             i += 1
     return words
 

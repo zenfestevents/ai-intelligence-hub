@@ -55,7 +55,8 @@ export const Sfx: React.FC<{ at: number; src: string; volume?: number }> = ({ at
   </Sequence>
 );
 
-export const EndCard: React.FC<{ line?: React.ReactNode }> = ({ line }) => {
+// title/icon default to "SAVE THIS" + bookmark; share-style reels pass their own (e.g. "SHARE THIS" + paper plane).
+export const EndCard: React.FC<{ line?: React.ReactNode; title?: React.ReactNode; icon?: React.ReactNode }> = ({ line, title, icon }) => {
   const frame = useCurrentFrame();
   const logo = usePop(4, 10);
   const t1 = ease(frame, 12, 24);
@@ -66,7 +67,7 @@ export const EndCard: React.FC<{ line?: React.ReactNode }> = ({ line }) => {
         <AiLogo size={360} />
       </div>
       <div style={{ marginTop: 60, display: "flex", alignItems: "center", gap: 16, fontFamily: F.head, fontSize: 96, color: C.white, opacity: t1, transform: `translateY(${(1 - t1) * 30}px)` }}>
-        <BookmarkSimple size={88} weight="fill" color={C.yellow} /> SAVE THIS
+        {icon ?? <BookmarkSimple size={88} weight="fill" color={C.yellow} />} {title ?? "SAVE THIS"}
       </div>
       <div style={{ marginTop: 18, fontFamily: F.body, fontWeight: 800, fontSize: 50, color: C.grey, opacity: t2, transform: `translateY(${(1 - t2) * 30}px)` }}>
         {line ?? (

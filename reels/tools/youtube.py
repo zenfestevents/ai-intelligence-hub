@@ -8,6 +8,10 @@ Usage:
   python youtube.py whoami                                      -> checks the connection, shows the channel
   python youtube.py post <video.mp4> <caption.txt> [options]    -> DRY RUN: shows what would be uploaded
   python youtube.py post <video.mp4> <caption.txt> ... --yes    -> actually uploads
+  python youtube.py banner <banner.png> [--yes]                 -> sets the channel banner (dry run without --yes)
+
+The profile picture can't be set through the API (YouTube has no endpoint for it); upload it in
+YouTube Studio > Customization > Profile > Picture.
 
 Options for post:
   --title "text"                 title (default: first line of the caption, max 100 characters)
@@ -38,7 +42,9 @@ ROOT = Path(__file__).resolve().parent.parent
 ENV = ROOT / ".env"
 CLIENT_FILE = ROOT / "client_secret.json"
 LOG = ROOT / "output" / "youtube_posts.jsonl"
-SCOPES = "https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.readonly"
+# "youtube" (manage the channel) is needed for the banner; upload + readonly cover posting.
+SCOPES = ("https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.readonly "
+          "https://www.googleapis.com/auth/youtube")
 API = "https://www.googleapis.com/youtube/v3"
 UPLOAD_API = "https://www.googleapis.com/upload/youtube/v3"
 CHUNK = 8 * 1024 * 1024  # upload in 8 MB pieces so a dropped connection only resends one piece
@@ -345,6 +351,36 @@ def post(video: Path, caption: str, title: str | None, privacy: str, thumb: Path
                             "video": video.name, "time": time.strftime("%Y-%m-%dT%H:%M:%S")}) + "\n")
 
 
+# ---------- channel banner ----------
+
+def banner(image: Path, confirm: bool) -> None:
+    """channelBanners.insert uploads the image; channels.update points brandingSettings at it."""
+    if not image.exists():
+        sys.exit(f"banner image not found: {image}")
+    size = image.stat().st_size
+    if size > 6 * 1024 * 1024:
+        sys.exit(f"banner is {size / 1_048_576:.1f} MB; YouTube allows 6 MB")
+    ch = channel()
+    print(f"Channel : {ch['snippet']['title']}")
+    print(f"Banner  : {image.name} ({size / 1024:.0f} KB; YouTube wants 2048x1152 or larger, 16:9)")
+    if not confirm:
+        print("DRY RUN: nothing was changed. Add --yes to set the banner.")
+        return
+    ctype = "image/png" if image.suffix.lower() == ".png" else "image/jpeg"
+    up = check(requests.post(f"{UPLOAD_API}/channelBanners/insert", headers={**auth(), "Content-Type": ctype},
+                             data=image.read_bytes(), timeout=120), "YouTube banner upload")
+    print("1/2 banner image uploaded")
+    # channels.update replaces all of brandingSettings, so start from what's there to keep the description etc.
+    cur = check(requests.get(f"{API}/channels", params={"part": "brandingSettings", "id": ch["id"]},
+                             headers=auth(), timeout=30))["items"][0]
+    bs = cur.get("brandingSettings", {})
+    bs.setdefault("image", {})["bannerExternalUrl"] = up["url"]
+    check(requests.put(f"{API}/channels", params={"part": "brandingSettings"},
+                       headers={**auth(), "Content-Type": "application/json"},
+                       data=json.dumps({"id": ch["id"], "brandingSettings": bs}), timeout=30), "YouTube channel update")
+    print("2/2 banner set on the channel (YouTube can take a few minutes to show it)")
+
+
 def opt(args: list[str], name: str) -> str | None:
     return args[args.index(name) + 1] if name in args and args.index(name) + 1 < len(args) else None
 
@@ -364,5 +400,7 @@ if __name__ == "__main__":
         th = opt(args, "--thumb")
         post(Path(args[1]), cap, opt(args, "--title"), opt(args, "--privacy") or "public",
              Path(th) if th else None, "--synthetic" in args, opt(args, "--category") or "28", "--yes" in args)
+    elif cmd == "banner" and len(args) >= 2:
+        banner(Path(args[1]), "--yes" in args)
     else:
         sys.exit(__doc__)

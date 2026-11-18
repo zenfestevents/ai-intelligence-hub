@@ -1,0 +1,511 @@
+{
+  "fps": 30,
+  "lead_in": 8,
+  "speech_end": 849,
+  "total": 921,
+  "estimated": false,
+  "segments": [
+    {
+      "id": "s1",
+      "from": 8,
+      "dur": 103,
+      "words": [
+        {
+          "text": "Claude",
+          "start": 0.267,
+          "end": 0.592
+        },
+        {
+          "text": "is",
+          "start": 0.662,
+          "end": 0.813
+        },
+        {
+          "text": "now",
+          "start": 0.871,
+          "end": 0.987
+        },
+        {
+          "text": "growing",
+          "start": 1.033,
+          "end": 1.312
+        },
+        {
+          "text": "faster",
+          "start": 1.358,
+          "end": 1.73
+        },
+        {
+          "text": "than",
+          "start": 1.811,
+          "end": 1.985
+        },
+        {
+          "text": "ChatGPT",
+          "start": 2.043,
+          "end": 2.45
+        },
+        {
+          "text": "and",
+          "start": 2.508,
+          "end": 2.601
+        },
+        {
+          "text": "Gemini",
+          "start": 2.647,
+          "end": 3.019
+        },
+        {
+          "text": "in",
+          "start": 3.135,
+          "end": 3.274
+        },
+        {
+          "text": "India.",
+          "start": 3.332,
+          "end": 3.692
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "from": 112,
+      "dur": 144,
+      "words": [
+        {
+          "text": "Claude's",
+          "start": 3.738,
+          "end": 4.063
+        },
+        {
+          "text": "downloads",
+          "start": 4.098,
+          "end": 4.528
+        },
+        {
+          "text": "in",
+          "start": 4.586,
+          "end": 4.667
+        },
+        {
+          "text": "India",
+          "start": 4.725,
+          "end": 5.05
+        },
+        {
+          "text": "jumped",
+          "start": 5.132,
+          "end": 5.41
+        },
+        {
+          "text": "15x",
+          "start": 5.468,
+          "end": 6.095
+        },
+        {
+          "text": "in",
+          "start": 6.165,
+          "end": 6.293
+        },
+        {
+          "text": "the",
+          "start": 6.327,
+          "end": 6.397
+        },
+        {
+          "text": "September",
+          "start": 6.444,
+          "end": 6.861
+        },
+        {
+          "text": "quarter,",
+          "start": 6.908,
+          "end": 7.337
+        },
+        {
+          "text": "compared",
+          "start": 7.384,
+          "end": 7.755
+        },
+        {
+          "text": "to",
+          "start": 7.779,
+          "end": 7.848
+        },
+        {
+          "text": "a",
+          "start": 7.883,
+          "end": 7.906
+        },
+        {
+          "text": "year",
+          "start": 7.964,
+          "end": 8.115
+        },
+        {
+          "text": "ago.",
+          "start": 8.173,
+          "end": 8.51
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "from": 255,
+      "dur": 147,
+      "words": [
+        {
+          "text": "In",
+          "start": 8.533,
+          "end": 8.661
+        },
+        {
+          "text": "the",
+          "start": 8.684,
+          "end": 8.754
+        },
+        {
+          "text": "same",
+          "start": 8.789,
+          "end": 8.963
+        },
+        {
+          "text": "period,",
+          "start": 8.998,
+          "end": 9.346
+        },
+        {
+          "text": "ChatGPT",
+          "start": 9.381,
+          "end": 9.834
+        },
+        {
+          "text": "downloads",
+          "start": 9.903,
+          "end": 10.333
+        },
+        {
+          "text": "fell",
+          "start": 10.403,
+          "end": 10.577
+        },
+        {
+          "text": "21%,",
+          "start": 10.646,
+          "end": 11.575
+        },
+        {
+          "text": "and",
+          "start": 11.598,
+          "end": 11.773
+        },
+        {
+          "text": "Gemini",
+          "start": 11.831,
+          "end": 12.179
+        },
+        {
+          "text": "fell",
+          "start": 12.249,
+          "end": 12.423
+        },
+        {
+          "text": "29%.",
+          "start": 12.469,
+          "end": 13.398
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "from": 403,
+      "dur": 128,
+      "words": [
+        {
+          "text": "Claude",
+          "start": 13.456,
+          "end": 13.758
+        },
+        {
+          "text": "is",
+          "start": 13.793,
+          "end": 13.886
+        },
+        {
+          "text": "now",
+          "start": 13.956,
+          "end": 14.118
+        },
+        {
+          "text": "India's",
+          "start": 14.176,
+          "end": 14.432
+        },
+        {
+          "text": "No. 3",
+          "start": 14.49,
+          "end": 14.919
+        },
+        {
+          "text": "app",
+          "start": 14.977,
+          "end": 15.151
+        },
+        {
+          "text": "by",
+          "start": 15.233,
+          "end": 15.372
+        },
+        {
+          "text": "in-app",
+          "start": 15.442,
+          "end": 15.685
+        },
+        {
+          "text": "spending,",
+          "start": 15.732,
+          "end": 16.243
+        },
+        {
+          "text": "ahead",
+          "start": 16.289,
+          "end": 16.533
+        },
+        {
+          "text": "of",
+          "start": 16.591,
+          "end": 16.649
+        },
+        {
+          "text": "Instagram",
+          "start": 16.695,
+          "end": 17.113
+        },
+        {
+          "text": "and",
+          "start": 17.171,
+          "end": 17.253
+        },
+        {
+          "text": "YouTube.",
+          "start": 17.299,
+          "end": 17.694
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "from": 533,
+      "dur": 152,
+      "words": [
+        {
+          "text": "But",
+          "start": 17.775,
+          "end": 17.938
+        },
+        {
+          "text": "ChatGPT",
+          "start": 17.984,
+          "end": 18.46
+        },
+        {
+          "text": "is",
+          "start": 18.553,
+          "end": 18.623
+        },
+        {
+          "text": "still",
+          "start": 18.646,
+          "end": 18.901
+        },
+        {
+          "text": "the",
+          "start": 18.959,
+          "end": 19.029
+        },
+        {
+          "text": "biggest",
+          "start": 19.076,
+          "end": 19.354
+        },
+        {
+          "text": "AI",
+          "start": 19.412,
+          "end": 19.621
+        },
+        {
+          "text": "app",
+          "start": 19.691,
+          "end": 19.807
+        },
+        {
+          "text": "in",
+          "start": 19.865,
+          "end": 19.923
+        },
+        {
+          "text": "India,",
+          "start": 19.981,
+          "end": 20.341
+        },
+        {
+          "text": "and",
+          "start": 20.364,
+          "end": 20.527
+        },
+        {
+          "text": "India",
+          "start": 20.596,
+          "end": 20.852
+        },
+        {
+          "text": "is",
+          "start": 20.91,
+          "end": 21.003
+        },
+        {
+          "text": "its",
+          "start": 21.061,
+          "end": 21.177
+        },
+        {
+          "text": "largest",
+          "start": 21.235,
+          "end": 21.56
+        },
+        {
+          "text": "market",
+          "start": 21.618,
+          "end": 21.897
+        },
+        {
+          "text": "by",
+          "start": 21.955,
+          "end": 22.059
+        },
+        {
+          "text": "weekly",
+          "start": 22.117,
+          "end": 22.373
+        },
+        {
+          "text": "users.",
+          "start": 22.419,
+          "end": 22.825
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "from": 686,
+      "dur": 163,
+      "words": [
+        {
+          "text": "That's",
+          "start": 22.895,
+          "end": 23.104
+        },
+        {
+          "text": "from",
+          "start": 23.151,
+          "end": 23.336
+        },
+        {
+          "text": "Sensor",
+          "start": 23.418,
+          "end": 23.731
+        },
+        {
+          "text": "Tower",
+          "start": 23.789,
+          "end": 23.998
+        },
+        {
+          "text": "data.",
+          "start": 24.044,
+          "end": 24.404
+        },
+        {
+          "text": "Which",
+          "start": 24.428,
+          "end": 24.59
+        },
+        {
+          "text": "one",
+          "start": 24.637,
+          "end": 24.753
+        },
+        {
+          "text": "do",
+          "start": 24.776,
+          "end": 24.834
+        },
+        {
+          "text": "you",
+          "start": 24.869,
+          "end": 24.962
+        },
+        {
+          "text": "use?",
+          "start": 25.043,
+          "end": 25.322
+        },
+        {
+          "text": "Tell",
+          "start": 25.391,
+          "end": 25.565
+        },
+        {
+          "text": "me",
+          "start": 25.623,
+          "end": 25.693
+        },
+        {
+          "text": "in",
+          "start": 25.716,
+          "end": 25.763
+        },
+        {
+          "text": "the",
+          "start": 25.798,
+          "end": 25.867
+        },
+        {
+          "text": "comments,",
+          "start": 25.925,
+          "end": 26.308
+        },
+        {
+          "text": "and",
+          "start": 26.366,
+          "end": 26.517
+        },
+        {
+          "text": "follow",
+          "start": 26.575,
+          "end": 26.842
+        },
+        {
+          "text": "for",
+          "start": 26.901,
+          "end": 27.028
+        },
+        {
+          "text": "daily",
+          "start": 27.086,
+          "end": 27.26
+        },
+        {
+          "text": "AI",
+          "start": 27.319,
+          "end": 27.551
+        },
+        {
+          "text": "updates.",
+          "start": 27.597,
+          "end": 28.271
+        }
+      ]
+    }
+  ]
+}

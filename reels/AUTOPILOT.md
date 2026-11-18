@@ -105,8 +105,8 @@ For each reel (`<id>` = short name like `jio`, `maps`):
     DM content itself (links, steps, prompts), since YouTube has no DMs, and "Subscribe for daily AI updates in
     plain English." instead of "Follow...". Then:
     ```bash
-    python reels/tools/youtube.py post reels/output/<id>_v1_ig.mp4 reels/output/<id>_caption_yt.txt
-    python reels/tools/youtube.py post reels/output/<id>_v1_ig.mp4 reels/output/<id>_caption_yt.txt --yes
+    python reels/tools/youtube.py post reels/output/<id>_v1_ig.mp4 reels/output/<id>_caption_yt.txt --thumb reels/output/<id>_cover.png
+    python reels/tools/youtube.py post reels/output/<id>_v1_ig.mp4 reels/output/<id>_caption_yt.txt --thumb reels/output/<id>_cover.png --yes
     ```
     The dry run must show no DM note. If the upload fails, say so in the Telegram message; don't retry more than once.
 11. Send to Telegram: `✅ Reel n/3 is live: <Instagram link> · YouTube: <link>`. If the reel has a comment word, also send the DM text the

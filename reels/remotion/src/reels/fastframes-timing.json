@@ -1,0 +1,541 @@
+{
+  "fps": 30,
+  "lead_in": 8,
+  "speech_end": 882,
+  "total": 954,
+  "estimated": false,
+  "segments": [
+    {
+      "id": "s1",
+      "from": 8,
+      "dur": 120,
+      "words": [
+        {
+          "text": "Apple",
+          "start": 0.267,
+          "end": 0.546
+        },
+        {
+          "text": "just",
+          "start": 0.604,
+          "end": 0.731
+        },
+        {
+          "text": "released",
+          "start": 0.766,
+          "end": 1.091
+        },
+        {
+          "text": "an",
+          "start": 1.149,
+          "end": 1.277
+        },
+        {
+          "text": "AI",
+          "start": 1.393,
+          "end": 1.672
+        },
+        {
+          "text": "that",
+          "start": 1.741,
+          "end": 1.916
+        },
+        {
+          "text": "makes",
+          "start": 1.985,
+          "end": 2.171
+        },
+        {
+          "text": "video",
+          "start": 2.241,
+          "end": 2.566
+        },
+        {
+          "text": "almost",
+          "start": 2.647,
+          "end": 3.019
+        },
+        {
+          "text": "as",
+          "start": 3.065,
+          "end": 3.146
+        },
+        {
+          "text": "fast",
+          "start": 3.216,
+          "end": 3.413
+        },
+        {
+          "text": "as",
+          "start": 3.46,
+          "end": 3.518
+        },
+        {
+          "text": "you",
+          "start": 3.564,
+          "end": 3.634
+        },
+        {
+          "text": "can",
+          "start": 3.669,
+          "end": 3.785
+        },
+        {
+          "text": "watch",
+          "start": 3.831,
+          "end": 4.017
+        },
+        {
+          "text": "it.",
+          "start": 4.075,
+          "end": 4.238
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "from": 128,
+      "dur": 136,
+      "words": [
+        {
+          "text": "It's",
+          "start": 4.284,
+          "end": 4.47
+        },
+        {
+          "text": "called",
+          "start": 4.516,
+          "end": 4.772
+        },
+        {
+          "text": "FastFrames.",
+          "start": 4.853,
+          "end": 5.596
+        },
+        {
+          "text": "You",
+          "start": 5.642,
+          "end": 5.735
+        },
+        {
+          "text": "describe",
+          "start": 5.782,
+          "end": 6.153
+        },
+        {
+          "text": "a",
+          "start": 6.188,
+          "end": 6.211
+        },
+        {
+          "text": "scene,",
+          "start": 6.246,
+          "end": 6.56
+        },
+        {
+          "text": "and",
+          "start": 6.594,
+          "end": 6.734
+        },
+        {
+          "text": "it",
+          "start": 6.792,
+          "end": 6.861
+        },
+        {
+          "text": "streams",
+          "start": 6.908,
+          "end": 7.291
+        },
+        {
+          "text": "the",
+          "start": 7.349,
+          "end": 7.442
+        },
+        {
+          "text": "video",
+          "start": 7.5,
+          "end": 7.721
+        },
+        {
+          "text": "frame",
+          "start": 7.767,
+          "end": 8.046
+        },
+        {
+          "text": "by",
+          "start": 8.115,
+          "end": 8.289
+        },
+        {
+          "text": "frame.",
+          "start": 8.371,
+          "end": 8.777
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "from": 263,
+      "dur": 198,
+      "words": [
+        {
+          "text": "The",
+          "start": 8.8,
+          "end": 8.905
+        },
+        {
+          "text": "small",
+          "start": 8.951,
+          "end": 9.195
+        },
+        {
+          "text": "model",
+          "start": 9.253,
+          "end": 9.555
+        },
+        {
+          "text": "makes",
+          "start": 9.625,
+          "end": 9.822
+        },
+        {
+          "text": "each",
+          "start": 9.892,
+          "end": 10.054
+        },
+        {
+          "text": "frame",
+          "start": 10.101,
+          "end": 10.368
+        },
+        {
+          "text": "in",
+          "start": 10.426,
+          "end": 10.553
+        },
+        {
+          "text": "about",
+          "start": 10.6,
+          "end": 10.89
+        },
+        {
+          "text": "36 ms,",
+          "start": 10.937,
+          "end": 12.133
+        },
+        {
+          "text": "on",
+          "start": 12.179,
+          "end": 12.33
+        },
+        {
+          "text": "a",
+          "start": 12.377,
+          "end": 12.4
+        },
+        {
+          "text": "single",
+          "start": 12.435,
+          "end": 12.713
+        },
+        {
+          "text": "GPU.",
+          "start": 12.748,
+          "end": 13.259
+        },
+        {
+          "text": "Fast",
+          "start": 13.305,
+          "end": 13.538
+        },
+        {
+          "text": "enough",
+          "start": 13.596,
+          "end": 13.851
+        },
+        {
+          "text": "to",
+          "start": 13.897,
+          "end": 13.955
+        },
+        {
+          "text": "steer",
+          "start": 14.014,
+          "end": 14.222
+        },
+        {
+          "text": "the",
+          "start": 14.292,
+          "end": 14.362
+        },
+        {
+          "text": "video",
+          "start": 14.408,
+          "end": 14.64
+        },
+        {
+          "text": "while",
+          "start": 14.675,
+          "end": 14.838
+        },
+        {
+          "text": "it",
+          "start": 14.861,
+          "end": 14.942
+        },
+        {
+          "text": "plays.",
+          "start": 14.977,
+          "end": 15.337
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "from": 461,
+      "dur": 117,
+      "words": [
+        {
+          "text": "And",
+          "start": 15.372,
+          "end": 15.488
+        },
+        {
+          "text": "it",
+          "start": 15.546,
+          "end": 15.616
+        },
+        {
+          "text": "matches",
+          "start": 15.685,
+          "end": 15.987
+        },
+        {
+          "text": "the",
+          "start": 16.022,
+          "end": 16.092
+        },
+        {
+          "text": "quality",
+          "start": 16.138,
+          "end": 16.603
+        },
+        {
+          "text": "of",
+          "start": 16.684,
+          "end": 16.835
+        },
+        {
+          "text": "a",
+          "start": 16.893,
+          "end": 16.916
+        },
+        {
+          "text": "top",
+          "start": 16.974,
+          "end": 17.113
+        },
+        {
+          "text": "model",
+          "start": 17.171,
+          "end": 17.485
+        },
+        {
+          "text": "that",
+          "start": 17.543,
+          "end": 17.694
+        },
+        {
+          "text": "is",
+          "start": 17.74,
+          "end": 17.822
+        },
+        {
+          "text": "nearly",
+          "start": 17.88,
+          "end": 18.17
+        },
+        {
+          "text": "8x",
+          "start": 18.263,
+          "end": 18.727
+        },
+        {
+          "text": "slower.",
+          "start": 18.762,
+          "end": 19.238
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "from": 577,
+      "dur": 190,
+      "words": [
+        {
+          "text": "Two",
+          "start": 19.261,
+          "end": 19.412
+        },
+        {
+          "text": "sizes,",
+          "start": 19.47,
+          "end": 19.935
+        },
+        {
+          "text": "1.3B",
+          "start": 19.981,
+          "end": 20.933
+        },
+        {
+          "text": "and",
+          "start": 20.979,
+          "end": 21.049
+        },
+        {
+          "text": "14B,",
+          "start": 21.107,
+          "end": 21.839
+        },
+        {
+          "text": "both",
+          "start": 21.873,
+          "end": 22.117
+        },
+        {
+          "text": "free",
+          "start": 22.175,
+          "end": 22.384
+        },
+        {
+          "text": "to",
+          "start": 22.408,
+          "end": 22.477
+        },
+        {
+          "text": "download.",
+          "start": 22.535,
+          "end": 22.93
+        },
+        {
+          "text": "You'll",
+          "start": 22.964,
+          "end": 23.162
+        },
+        {
+          "text": "need",
+          "start": 23.208,
+          "end": 23.394
+        },
+        {
+          "text": "a",
+          "start": 23.464,
+          "end": 23.522
+        },
+        {
+          "text": "powerful",
+          "start": 23.591,
+          "end": 24.009
+        },
+        {
+          "text": "NVIDIA",
+          "start": 24.102,
+          "end": 24.567
+        },
+        {
+          "text": "GPU",
+          "start": 24.601,
+          "end": 24.857
+        },
+        {
+          "text": "to",
+          "start": 24.927,
+          "end": 24.996
+        },
+        {
+          "text": "run",
+          "start": 25.043,
+          "end": 25.194
+        },
+        {
+          "text": "them.",
+          "start": 25.24,
+          "end": 25.565
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "from": 768,
+      "dur": 114,
+      "words": [
+        {
+          "text": "Comment",
+          "start": 25.612,
+          "end": 25.948
+        },
+        {
+          "text": "FAST",
+          "start": 25.995,
+          "end": 26.25
+        },
+        {
+          "text": "and",
+          "start": 26.308,
+          "end": 26.447
+        },
+        {
+          "text": "I'll",
+          "start": 26.494,
+          "end": 26.61
+        },
+        {
+          "text": "send",
+          "start": 26.656,
+          "end": 26.807
+        },
+        {
+          "text": "you",
+          "start": 26.842,
+          "end": 26.912
+        },
+        {
+          "text": "the",
+          "start": 26.958,
+          "end": 27.028
+        },
+        {
+          "text": "links.",
+          "start": 27.086,
+          "end": 27.458
+        },
+        {
+          "text": "Follow",
+          "start": 27.504,
+          "end": 27.794
+        },
+        {
+          "text": "for",
+          "start": 27.887,
+          "end": 28.061
+        },
+        {
+          "text": "daily",
+          "start": 28.142,
+          "end": 28.386
+        },
+        {
+          "text": "AI",
+          "start": 28.456,
+          "end": 28.688
+        },
+        {
+          "text": "updates.",
+          "start": 28.746,
+          "end": 29.385
+        }
+      ]
+    }
+  ]
+}
