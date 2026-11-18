@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { ArrowUpRight, Check, Search } from "lucide-react";
+import { ArrowUpRight, Check, CheckCheck, LogOut, RotateCcw, Search } from "lucide-react";
+import SOURCE_LIST from "@/lib/sources.json";
 
 const CATEGORIES = [
   "All",
@@ -26,16 +27,19 @@ const INDUSTRIES = [
 ];
 const TABS = [
   { id: "feed", label: "Live feed" },
+  { id: "read", label: "Read" },
   { id: "verticals", label: "Verticals" },
   { id: "github", label: "GitHub trending" },
   { id: "huggingface", label: "Hugging Face trending" },
   { id: "startups", label: "Startups" },
   { id: "queue", label: "Waiting queue" },
+  { id: "sources", label: "Sources" },
 ];
 // Must match the source labels in backend/feeds.py.
 const GITHUB_SOURCE = "GitHub Trending (RSSHub)";
 const HF_SOURCE = "Hugging Face Trending Models";
 const STARTUPS_PAGE = 60;
+const INTEL_PAGE = 60;
 const REFRESH_MS = 60000;
 
 async function getJson(url) {
@@ -51,6 +55,20 @@ function timeAgo(iso) {
   if (seconds < 3600) return `${Math.floor(seconds / 60)} min ago`;
   if (seconds < 86400) return `${Math.floor(seconds / 3600)} h ago`;
   return `${Math.floor(seconds / 86400)} d ago`;
+}
+
+function fullDate(iso) {
+  return iso ? new Date(iso).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" }) : "";
+}
+
+async function postJson(url, body) {
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
 }
 
 function hostOf(url) {
@@ -98,13 +116,19 @@ function Notice({ title, children, alert = false }) {
   );
 }
 
-function IntelCard({ item }) {
+function IntelCard({ item, onToggleRead }) {
+  const isRead = Boolean(item.read_at);
   return (
     <article className="cell flex flex-col gap-4 p-5">
       <header className="flex items-start justify-between gap-4">
         <p className="label text-phosphor">{item.entity_name}</p>
-        <p className="label shrink-0 text-right">
-          <time dateTime={item.published_at}>{timeAgo(item.published_at)}</time>
+        <p className="label shrink-0 text-right" title={`The source published this on ${fullDate(item.published_at)}`}>
+          Published <time dateTime={item.published_at}>{timeAgo(item.published_at)}</time>
+          {isRead && (
+            <span className="block" title={fullDate(item.read_at)}>
+              Read {timeAgo(item.read_at)}
+            </span>
+          )}
         </p>
       </header>
 
@@ -135,15 +159,30 @@ function IntelCard({ item }) {
           <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
         </a>
       </footer>
+      {onToggleRead && (
+        <button
+          type="button"
+          onClick={() => onToggleRead([item.id], !isRead)}
+          className="flex items-center justify-center gap-1.5 border border-line px-3 py-2 text-[11px] uppercase tracking-[0.1em] text-dim hover:border-phosphor hover:text-phosphor"
+        >
+          {isRead ? (
+            <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
+          ) : (
+            <Check className="h-3.5 w-3.5" aria-hidden="true" />
+          )}
+          {isRead ? "Move back to unread" : "Mark as read"}
+        </button>
+      )}
     </article>
   );
 }
 
-function IntelGrid({ state, emptyHint }) {
+function IntelGrid({ state, emptyHint, readView = false }) {
   if (state.error) {
     return (
       <Notice title="Cannot reach the API" alert>
-        The dashboard could not load data ({state.error}). Check that the backend is running on port 8000.
+        The dashboard could not load data ({state.error}). Reload the page; if it keeps failing, the database may
+        be down.
       </Notice>
     );
   }
@@ -153,30 +192,69 @@ function IntelGrid({ state, emptyHint }) {
   if (state.items.length === 0) {
     return <Notice title="Nothing here yet">{emptyHint}</Notice>;
   }
+  const shown = state.items.length;
   return (
-    <div className="gridlines md:grid-cols-2 2xl:grid-cols-3">
-      {state.items.map((item) => (
-        <IntelCard key={item.id} item={item} />
-      ))}
+    <div className="space-y-4">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <p className="label">
+          {shown} of {state.total} {readView ? "read" : "unread"} shown
+        </p>
+        {!readView && (
+          <button
+            type="button"
+            onClick={() => {
+              if (window.confirm(`Mark these ${shown} items as read?`)) {
+                state.toggleRead(state.items.map((i) => i.id), true);
+              }
+            }}
+            className="flex items-center gap-1.5 border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.1em] text-dim hover:border-phosphor hover:text-phosphor"
+          >
+            <CheckCheck className="h-3.5 w-3.5" aria-hidden="true" />
+            Mark all {shown} shown as read
+          </button>
+        )}
+      </div>
+      <div className="gridlines md:grid-cols-2 2xl:grid-cols-3">
+        {state.items.map((item) => (
+          <IntelCard key={item.id} item={item} onToggleRead={state.toggleRead} />
+        ))}
+      </div>
+      {shown < state.total && (
+        <div className="flex justify-end">
+          <button
+            type="button"
+            onClick={state.loadMore}
+            disabled={state.loading}
+            className="border border-phosphor px-4 py-2 text-[11px] uppercase tracking-[0.1em] text-phosphor hover:bg-phosphor hover:text-crt disabled:opacity-50"
+          >
+            {state.loading ? "Loading" : `Load more (${state.total - shown} left)`}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
 
 /* ---------- data hooks ---------- */
 
-function useIntel(param, value, active) {
-  const [state, setState] = useState({ items: [], loading: true, error: null });
+// read: "0" = unread items, "1" = read items. onChanged runs after items are marked (to refresh the counters).
+function useIntel(param, value, active, read, onChanged) {
+  const [state, setState] = useState({ items: [], total: 0, loading: true, error: null });
+  const [count, setCount] = useState(INTEL_PAGE);
+
+  // Back to the first page when the filter changes.
+  useEffect(() => setCount(INTEL_PAGE), [param, value, read]);
 
   const load = useCallback(async () => {
-    const qs = new URLSearchParams({ limit: "60" });
+    const qs = new URLSearchParams({ limit: String(count), read });
     if (value !== "All") qs.set(param, value);
     try {
-      const items = await getJson(`/api/intel?${qs}`);
-      setState({ items, loading: false, error: null });
+      const { items, total } = await getJson(`/api/intel?${qs}`);
+      setState({ items, total, loading: false, error: null });
     } catch (err) {
       setState((s) => ({ ...s, loading: false, error: err.message }));
     }
-  }, [param, value]);
+  }, [param, value, read, count]);
 
   useEffect(() => {
     if (!active) return undefined;
@@ -186,7 +264,26 @@ function useIntel(param, value, active) {
     return () => clearInterval(timer);
   }, [load, active]);
 
-  return state;
+  const loadMore = () => setCount((n) => Math.min(1000, n + INTEL_PAGE));
+
+  // The items leave this list at once, then the list and counters reload from the database.
+  const toggleRead = async (ids, makeRead) => {
+    const gone = new Set(ids);
+    setState((s) => ({
+      ...s,
+      items: s.items.filter((i) => !gone.has(i.id)),
+      total: Math.max(0, s.total - ids.length),
+    }));
+    try {
+      await postJson("/api/read", { ids, read: makeRead });
+    } catch (err) {
+      setState((s) => ({ ...s, error: err.message }));
+    }
+    load();
+    onChanged?.();
+  };
+
+  return { ...state, loadMore, toggleRead };
 }
 
 /* ---------- startups tab ---------- */
@@ -427,8 +524,8 @@ function QueueTab() {
   return (
     <div className="space-y-8">
       <p className="max-w-[70ch] text-[13px] leading-relaxed text-dim">
-        Articles the poller has fetched that the daily Claude summary run has not handled yet. They are not
-        verified and have no summary. Open the source to read one. Pick a source to see only its items.
+        Articles a scan has collected that the Claude summary step has not handled yet. They are not verified and
+        have no summary. Open the source to read one. Pick a source to see only its items.
       </p>
 
       <dl className="gridlines grid-cols-2 md:grid-cols-5" aria-label="Queue status">
@@ -516,6 +613,107 @@ function QueueTab() {
   );
 }
 
+/* ---------- sources tab ---------- */
+
+function SourcesTab() {
+  const [state, setState] = useState({ sources: null, error: null });
+  const [showOff, setShowOff] = useState(false);
+
+  useEffect(() => {
+    getJson("/api/sources")
+      .then((sources) => setState({ sources, error: null }))
+      .catch((err) => setState({ sources: null, error: err.message }));
+  }, []);
+
+  if (state.error) {
+    return (
+      <Notice title="Cannot reach the API" alert>
+        The source list could not load ({state.error}).
+      </Notice>
+    );
+  }
+  // Show the bundled list straight away; counts fill in when the API answers.
+  const sources = state.sources ?? SOURCE_LIST;
+  const on = sources.filter((s) => s.enabled);
+  const off = sources.filter((s) => !s.enabled);
+  const groups = [...new Set(on.map((s) => s.group))];
+  const feedsOn = on.filter((s) => s.group !== "X accounts").length;
+  const xCount = on.length - feedsOn;
+
+  const row = (s) => (
+    <li
+      key={s.label}
+      className="cell grid gap-x-6 gap-y-1 p-3 md:grid-cols-[minmax(0,1fr)_minmax(0,12rem)_repeat(3,5.5rem)]"
+    >
+      <div className="min-w-0">
+        <p className="text-[13px] text-phosphor">{s.label}</p>
+        {s.note && <p className="text-[11px] leading-snug text-dim">{s.note}</p>}
+      </div>
+      <p className="label truncate">
+        {s.url ? (
+          <a href={s.url} target="_blank" rel="noopener noreferrer" className="hover:text-hazard">
+            {s.host}
+          </a>
+        ) : (
+          s.host
+        )}
+      </p>
+      <p className="label md:text-right" title="Articles from this source on the site">
+        <span className="md:hidden">Published </span>
+        <span className="text-phosphor">{s.published ?? "-"}</span>
+      </p>
+      <p className="label md:text-right" title="Of those, not read yet">
+        <span className="md:hidden">Unread </span>
+        <span className="text-phosphor">{s.unread ?? "-"}</span>
+      </p>
+      <p className="label md:text-right" title={s.newest ? `Newest article published ${fullDate(s.newest)}` : ""}>
+        {s.newest ? timeAgo(s.newest) : "none yet"}
+      </p>
+    </li>
+  );
+
+  return (
+    <div className="space-y-8">
+      <p className="max-w-[70ch] text-[13px] leading-relaxed text-dim">
+        Every source a scan reads: {feedsOn} feeds and {xCount} X accounts, grouped by type. Published is how many
+        of its articles are on the site, Unread how many of those you haven&rsquo;t marked read, and the last column
+        when its newest article came out. The list comes from <code>backend/feeds.py</code>.
+      </p>
+      <div className="label hidden gap-x-6 px-3 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,12rem)_repeat(3,5.5rem)]">
+        <span>Source</span>
+        <span>Site</span>
+        <span className="text-right">Published</span>
+        <span className="text-right">Unread</span>
+        <span className="text-right">Newest</span>
+      </div>
+      {groups.map((g) => {
+        const list = on.filter((s) => s.group === g);
+        return (
+          <div key={g}>
+            <h2 className="label mb-3">
+              {g} ({list.length})
+            </h2>
+            <ol className="gridlines">{list.map(row)}</ol>
+          </div>
+        );
+      })}
+      {off.length > 0 && (
+        <div>
+          <button
+            type="button"
+            onClick={() => setShowOff((v) => !v)}
+            aria-expanded={showOff}
+            className="label mb-3 hover:text-phosphor"
+          >
+            {showOff ? "Hide" : "Show"} {off.length} sources that are switched off
+          </button>
+          {showOff && <ol className="gridlines opacity-70">{off.map(row)}</ol>}
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ---------- page ---------- */
 
 export default function Dashboard() {
@@ -524,17 +722,28 @@ export default function Dashboard() {
   const [industry, setIndustry] = useState("All");
   const [stats, setStats] = useState(null);
 
-  const feed = useIntel("category", category, tab === "feed");
-  const verticals = useIntel("industry", industry, tab === "verticals");
-  const github = useIntel("source", GITHUB_SOURCE, tab === "github");
-  const huggingface = useIntel("source", HF_SOURCE, tab === "huggingface");
+  const loadStats = useCallback(() => {
+    getJson("/api/stats")
+      .then(setStats)
+      .catch(() => setStats(null));
+  }, []);
+
+  const feed = useIntel("category", category, tab === "feed", "0", loadStats);
+  const readItems = useIntel("category", "All", tab === "read", "1", loadStats);
+  const verticals = useIntel("industry", industry, tab === "verticals", "0", loadStats);
+  const github = useIntel("source", GITHUB_SOURCE, tab === "github", "0", loadStats);
+  const huggingface = useIntel("source", HF_SOURCE, tab === "huggingface", "0", loadStats);
 
   useEffect(() => {
-    const load = () => getJson("/api/stats").then(setStats).catch(() => setStats(null));
-    load();
-    const timer = setInterval(load, REFRESH_MS);
+    loadStats();
+    const timer = setInterval(loadStats, REFRESH_MS);
     return () => clearInterval(timer);
-  }, []);
+  }, [loadStats]);
+
+  const signOut = async () => {
+    await fetch("/api/login", { method: "DELETE" }).catch(() => {});
+    window.location.href = "/login";
+  };
 
   const onTabKey = (e) => {
     const i = TABS.findIndex((t) => t.id === tab);
@@ -548,20 +757,52 @@ export default function Dashboard() {
     }
   };
 
+  // [name, value, explanation shown on hover and under the number]
   const telemetry = [
-    ["Polling", stats ? (stats.polling_active ? "On" : "Off") : "No link", stats && !stats.polling_active],
-    ["Verified 24h", stats?.verified_last_24h ?? "-"],
-    ["Verified total", stats?.verified_total ?? "-"],
-    ["Waiting", stats?.waiting_total ?? "-"],
-    ["Rejected", stats?.rejected_total ?? "-"],
-    ["Sources", stats?.sources_enabled ?? "-"],
-    ["Last poll", stats ? timeAgo(stats.last_poll_at) : "-"],
+    ["Unread", stats?.unread_total ?? "-", "Articles on the site you haven't marked as read yet."],
+    ["Read", stats?.read_total ?? "-", "Articles you marked as read. They're in the Read tab."],
+    ["Added 24h", stats?.verified_last_24h ?? "-", "Articles added to the site in the last 24 hours."],
+    ["On the site", stats?.verified_total ?? "-", "All articles that passed the exact-quote check (unread + read)."],
+    ["Waiting", stats?.waiting_total ?? "-", "Collected by a scan but not summarised yet. See the Waiting queue tab."],
+    ["Rejected", stats?.rejected_total ?? "-", "Dropped by the summary step: not about AI, or the quote wasn't found."],
+    [
+      "Sources",
+      stats?.sources_enabled ?? "-",
+      `Feeds a scan reads${stats ? `, plus ${stats.x_accounts} X accounts` : ""}. See the Sources tab.`,
+    ],
+    [
+      "Last update",
+      stats ? timeAgo(stats.last_update_at) : "-",
+      "Last time a scan or a summary run wrote anything. Scans run only when you ask for one.",
+    ],
   ];
+  const unread = stats?.unread_total;
 
   return (
     <div className="mx-auto min-h-screen max-w-[1600px] px-4 pb-16 pt-6 md:px-8">
       <header className="border-b-2 border-phosphor pb-6">
-        <p className="label">AetherAI / Intelligence unit / Rev 1.0</p>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <p className="label">AetherAI / Intelligence unit / Rev 1.0</p>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setTab("feed")}
+              title="Articles you haven't marked as read. Opens the Live feed."
+              className="border border-hazard bg-hazard px-3 py-1.5 text-[12px] font-bold uppercase tracking-[0.08em] text-phosphor hover:bg-transparent"
+            >
+              {unread ?? "-"} to read
+            </button>
+            <button
+              type="button"
+              onClick={signOut}
+              title="Sign out"
+              aria-label="Sign out"
+              className="border border-line p-2 text-dim hover:border-phosphor hover:text-phosphor"
+            >
+              <LogOut className="h-3.5 w-3.5" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
         <h1
           className="mt-3 font-display uppercase leading-[0.88] tracking-[-0.04em] text-phosphor"
           style={{ fontSize: "clamp(3rem, 11vw, 10rem)" }}
@@ -574,13 +815,12 @@ export default function Dashboard() {
         </p>
       </header>
 
-      <dl className="gridlines mt-6 grid-cols-2 md:grid-cols-4 xl:grid-cols-7" aria-label="System status">
-        {telemetry.map(([name, value, warn]) => (
-          <div key={name} className="cell p-4">
+      <dl className="gridlines mt-6 grid-cols-2 md:grid-cols-4 xl:grid-cols-8" aria-label="System status">
+        {telemetry.map(([name, value, help]) => (
+          <div key={name} className="cell p-4" title={help}>
             <dt className="label">{name}</dt>
-            <dd className={`mt-1 text-xl font-bold uppercase ${warn || !stats ? "text-hazard" : "text-phosphor"}`}>
-              {value}
-            </dd>
+            <dd className={`mt-1 text-xl font-bold uppercase ${!stats ? "text-hazard" : "text-phosphor"}`}>{value}</dd>
+            <dd className="mt-1 text-[10px] leading-snug text-dim">{help}</dd>
           </div>
         ))}
       </dl>
@@ -607,8 +847,14 @@ export default function Dashboard() {
                 active ? "border-hazard text-phosphor" : "border-transparent text-dim hover:text-phosphor"
               }`}
             >
-              <span className="mr-2 text-dim">0{i + 1}</span>
+              <span className="mr-2 text-dim">{String(i + 1).padStart(2, "0")}</span>
               {t.label}
+              {t.id === "feed" && unread > 0 && (
+                <span className="ml-2 bg-hazard px-1.5 py-0.5 text-[10px] font-bold text-phosphor">{unread}</span>
+              )}
+              {t.id === "read" && stats?.read_total > 0 && (
+                <span className="ml-2 text-dim">({stats.read_total})</span>
+              )}
             </button>
           );
         })}
@@ -618,14 +864,35 @@ export default function Dashboard() {
         {tab === "feed" && (
           <section id="panel-feed" role="tabpanel" aria-labelledby="tab-feed" className="space-y-6">
             <FilterBar label="Category" options={CATEGORIES} value={category} onChange={setCategory} />
+            <p className="max-w-[70ch] text-[13px] leading-relaxed text-dim">
+              Everything on the site you haven&rsquo;t read yet, from every source (GitHub and Hugging Face trending
+              included), newest first. The time on each card is when the source published it. Mark an item as read
+              and it moves to the Read tab.
+            </p>
             <IntelGrid
               state={feed}
               emptyHint={
                 category === "All"
-                  ? "No item has passed verification yet. New items appear here as the poller works through the sources."
-                  : `No verified items in "${category}" yet. Try another category.`
+                  ? "You're all caught up: nothing unread. New items appear here after the next scan and summary run."
+                  : `Nothing unread in "${category}". Try another category.`
               }
             />
+          </section>
+        )}
+
+        {tab === "read" && (
+          <section id="panel-read" role="tabpanel" aria-labelledby="tab-read" className="space-y-6">
+            <p className="max-w-[70ch] text-[13px] leading-relaxed text-dim">
+              Items you marked as read, most recently read first. &ldquo;Move back to unread&rdquo; returns one to the
+              Live feed.
+            </p>
+            <IntelGrid state={readItems} readView emptyHint="Nothing marked as read yet." />
+          </section>
+        )}
+
+        {tab === "sources" && (
+          <section id="panel-sources" role="tabpanel" aria-labelledby="tab-sources">
+            <SourcesTab />
           </section>
         )}
 

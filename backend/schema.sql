@@ -77,3 +77,7 @@ ALTER TABLE intel_feed DROP CONSTRAINT IF EXISTS intel_feed_primary_category_che
 ALTER TABLE intel_feed ADD CONSTRAINT intel_feed_primary_category_check CHECK (
     primary_category IN ('Model Release', 'Developer Tool', 'Research Paper', 'Hardware/Chips', 'Startup Funding', 'Product Update', 'Guides & Education', 'Industry News')
 );
+
+-- When the owner marked an item as read on the dashboard (NULL = unread).
+ALTER TABLE intel_feed ADD COLUMN IF NOT EXISTS read_at TIMESTAMP WITH TIME ZONE;
+CREATE INDEX IF NOT EXISTS idx_intel_read_at ON intel_feed(read_at);

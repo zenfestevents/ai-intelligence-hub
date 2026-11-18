@@ -36,6 +36,7 @@ class DBIntelFeed(Base):
     source_label = Column(String(100), index=True)  # catalog source, e.g. "GitHub Trending (RSSHub)"
     published_at = Column(DateTime(timezone=True), nullable=False, index=True)
     created_at = Column(DateTime(timezone=True), default=utcnow)
+    read_at = Column(DateTime(timezone=True), index=True)  # set when the owner marks it read on the dashboard
 
 
 class DBStartup(Base):

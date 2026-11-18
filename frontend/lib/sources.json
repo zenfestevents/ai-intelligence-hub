@@ -1,0 +1,952 @@
+[
+ {
+  "label": "OpenAI",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "https://openai.com/news/rss.xml",
+  "host": "openai.com",
+  "every_min": 15,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "OpenAI Engineering",
+  "group": "Frontier Labs",
+  "enabled": false,
+  "url": "https://openai.com/news/engineering/rss.xml",
+  "host": "openai.com",
+  "every_min": 30,
+  "keep_all": false,
+  "note": "403: blocked for automated requests."
+ },
+ {
+  "label": "OpenAI Release Notes",
+  "group": "Frontier Labs",
+  "enabled": false,
+  "url": "https://openai.com/products/release-notes/rss.xml",
+  "host": "openai.com",
+  "every_min": 30,
+  "keep_all": false,
+  "note": "403: blocked for automated requests."
+ },
+ {
+  "label": "Google DeepMind",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "https://deepmind.google/blog/feed/basic/",
+  "host": "deepmind.google",
+  "every_min": 30,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Google AI",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "https://blog.google/innovation-and-ai/technology/ai/rss/",
+  "host": "blog.google",
+  "every_min": 15,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Anthropic",
+  "group": "Frontier Labs",
+  "enabled": false,
+  "url": "https://rsshub.app/anthropic/news",
+  "host": "rsshub.app",
+  "every_min": 15,
+  "keep_all": false,
+  "note": "Public RSSHub returns 403; the Turing Institute mirror stopped updating in 2023. Needs a self-hosted RSSHub."
+ },
+ {
+  "label": "Meta AI",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "",
+  "host": "via RSSHub",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "Meta AI publishes no RSS feed, so this goes through the self-hosted RSSHub."
+ },
+ {
+  "label": "Mistral AI",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "https://mistral.ai/rss.xml",
+  "host": "mistral.ai",
+  "every_min": 30,
+  "keep_all": false,
+  "note": "Spec URL /news/index.xml is 404; this is the live feed."
+ },
+ {
+  "label": "Microsoft Research",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "https://www.microsoft.com/en-us/research/feed/",
+  "host": "microsoft.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Apple ML Research",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "https://machinelearning.apple.com/rss.xml",
+  "host": "machinelearning.apple.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "AWS Machine Learning",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "https://aws.amazon.com/blogs/amazon-ai/feed/",
+  "host": "aws.amazon.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Berkeley BAIR",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "https://bair.berkeley.edu/blog/feed.xml",
+  "host": "bair.berkeley.edu",
+  "every_min": 120,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Cohere",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/cohere-blog.xml",
+  "host": "raw.githubusercontent.com",
+  "every_min": 120,
+  "keep_all": false,
+  "note": "Third-party mirror; can lag behind the official blog."
+ },
+ {
+  "label": "Allen Institute (Ai2)",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/allenai-news.xml",
+  "host": "raw.githubusercontent.com",
+  "every_min": 120,
+  "keep_all": false,
+  "note": "Third-party mirror; can lag behind the official blog."
+ },
+ {
+  "label": "Google Research",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "https://research.google/blog/rss/",
+  "host": "research.google",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Amazon Science",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "https://www.amazon.science/index.rss",
+  "host": "amazon.science",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Sakana AI",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "https://sakana.ai/feed.xml",
+  "host": "sakana.ai",
+  "every_min": 120,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "DeepSeek",
+  "group": "Chinese Labs",
+  "enabled": true,
+  "url": "https://github.com/deepseek-ai/DeepSeek-V3/releases.atom",
+  "host": "github.com",
+  "every_min": 15,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "DeepSeek Models (HF)",
+  "group": "Chinese Labs",
+  "enabled": true,
+  "url": "https://huggingface.co/api/models?author=deepseek-ai&sort=lastModified&direction=-1&limit=10",
+  "host": "huggingface.co",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "Sorted by last update so new releases come first."
+ },
+ {
+  "label": "Qwen",
+  "group": "Chinese Labs",
+  "enabled": false,
+  "url": "https://github.com/QwenLM/Qwen2.5/releases.atom",
+  "host": "github.com",
+  "every_min": 15,
+  "keep_all": false,
+  "note": "Repo publishes no GitHub releases, so the feed is always empty. Covered by Qwen Models (HF)."
+ },
+ {
+  "label": "Qwen Models (HF)",
+  "group": "Chinese Labs",
+  "enabled": true,
+  "url": "https://huggingface.co/api/models?author=Qwen&sort=lastModified&direction=-1&limit=10",
+  "host": "huggingface.co",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Moonshot Kimi Models (HF)",
+  "group": "Chinese Labs",
+  "enabled": true,
+  "url": "https://huggingface.co/api/models?author=moonshotai&sort=lastModified&direction=-1&limit=10",
+  "host": "huggingface.co",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "Replaces the RSSHub GitHub feed (RSSHub returns 403)."
+ },
+ {
+  "label": "Zhipu GLM Models (HF)",
+  "group": "Chinese Labs",
+  "enabled": true,
+  "url": "https://huggingface.co/api/models?author=zai-org&sort=lastModified&direction=-1&limit=10",
+  "host": "huggingface.co",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "Replaces the RSSHub GitHub feed (RSSHub returns 403)."
+ },
+ {
+  "label": "01.AI Yi Models (HF)",
+  "group": "Chinese Labs",
+  "enabled": true,
+  "url": "https://huggingface.co/api/models?author=01-ai&sort=lastModified&direction=-1&limit=10",
+  "host": "huggingface.co",
+  "every_min": 120,
+  "keep_all": false,
+  "note": "Replaces the RSSHub GitHub feed (RSSHub returns 403)."
+ },
+ {
+  "label": "Pandaily",
+  "group": "Chinese Labs",
+  "enabled": true,
+  "url": "https://pandaily.com/feed/",
+  "host": "pandaily.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "Spec URL /category/tech/feed/ is 404; this is the site-wide feed."
+ },
+ {
+  "label": "ChinaTalk",
+  "group": "Chinese Labs",
+  "enabled": true,
+  "url": "https://www.chinatalk.media/feed",
+  "host": "chinatalk.media",
+  "every_min": 120,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "36Kr Newsflashes",
+  "group": "Chinese Labs",
+  "enabled": false,
+  "url": "https://rsshub.app/36kr/newsflashes",
+  "host": "rsshub.app",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "Public RSSHub returns 403."
+ },
+ {
+  "label": "Hugging Face Blog",
+  "group": "Open Source",
+  "enabled": true,
+  "url": "https://huggingface.co/blog/feed.xml",
+  "host": "huggingface.co",
+  "every_min": 15,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Hugging Face Trending Models",
+  "group": "Open Source",
+  "enabled": true,
+  "url": "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=30",
+  "host": "huggingface.co",
+  "every_min": 360,
+  "keep_all": true,
+  "note": "What is trending now across every model type (text, image, video, audio, 3D, multimodal). Replaces the all-time most-downloaded list, which only showed models from 2022."
+ },
+ {
+  "label": "GitHub Trending",
+  "group": "Open Source",
+  "enabled": false,
+  "url": "https://rsshub.app/github/trending/daily/any/all",
+  "host": "rsshub.app",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "Public RSSHub returns 403."
+ },
+ {
+  "label": "GitHub Copilot Changelog",
+  "group": "Open Source",
+  "enabled": true,
+  "url": "https://github.blog/changelog/label/copilot/feed/",
+  "host": "github.blog",
+  "every_min": 30,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Cursor Changelog",
+  "group": "Open Source",
+  "enabled": true,
+  "url": "https://cursor.com/changelog/rss.xml",
+  "host": "cursor.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "Official changelog feed; replaces the RSSHub GitHub releases route (403)."
+ },
+ {
+  "label": "Ollama",
+  "group": "Open Source",
+  "enabled": true,
+  "url": "https://github.com/ollama/ollama/releases.atom",
+  "host": "github.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "vLLM",
+  "group": "Open Source",
+  "enabled": true,
+  "url": "https://github.com/vllm-project/vllm/releases.atom",
+  "host": "github.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "LangChain",
+  "group": "Open Source",
+  "enabled": true,
+  "url": "https://www.langchain.com/blog/rss.xml",
+  "host": "langchain.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "The blog moved here; the old blog.langchain.dev feed is empty."
+ },
+ {
+  "label": "LlamaIndex",
+  "group": "Open Source",
+  "enabled": false,
+  "url": "https://www.llamaindex.ai/blog/rss.xml",
+  "host": "llamaindex.ai",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "404: the blog has no RSS feed. Covered by LlamaIndex Releases."
+ },
+ {
+  "label": "LlamaIndex Releases",
+  "group": "Open Source",
+  "enabled": true,
+  "url": "https://github.com/run-llama/llama_index/releases.atom",
+  "host": "github.com",
+  "every_min": 360,
+  "keep_all": false,
+  "note": "The blog has no feed, so new versions are followed on GitHub instead."
+ },
+ {
+  "label": "Simon Willison",
+  "group": "Open Source",
+  "enabled": true,
+  "url": "https://simonwillison.net/atom/everything/",
+  "host": "simonwillison.net",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Claude Code Releases",
+  "group": "Open Source",
+  "enabled": true,
+  "url": "https://github.com/anthropics/claude-code/releases.atom",
+  "host": "github.com",
+  "every_min": 120,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "OpenAI Codex Releases",
+  "group": "Open Source",
+  "enabled": true,
+  "url": "https://github.com/openai/codex/releases.atom",
+  "host": "github.com",
+  "every_min": 360,
+  "keep_all": false,
+  "note": "Releases are frequent, so it is checked less often."
+ },
+ {
+  "label": "Latent Space",
+  "group": "Open Source",
+  "enabled": true,
+  "url": "https://latent.space/feed",
+  "host": "latent.space",
+  "every_min": 120,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Anthropic News (RSSHub)",
+  "group": "Frontier Labs",
+  "enabled": true,
+  "url": "",
+  "host": "via RSSHub",
+  "every_min": 30,
+  "keep_all": false,
+  "note": "Needs the self-hosted RSSHub."
+ },
+ {
+  "label": "36Kr Newsflashes (RSSHub)",
+  "group": "Chinese Labs",
+  "enabled": true,
+  "url": "",
+  "host": "via RSSHub",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "Needs the self-hosted RSSHub."
+ },
+ {
+  "label": "GitHub Trending (RSSHub)",
+  "group": "Open Source",
+  "enabled": true,
+  "url": "",
+  "host": "via RSSHub",
+  "every_min": 60,
+  "keep_all": true,
+  "note": "Needs the self-hosted RSSHub. Every trending repository is kept, AI or not."
+ },
+ {
+  "label": "r/LocalLLaMA",
+  "group": "Community",
+  "enabled": false,
+  "url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day",
+  "host": "reddit.com",
+  "every_min": 30,
+  "keep_all": false,
+  "note": "Disabled: Reddit requires approval for API access (Responsible Builder Policy). Access request pending."
+ },
+ {
+  "label": "r/StableDiffusion",
+  "group": "Community",
+  "enabled": false,
+  "url": "https://www.reddit.com/r/StableDiffusion/top/.rss?t=day",
+  "host": "reddit.com",
+  "every_min": 30,
+  "keep_all": false,
+  "note": "Disabled: Reddit requires approval for API access (Responsible Builder Policy). Access request pending."
+ },
+ {
+  "label": "r/AI_Agents",
+  "group": "Community",
+  "enabled": false,
+  "url": "https://www.reddit.com/r/AI_Agents/top/.rss?t=day",
+  "host": "reddit.com",
+  "every_min": 30,
+  "keep_all": false,
+  "note": "Disabled: Reddit requires approval for API access (Responsible Builder Policy). Access request pending."
+ },
+ {
+  "label": "r/MachineLearning",
+  "group": "Community",
+  "enabled": false,
+  "url": "https://www.reddit.com/r/MachineLearning/top/.rss?t=day",
+  "host": "reddit.com",
+  "every_min": 30,
+  "keep_all": false,
+  "note": "Disabled: Reddit requires approval for API access (Responsible Builder Policy). Access request pending."
+ },
+ {
+  "label": "Product Hunt AI",
+  "group": "Community",
+  "enabled": true,
+  "url": "https://www.producthunt.com/feed?category=artificial-intelligence",
+  "host": "producthunt.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "NVIDIA Developer",
+  "group": "Hardware",
+  "enabled": true,
+  "url": "https://developer.nvidia.com/blog/feed/",
+  "host": "developer.nvidia.com",
+  "every_min": 30,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "SemiAnalysis",
+  "group": "Hardware",
+  "enabled": true,
+  "url": "https://newsletter.semianalysis.com/feed",
+  "host": "newsletter.semianalysis.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "The www.semianalysis.com/feed URL stopped updating in Sep 2025; the newsletter feed is current."
+ },
+ {
+  "label": "ServeTheHome",
+  "group": "Hardware",
+  "enabled": true,
+  "url": "https://www.servethehome.com/feed/",
+  "host": "servethehome.com",
+  "every_min": 30,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Tom's Hardware",
+  "group": "Hardware",
+  "enabled": true,
+  "url": "https://www.tomshardware.com/feeds/all",
+  "host": "tomshardware.com",
+  "every_min": 30,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "AnandTech",
+  "group": "Hardware",
+  "enabled": false,
+  "url": "https://www.anandtech.com/rss/",
+  "host": "anandtech.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "Feed returns no entries (site stopped publishing)."
+ },
+ {
+  "label": "The Chip Letter",
+  "group": "Hardware",
+  "enabled": true,
+  "url": "https://thechipletter.substack.com/feed",
+  "host": "thechipletter.substack.com",
+  "every_min": 360,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "arXiv cs.AI",
+  "group": "Academic",
+  "enabled": true,
+  "url": "http://export.arxiv.org/api/query?search_query=cat:cs.AI&sortBy=submittedDate&sortOrder=descending&max_results=20",
+  "host": "export.arxiv.org",
+  "every_min": 360,
+  "keep_all": false,
+  "note": "Uses arXiv's query API; rss.arxiv.org returns empty feeds outside announcement days."
+ },
+ {
+  "label": "arXiv cs.CL",
+  "group": "Academic",
+  "enabled": true,
+  "url": "http://export.arxiv.org/api/query?search_query=cat:cs.CL&sortBy=submittedDate&sortOrder=descending&max_results=20",
+  "host": "export.arxiv.org",
+  "every_min": 360,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "arXiv cs.CV",
+  "group": "Academic",
+  "enabled": true,
+  "url": "http://export.arxiv.org/api/query?search_query=cat:cs.CV&sortBy=submittedDate&sortOrder=descending&max_results=20",
+  "host": "export.arxiv.org",
+  "every_min": 360,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Ahead of AI",
+  "group": "Academic",
+  "enabled": true,
+  "url": "https://magazine.sebastianraschka.com/feed",
+  "host": "magazine.sebastianraschka.com",
+  "every_min": 120,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Import AI",
+  "group": "Academic",
+  "enabled": true,
+  "url": "https://importai.substack.com/feed",
+  "host": "importai.substack.com",
+  "every_min": 120,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "MarkTechPost",
+  "group": "Academic",
+  "enabled": true,
+  "url": "https://www.marktechpost.com/feed/",
+  "host": "marktechpost.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "MIT Technology Review AI",
+  "group": "Academic",
+  "enabled": true,
+  "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed/",
+  "host": "technologyreview.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "The Verge AI",
+  "group": "Academic",
+  "enabled": true,
+  "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+  "host": "theverge.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Interconnects",
+  "group": "Academic",
+  "enabled": true,
+  "url": "https://www.interconnects.ai/feed",
+  "host": "interconnects.ai",
+  "every_min": 360,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "One Useful Thing",
+  "group": "Academic",
+  "enabled": true,
+  "url": "https://www.oneusefulthing.org/feed",
+  "host": "oneusefulthing.org",
+  "every_min": 360,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Epoch AI",
+  "group": "Academic",
+  "enabled": true,
+  "url": "https://epoch.ai/atom.xml",
+  "host": "epoch.ai",
+  "every_min": 360,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "METR",
+  "group": "Academic",
+  "enabled": true,
+  "url": "https://metr.org/feed.xml",
+  "host": "metr.org",
+  "every_min": 360,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Transformer",
+  "group": "Academic",
+  "enabled": true,
+  "url": "https://www.transformernews.ai/feed",
+  "host": "transformernews.ai",
+  "every_min": 120,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Ars Technica AI",
+  "group": "Academic",
+  "enabled": true,
+  "url": "https://arstechnica.com/ai/feed/",
+  "host": "arstechnica.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "The Decoder",
+  "group": "Academic",
+  "enabled": true,
+  "url": "https://the-decoder.com/feed/",
+  "host": "the-decoder.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Hacker News AI",
+  "group": "Startups",
+  "enabled": true,
+  "url": "https://hn.algolia.com/api/v1/search_by_date?query=AI&tags=story&hitsPerPage=20",
+  "host": "hn.algolia.com",
+  "every_min": 30,
+  "keep_all": false,
+  "note": "Newest AI stories first (search_by_date); external links only."
+ },
+ {
+  "label": "TechCrunch AI",
+  "group": "Startups",
+  "enabled": true,
+  "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+  "host": "techcrunch.com",
+  "every_min": 30,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "VentureBeat AI",
+  "group": "Startups",
+  "enabled": true,
+  "url": "https://venturebeat.com/category/ai/feed/",
+  "host": "venturebeat.com",
+  "every_min": 30,
+  "keep_all": false,
+  "note": "Often 429: the site sits behind a bot checkpoint (Vercel Security Checkpoint) that refuses automated readers. Left on so it is tried every run; its stories are usually also covered by TechCrunch, The Decoder and The Verge."
+ },
+ {
+  "label": "Inc42",
+  "group": "Regional (IN)",
+  "enabled": true,
+  "url": "https://inc42.com/feed/",
+  "host": "inc42.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "Spec URL /buzz/ai/feed/ is 404; this is the site-wide feed, non-AI stories are filtered out."
+ },
+ {
+  "label": "Entrackr",
+  "group": "Regional (IN)",
+  "enabled": true,
+  "url": "https://entrackr.com/rss",
+  "host": "entrackr.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "Spec URL /feed/ is 404; /rss works. Site-wide feed, non-AI stories are filtered out."
+ },
+ {
+  "label": "Analytics India Magazine",
+  "group": "Regional (IN)",
+  "enabled": true,
+  "url": "https://analyticsindiamag.com/feed",
+  "host": "analyticsindiamag.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Crunchbase News",
+  "group": "Startups",
+  "enabled": true,
+  "url": "https://news.crunchbase.com/feed/",
+  "host": "news.crunchbase.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": "Site-wide feed, non-AI stories are filtered out."
+ },
+ {
+  "label": "Nature Machine Intelligence",
+  "group": "Verticals",
+  "enabled": true,
+  "url": "https://www.nature.com/natmachintell.rss",
+  "host": "nature.com",
+  "every_min": 120,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "bioRxiv Bioinformatics",
+  "group": "Verticals",
+  "enabled": true,
+  "url": "http://connect.biorxiv.org/biorxiv_xml.php?subject=bioinformatics",
+  "host": "connect.biorxiv.org",
+  "every_min": 360,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "Runway",
+  "group": "Verticals",
+  "enabled": false,
+  "url": "https://runwayml.com/blog/rss.xml",
+  "host": "runwayml.com",
+  "every_min": 120,
+  "keep_all": false,
+  "note": "404: no RSS feed."
+ },
+ {
+  "label": "80.lv",
+  "group": "Verticals",
+  "enabled": true,
+  "url": "https://80.lv/feed/",
+  "host": "80.lv",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "AgFunder News",
+  "group": "Verticals",
+  "enabled": true,
+  "url": "https://agfundernews.com/feed",
+  "host": "agfundernews.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "IEEE Spectrum Robotics",
+  "group": "Verticals",
+  "enabled": true,
+  "url": "https://spectrum.ieee.org/feeds/topic/robotics.rss",
+  "host": "spectrum.ieee.org",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "NASA JPL",
+  "group": "Verticals",
+  "enabled": true,
+  "url": "https://www.jpl.nasa.gov/feeds/news/",
+  "host": "jpl.nasa.gov",
+  "every_min": 120,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "EdSurge",
+  "group": "Verticals",
+  "enabled": true,
+  "url": "https://www.edsurge.com/articles_rss?category=emerging-tech",
+  "host": "edsurge.com",
+  "every_min": 120,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "The Robot Report",
+  "group": "Verticals",
+  "enabled": true,
+  "url": "https://www.therobotreport.com/feed/",
+  "host": "therobotreport.com",
+  "every_min": 60,
+  "keep_all": false,
+  "note": ""
+ },
+ {
+  "label": "STAT Health Tech",
+  "group": "Verticals",
+  "enabled": true,
+  "url": "https://www.statnews.com/category/health-tech/feed/",
+  "host": "statnews.com",
+  "every_min": 120,
+  "keep_all": false,
+  "note": "Some articles are paywalled; those fall back to the feed summary or are skipped."
+ },
+ {
+  "label": "X @_akhaliq",
+  "group": "X accounts",
+  "enabled": true,
+  "url": "https://x.com/_akhaliq",
+  "host": "x.com",
+  "every_min": 1440,
+  "keep_all": false,
+  "note": "Read through Apify (paid per post)."
+ },
+ {
+  "label": "X @karpathy",
+  "group": "X accounts",
+  "enabled": true,
+  "url": "https://x.com/karpathy",
+  "host": "x.com",
+  "every_min": 1440,
+  "keep_all": false,
+  "note": "Read through Apify (paid per post)."
+ },
+ {
+  "label": "X @sama",
+  "group": "X accounts",
+  "enabled": true,
+  "url": "https://x.com/sama",
+  "host": "x.com",
+  "every_min": 1440,
+  "keep_all": false,
+  "note": "Read through Apify (paid per post)."
+ },
+ {
+  "label": "X @ylecun",
+  "group": "X accounts",
+  "enabled": true,
+  "url": "https://x.com/ylecun",
+  "host": "x.com",
+  "every_min": 1440,
+  "keep_all": false,
+  "note": "Read through Apify (paid per post)."
+ },
+ {
+  "label": "X @swyx",
+  "group": "X accounts",
+  "enabled": true,
+  "url": "https://x.com/swyx",
+  "host": "x.com",
+  "every_min": 1440,
+  "keep_all": false,
+  "note": "Read through Apify (paid per post)."
+ },
+ {
+  "label": "X @bindureddy",
+  "group": "X accounts",
+  "enabled": true,
+  "url": "https://x.com/bindureddy",
+  "host": "x.com",
+  "every_min": 1440,
+  "keep_all": false,
+  "note": "Read through Apify (paid per post)."
+ },
+ {
+  "label": "X @RowanCheung",
+  "group": "X accounts",
+  "enabled": true,
+  "url": "https://x.com/RowanCheung",
+  "host": "x.com",
+  "every_min": 1440,
+  "keep_all": false,
+  "note": "Read through Apify (paid per post)."
+ },
+ {
+  "label": "X @levelsio",
+  "group": "X accounts",
+  "enabled": true,
+  "url": "https://x.com/levelsio",
+  "host": "x.com",
+  "every_min": 1440,
+  "keep_all": false,
+  "note": "Read through Apify (paid per post)."
+ }
+]

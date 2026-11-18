@@ -9,6 +9,9 @@ const FILTERS = {
   source: "source_label",
 };
 
+// ?read=0 (default) unread only, newest published first
+// ?read=1 read only, most recently read first
+// ?read=all everything
 export async function GET(request) {
   return respond(async () => {
     const params = new URL(request.url).searchParams;
@@ -21,16 +24,29 @@ export async function GET(request) {
         where.push(`${column} = $${values.length}`);
       }
     }
-    values.push(clampInt(params.get("limit"), 50, 1, 200));
-    const { rows } = await db().query(
-      `SELECT id, title, entity_name, primary_category, industry_tag, summary,
-              exact_source_quote, source_url, country_of_origin, published_at
-         FROM intel_feed
-        ${where.length ? "WHERE " + where.join(" AND ") : ""}
-        ORDER BY published_at DESC
-        LIMIT $${values.length}`,
-      values
-    );
-    return rows;
+    const read = params.get("read") ?? "0";
+    if (read === "0") where.push("read_at IS NULL");
+    if (read === "1") where.push("read_at IS NOT NULL");
+    const order = read === "1" ? "read_at DESC" : "published_at DESC";
+
+    values.push(clampInt(params.get("limit"), 50, 1, 1000));
+    const limitIdx = values.length;
+    values.push(clampInt(params.get("offset"), 0, 0, 100000));
+    const offsetIdx = values.length;
+
+    const whereSql = where.length ? "WHERE " + where.join(" AND ") : "";
+    const filterValues = values.slice(0, limitIdx - 1);
+    const [{ rows }, { rows: countRows }] = await Promise.all([
+      db().query(
+        `SELECT id, title, entity_name, primary_category, industry_tag, summary,
+                exact_source_quote, source_url, country_of_origin, source_label, published_at, read_at
+           FROM intel_feed ${whereSql}
+          ORDER BY ${order}, id
+          LIMIT $${limitIdx} OFFSET $${offsetIdx}`,
+        values
+      ),
+      db().query(`SELECT COUNT(*)::int AS total FROM intel_feed ${whereSql}`, filterValues),
+    ]);
+    return { items: rows, total: countRows[0].total };
   });
 }

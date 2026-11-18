@@ -49,9 +49,20 @@ cd frontend
 vercel deploy --prod
 ```
 
-Only one environment variable is set in Vercel: `DATABASE_URL` (Production), the same value as in
-`backend/.env`. Change it with `vercel env rm DATABASE_URL production` then `vercel env add DATABASE_URL production`,
-then redeploy. `frontend/.vercelignore` keeps `.env*` files out of the upload.
+Two environment variables are set in Vercel (Production):
+- `DATABASE_URL`: the same value as in `backend/.env`.
+- `SITE_PASSWORD`: the dashboard password. Every page and `/api` route needs it (`frontend/middleware.js`);
+  without it set, the site answers 503. Changing it signs every browser out. For local use, add the same line to
+  `frontend/.env.local`.
+
+Change one with `vercel env rm <NAME> production` then `vercel env add <NAME> production`, then redeploy.
+`frontend/.vercelignore` keeps `.env*` files out of the upload.
+
+**Read / unread:** "Mark as read" sets `intel_feed.read_at`. The Live feed and the other news tabs show unread
+items only; the Read tab shows the rest.
+
+**Sources tab:** the list comes from `frontend/lib/sources.json`. After changing `backend/feeds.py`, run
+`python export_sources.py` in `backend/` and redeploy.
 
 ### Turn on the poller
 
