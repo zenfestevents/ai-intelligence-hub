@@ -13,6 +13,8 @@ import { GROKBOT_TOTAL, GrokBot, GrokBotCover } from "./reels/grokbot/GrokBot";
 import { GEMINI_TOTAL, GeminiPrivacy, GeminiPrivacyCover } from "./reels/gemini/GeminiPrivacy";
 import { PHOTOCRAFT_TOTAL, PhotoCraft, PhotoCraftCover } from "./reels/photocraft/PhotoCraft";
 import { VEYRA_TOTAL, Veyra, VeyraCover } from "./reels/veyra/Veyra";
+import { BPWATCH_TOTAL, BpWatch, BpWatchCover } from "./reels/bpwatch/BpWatch";
+import { JEEP_TOTAL, JeepSmog, JeepSmogCover } from "./reels/jeep/JeepSmog";
 
 // One <Composition> line per reel. Add a new line here for every new reel.
 export const RemotionRoot: React.FC = () => {
@@ -44,6 +46,10 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="PhotoCraftCover" component={PhotoCraftCover} durationInFrames={1} fps={30} width={1080} height={1920} />
       <Composition id="Veyra" component={Veyra} durationInFrames={VEYRA_TOTAL} fps={30} width={1080} height={1920} />
       <Composition id="VeyraCover" component={VeyraCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+      <Composition id="BpWatch" component={BpWatch} durationInFrames={BPWATCH_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="BpWatchCover" component={BpWatchCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+      <Composition id="JeepSmog" component={JeepSmog} durationInFrames={JEEP_TOTAL} fps={30} width={1080} height={1920} />
+      <Composition id="JeepSmogCover" component={JeepSmogCover} durationInFrames={1} fps={30} width={1080} height={1920} />
       <Composition id="ChannelLogo" component={ChannelLogo} durationInFrames={1} fps={30} width={800} height={800} />
       <Composition id="ChannelBanner" component={ChannelBanner} durationInFrames={1} fps={30} width={2560} height={1440} />
       <Composition id="ChannelBannerGuides" component={ChannelBannerGuides} durationInFrames={1} fps={30} width={2560} height={1440} />
