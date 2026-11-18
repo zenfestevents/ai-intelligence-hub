@@ -9,6 +9,7 @@ Usage:
   python youtube.py post <video.mp4> <caption.txt> [options]    -> DRY RUN: shows what would be uploaded
   python youtube.py post <video.mp4> <caption.txt> ... --yes    -> actually uploads
   python youtube.py banner <banner.png> [--yes]                 -> sets the channel banner (dry run without --yes)
+  python youtube.py about <description.txt> [--yes]             -> sets the channel's About description (max 1000 chars)
 
 The profile picture can't be set through the API (YouTube has no endpoint for it); upload it in
 YouTube Studio > Customization > Profile > Picture.
@@ -16,7 +17,10 @@ YouTube Studio > Customization > Profile > Picture.
 Options for post:
   --title "text"                 title (default: first line of the caption, max 100 characters)
   --privacy public|unlisted|private   (default public; see the note on unverified projects in the setup guide)
-  --thumb cover.png              custom thumbnail (only works on a verified channel; skipped with a warning otherwise)
+  --thumb cover.png              custom thumbnail (only works on a verified channel; skipped with a warning otherwise).
+                                 The cover is also held for 1 s at the start of the uploaded copy (work/<video>_yt.mp4),
+                                 because the Shorts tab and feed ignore the thumbnail and show a frame from the video;
+                                 pick that first frame in the YouTube app after the upload.
   --synthetic                    tick YouTube's "altered or synthetic content" disclosure
   --category 28                  YouTube category ID (default 28, Science & Technology)
 
@@ -285,6 +289,37 @@ def upload(video: Path, body: dict) -> dict:
     sys.exit("upload ended without a reply from YouTube; check YouTube Studio before retrying")
 
 
+HOLD = 1.0  # seconds the cover is held at the start of the YouTube copy
+
+
+def with_cover(video: Path, thumb: Path, w: int, h: int) -> Path:
+    """YouTube's Shorts tab and feed ignore the API thumbnail and show a frame from the video, which can
+    only be changed in the YouTube app. Holding the cover for 1 s at the start makes it easy to pick there."""
+    out = ROOT / "work" / f"{video.stem}_yt.mp4"
+    if out.exists() and out.stat().st_mtime > max(video.stat().st_mtime, thumb.stat().st_mtime):
+        return out
+    out.parent.mkdir(exist_ok=True)
+    fps = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=r_frame_rate",
+                          "-of", "csv=p=0", str(video)], capture_output=True, text=True).stdout.strip() or "30"
+    has_audio = bool(subprocess.run(["ffprobe", "-v", "error", "-select_streams", "a", "-show_entries", "stream=index",
+                                     "-of", "csv=p=0", str(video)], capture_output=True, text=True).stdout.strip())
+    v = f"fps={fps},setsar=1,format=yuv420p"
+    graph = (f"[0:v]scale={w}:{h}:force_original_aspect_ratio=decrease,pad={w}:{h}:(ow-iw)/2:(oh-ih)/2,{v}[c];"
+             f"[2:v]{v}[m];")
+    if has_audio:
+        graph += "[2:a]aresample=48000,aformat=channel_layouts=stereo[a];[c][1:a][m][a]concat=n=2:v=1:a=1[ov][oa]"
+        maps = ["-map", "[ov]", "-map", "[oa]", "-c:a", "aac", "-b:a", "192k"]
+    else:
+        graph += "[c][m]concat=n=2:v=1:a=0[ov]"
+        maps = ["-map", "[ov]"]
+    print(f"Holding the cover for {HOLD:.0f} s at the start of the YouTube copy ...")
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-loop", "1", "-t", str(HOLD), "-framerate", fps, "-i", str(thumb),
+                    "-f", "lavfi", "-t", str(HOLD), "-i", "anullsrc=r=48000:cl=stereo", "-i", str(video),
+                    "-filter_complex", graph, *maps, "-c:v", "libx264", "-crf", "18", "-preset", "medium",
+                    "-movflags", "+faststart", str(out)], check=True)
+    return out
+
+
 def post(video: Path, caption: str, title: str | None, privacy: str, thumb: Path | None,
          synthetic: bool, category: str, confirm: bool) -> None:
     if not video.exists():
@@ -301,6 +336,9 @@ def post(video: Path, caption: str, title: str | None, privacy: str, thumb: Path
     if len(",".join(tags)) > 500:
         sys.exit("tags are longer than YouTube's 500-character limit")
     w, h, dur = probe(video)
+    if thumb and w and h:
+        video = with_cover(video, thumb, w, h)
+        w, h, dur = probe(video)
     is_short = h > w > 0 and dur <= 180
 
     ch = channel() if (confirm or env("YT_REFRESH_TOKEN")) else None
@@ -344,6 +382,9 @@ def post(video: Path, caption: str, title: str | None, privacy: str, thumb: Path
                   "    Custom thumbnails need a phone-verified channel (youtube.com/verify) and an image under 2 MB.")
     else:
         print("3/3 no custom thumbnail")
+    if is_short:
+        print("ACTION NEEDED: the Shorts tab and feed ignore the custom thumbnail. In the YouTube app open this Short >\n"
+              f"    Edit > thumbnail and pick the first frame (the cover){f' or upload {thumb.name}' if thumb else ''}.")
 
     LOG.parent.mkdir(exist_ok=True)
     with LOG.open("a", encoding="utf-8") as f:
@@ -381,6 +422,32 @@ def banner(image: Path, confirm: bool) -> None:
     print("2/2 banner set on the channel (YouTube can take a few minutes to show it)")
 
 
+# ---------- channel description ----------
+
+def about(text_file: Path, confirm: bool) -> None:
+    """Sets the channel's About description (brandingSettings.channel.description)."""
+    if not text_file.exists():
+        sys.exit(f"description file not found: {text_file}")
+    desc = clean(text_file.read_text(encoding="utf-8").strip())
+    if len(desc) > 1000:
+        sys.exit(f"description is {len(desc)} characters; YouTube allows 1000")
+    ch = channel()
+    print(f"Channel : {ch['snippet']['title']}")
+    print(f"Description ({len(desc)}/1000):\n---\n{desc}\n---")
+    if not confirm:
+        print("DRY RUN: nothing was changed. Add --yes to set the description.")
+        return
+    # channels.update replaces all of brandingSettings, so start from what's there to keep the banner etc.
+    cur = check(requests.get(f"{API}/channels", params={"part": "brandingSettings", "id": ch["id"]},
+                             headers=auth(), timeout=30))["items"][0]
+    bs = cur.get("brandingSettings", {})
+    bs.setdefault("channel", {})["description"] = desc
+    check(requests.put(f"{API}/channels", params={"part": "brandingSettings"},
+                       headers={**auth(), "Content-Type": "application/json"},
+                       data=json.dumps({"id": ch["id"], "brandingSettings": bs}), timeout=30), "YouTube channel update")
+    print("Description set on the channel.")
+
+
 def opt(args: list[str], name: str) -> str | None:
     return args[args.index(name) + 1] if name in args and args.index(name) + 1 < len(args) else None
 
@@ -402,5 +469,7 @@ if __name__ == "__main__":
              Path(th) if th else None, "--synthetic" in args, opt(args, "--category") or "28", "--yes" in args)
     elif cmd == "banner" and len(args) >= 2:
         banner(Path(args[1]), "--yes" in args)
+    elif cmd == "about" and len(args) >= 2:
+        about(Path(args[1]), "--yes" in args)
     else:
         sys.exit(__doc__)

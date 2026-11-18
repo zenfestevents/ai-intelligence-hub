@@ -30,3 +30,7 @@ The user's standing instruction (16 Nov 2026):
   roughly 6 a day). When there are more reels than the quota allows, post all of them to Instagram and upload the
   rest to YouTube the next day, oldest first, before that day's new reels.
 - Each reel gets a custom cover, set through the API (cover still prepended, `--thumb-ms 100`).
+- YouTube cover rule (user, 18 Nov 2026): always upload with `--thumb output/<reel>_cover.png`. youtube.py sets it as the
+  thumbnail and holds the cover for 1 s at the start of the YouTube copy (`work/<reel>_yt.mp4`). The Shorts tab and feed
+  ignore the API thumbnail and show a frame from the video, and no API can change that, so after every YouTube upload
+  tell the user which Shorts need the cover picked in the YouTube app (Edit > thumbnail > first frame).
